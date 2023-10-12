@@ -1,0 +1,11 @@
+<?php
+include 'baglanti.php';
+
+
+if ($_GET[miktar]!='')
+{
+    
+    mysqli_query($connection,"insert into uretimictaleplistesidetay values(null,'".$_GET[urunkodu]."','".iconv( "UTF-8","ISO-8859-9",$_GET[miktar])."','".$_GET[talepid]."','')");
+    
+}
+?>
