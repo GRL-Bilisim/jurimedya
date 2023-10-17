@@ -339,8 +339,8 @@
 		  <div class="modal-dialog modal-dialog-centered modal-md" role="document">
 		    <div class="modal-content">
 				 <div class="modal-header-pro">
-					 <h2>Welcome Back</h2>
-					 <h6>Sign in to your account to continue using SKRN</h6>
+					 <h2>Tekrar hoşgeldiniz</h2>
+					 <h6>SKRN'yi kullanmaya devam etmek için hesabınızda oturum açın</h6>
 				 </div>
 				 <div class="modal-body-pro social-login-modal-body-pro">
 			 
@@ -380,7 +380,7 @@
 
  		      </div><!-- close .modal-body -->
 		
-			 <a class="not-a-member-pro" href="signup-step2.html">Not a member? <span>Join Today!</span></a>
+			 <a class="not-a-member-pro" href="signup-step2.html">Üye değil misniz? <span>Bugün Katılın!</span></a>
 		    </div><!-- close .modal-content -->
 		  </div><!-- close .modal-dialog -->
 		</div><!-- close .modal -->
