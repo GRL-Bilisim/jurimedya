@@ -1,0 +1,55 @@
+.custom-select {
+    position: relative;
+    display: block;
+    max-width: 300px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+.search-input {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.select-options {
+    position: absolute;
+    top: 40px;
+    display: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.option {
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.option:hover {
+    background-color: #f2f2f2;
+}
+
+.modal-dialog {
+    width: auto;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        width: 80%;
+        max-width: none;
+        margin: 1.75rem auto;
+    }
+}
+
+.col-sm {
+    min-width: 250px;
+}

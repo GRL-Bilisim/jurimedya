@@ -11,10 +11,13 @@
 		<link rel="stylesheet" href="icons/fontawesome/css/fontawesome-all.min.css"><!-- FontAwesome Icons -->
 		<link rel="stylesheet" href="icons/Iconsmind__Ultimate_Pack/Line%20icons/styles.min.css"><!-- iconsmind.com Icons -->
 		
+		<!-- Select with search css -->
+		<link rel="stylesheet" href="css/searchable-select.css">
 		
 		<title>SKRN - Media Streaming App</title>
 	</head>
 	<body>
+		
 		<div id="sidebar-bg">
 			
       <header id="videohead-pro" class="sticky-header">
@@ -737,119 +740,176 @@ single New Yorkers.</p>
 				<div class="modal-body-pro">
 					
 					<form>
-						<div class="form-group">
-							<!-- <label for="başrol kadın">Başrol Kadın</label> -->
-							<Select class="form-control" name="başrol kadın">
-								<option value="" selected disabled hidden>Başrol Kadın Seç</option>
-								<option value="">ssssss</option>
-								<option value="">aaaaaa</option>
-								<option value="">bbbbbb</option>
-								<option value="">cccccc</option>
-							</Select>
-						</div>
-						<div class="form-group">
-							<!-- <label for="başrol erkek">Başrol Erkek</label> -->
-							<Select class="form-control" name="başrol erkek">
-								<option value="" selected disabled hidden>Başrol Erkek Seç</option>
-								<option value="">ssssss</option>
-								<option value="">aaaaaa</option>
-								<option value="">bbbbbb</option>
-								<option value="">cccccc</option>
-							</Select>
-						</div>
-						<div class="form-group">
-							<!-- <label for="yardımcı kadın">Yardımcı Kadın</label> -->
-							<Select class="form-control" name="yardımcı kadın">
-								<option value="" selected disabled hidden>Yardımcı Kadın Seç</option>
-								<option value="">ssssss</option>
-								<option value="">aaaaaa</option>
-								<option value="">bbbbbb</option>
-								<option value="">cccccc</option>
-							</Select>
-						</div>
-						<div class="form-group">
-							<!-- <label for="yardımcı erkek">Yardımcı Erkek</label> -->
-							<Select class="form-control" name="yardımcı erkek">
-								<option value="" selected disabled hidden>Yardımcı Erkek Seç</option>
-								<option value="">ssssss</option>
-								<option value="">aaaaaa</option>
-								<option value="">bbbbbb</option>
-								<option value="">cccccc</option>
-							</Select>
-						</div>
-						<div class="form-group">
-							<!-- <label for="kötü kadın">Kötü Kadın</label> -->
-							<Select class="form-control" name="kötü kadın">
-								<option value="" selected disabled hidden>Kötü Kadın Seç</option>
-								<option value="">ssssss</option>
-								<option value="">aaaaaa</option>
-								<option value="">bbbbbb</option>
-								<option value="">cccccc</option>
-							</Select>
-						</div>
-						<div class="form-group">
-							<!-- <label for="kötü erkek">Kötü Erkek</label> -->
-							<Select class="form-control" name="kötü erkek">
-								<option value="" selected disabled hidden>Kötü Erkek Seç</option>
-								<option value="">ssssss</option>
-								<option value="">aaaaaa</option>
-								<option value="">bbbbbb</option>
-								<option value="">cccccc</option>
-							</Select>
-						</div>
-						<div class="form-group">
-							<!-- <label for="çocuk oyuncu">Çocuk Oyuncu</label> -->
-							<Select class="form-control" name="çocuk oyuncu">
-								<option value="" selected disabled hidden>Çocuk Oyuncu Seç</option>
-								<option value="">ssssss</option>
-								<option value="">aaaaaa</option>
-								<option value="">bbbbbb</option>
-								<option value="">cccccc</option>
-							</Select>
-						</div>
-						<div class="form-group">
-							<!-- <label for="senarist">Senarist</label> -->
-							<Select class="form-control" name="senarist">
-								<option value="" selected disabled hidden>Senarist Seç</option>
-								<option value="">ssssss</option>
-								<option value="">aaaaaa</option>
-								<option value="">bbbbbb</option>
-								<option value="">cccccc</option>
-							</Select>
-						</div>
-						<div class="form-group">
-							<!-- <label for="kameraman">Kameraman</label> -->
-							<Select class="form-control" name="kameraman">
-								<option value="" selected disabled hidden>Kameraman Seç</option>
-								<option value="">ssssss</option>
-								<option value="">aaaaaa</option>
-								<option value="">bbbbbb</option>
-								<option value="">cccccc</option>
-							</Select>
-						</div>
-						<div class="form-group">
-							<!-- <label for="yapımcı">Yapımcı</label> -->
-							<Select class="form-control" name="yapımcı">
-								<option value="" selected disabled hidden>Yapımcı Seç</option>
-								<option value="">ssssss</option>
-								<option value="">aaaaaa</option>
-								<option value="">bbbbbb</option>
-								<option value="">cccccc</option>
-							</Select>
-						</div>
-						<div class="form-group">
-							<!-- <label for="yönetmen">Yönetmen</label> -->
-							<Select class="form-control" name="yönetmen">
-								<option value="" selected disabled hidden>Yönetmen Seç</option>
-								<option value="">ssssss</option>
-								<option value="">aaaaaa</option>
-								<option value="">bbbbbb</option>
-								<option value="">cccccc</option>
-							</Select>
-						</div>
 						
-						<div class="form-group">
-							<button type="button" class="btn btn-green-pro btn-display-block">Kaydet</button>
+						<section class="mt-4">
+							<h4>Oyuncular</h4>
+							<div class="row" style="border: 1px solid rgba(100, 100, 122, 0.3); border-radius: 4px;">
+								
+								<div class="col-sm">
+									<div class="form-group">
+										<label for="başrolKadın">Başrol kadın:</label>
+										<div name="başrolKadın" class="custom-select searchable-select">
+											<input type="text" class="search-input form-control" placeholder="Ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option">Option 1</div>
+												<div class="option">Option 2</div>
+												<div class="option">Option 3</div>
+											</div>
+										</div>
+									</div>
+								</div>						
+
+								<div class="col-sm">
+									<div class="form-group">
+										<label for="başrolErkek">Başrol Erkek:</label>
+										<div name="başrolErkek" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option">Option 1</div>
+												<div class="option">Option 2</div>
+												<div class="option">Option 3</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm">
+									<div class="form-group">
+										<label for="yardımcıKadın">Yardımcı Kadın:</label>
+										<div name="yardımcıKadın" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option">Option 1</div>
+												<div class="option">Option 2</div>
+												<div class="option">Option 3</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm">
+									<div class="form-group">
+										<label for="yardımcıErkek">Yardımcı Erkek:</label>
+										<div name="yardımcıErkek" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option">Option 1</div>
+												<div class="option">Option 2</div>
+												<div class="option">Option 3</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm">
+									<div class="form-group">
+										<label for="kötüKadın">Kötü Kadın:</label>
+										<div name="kötüKadın" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option">Option 1</div>
+												<div class="option">Option 2</div>
+												<div class="option">Option 3</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm">
+									<div class="form-group">
+										<label for="kötüErkek">Kötü erkek:</label>
+										<div name="kötüErkek" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option">Option 1</div>
+												<div class="option">Option 2</div>
+												<div class="option">Option 3</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm">
+									<div class="form-group">
+										<label for="çocukOyuncu">Çocuk Oyuncu:</label>
+										<div name="çocukOyuncu" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option">Option 1</div>
+												<div class="option">Option 2</div>
+												<div class="option">Option 3</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+
+						<section class="mt-5">
+							<h4>Set ekibi</h4>
+							<div class="row" style="border: 1px solid rgba(100, 100, 122, 0.3); border-radius: 4px;">
+								<div class="col-sm">
+									<div class="form-group">
+										<label for="senarist">Senarist:</label>
+										<div name="senarist" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option">Option 1</div>
+												<div class="option">Option 2</div>
+												<div class="option">Option 3</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm">
+									<div class="form-group">
+										<label for="kameraman">Kameraman:</label>
+										<div name="kameraman" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option">Option 1</div>
+												<div class="option">Option 2</div>
+												<div class="option">Option 3</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm">
+									<div class="form-group">
+										<label for="yapımcı">Yapımcı:</label>
+										<div name="yapımcı" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option">Option 1</div>
+												<div class="option">Option 2</div>
+												<div class="option">Option 3</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm">
+									<div class="form-group">
+										<label for="yönetmen">Yönetmen:</label>
+										<div name="yönetmen" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option">Option 1</div>
+												<div class="option">Option 2</div>
+												<div class="option">Option 3</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						
+						<div class="form-group row ml-0">
+							<button type="button" class="btn btn-green-pro btn-display-block col-6 col-sm-4 col-lg-2" type="submit">Kaydet</button>
+							<button type="button" class="btn btn-display-block col-6 col-sm-4 col-lg-2 ml-sm-1" type="reset" onclick="resetForm()">Sıfırla</button>
 						</div>
 					</form>
 					
@@ -860,7 +920,10 @@ single New Yorkers.</p>
 		   </div><!-- close .modal-content -->
 		 </div><!-- close .modal-dialog -->
 	   </div><!-- close .modal -->
-		
+	   
+	   <!-- Select with Search JS -->
+	   <script src="js/searchable-select.js"></script>
+	   
 		<!-- Required Framework JavaScript -->
 		<script src="js/libs/jquery-3.3.1.min.js"></script><!-- jQuery -->
 		<script src="js/libs/popper.min.js" defer></script><!-- Bootstrap Popper/Extras JS -->
