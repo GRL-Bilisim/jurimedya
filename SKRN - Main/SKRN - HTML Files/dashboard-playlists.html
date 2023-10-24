@@ -255,15 +255,17 @@
 	
 		<main id="col-main">
 			
-			<div class="winning-order">
+			<!-- Saklanmış ve #1 Taşınmış -->
+			<div class="d-none winning-order">
 				<ul class="list-group list-group-horizontal">
-					<li class="btn list-group-item">Geçen Hafta</li>
-					<li class="btn list-group-item">Geçen Ay</li>
+					<li class="btn list-group-item">Hafta</li>
+					<li class="btn list-group-item">Ay</li>
 					<li class="btn list-group-item">Tüm zamanlar</li>
 				  </ul>
 			</div>
 			
-			<div class="flexslider progression-studios-dashboard-slider">
+			<!-- Saklanmış -->
+			<div class="d-none flexslider progression-studios-dashboard-slider">
 		      <ul class="slides">
 					<li class="progression_studios_animate_in">
 						<div class="progression-studios-slider-dashboard-image-background" style="background-image:url(http://via.placeholder.com/1920x698);">
@@ -313,7 +315,7 @@
 			
 			<div class="dashboard-container">
 				
-				<ul class="dashboard-genres-pro">
+				<ul class="dashboard-genres-pro mb-0" style="border-bottom: none;">
 					<li>
 						<img src="images/genres/drama.png" alt="Drama">
 						<h6>Yönetmen</h6>
@@ -343,6 +345,18 @@
 						<h6>Sesler</h6>
 					</li>
 				</ul>
+
+				<div class="d-flex justify-content-center mb-2">
+					<div style="border-bottom: 1px #3334 solid; width: 30%;"></div>
+				</div>
+				<!-- #1 -->
+				<div class="winning-order mb-3" >
+					<ul class="list-group list-group-horizontal">
+						<li class="btn list-group-item">Hafta</li>
+						<li class="btn list-group-item">Ay</li>
+						<li class="btn list-group-item">Tüm zamanlar</li>
+					  </ul>
+				</div>
 
 				<!-- Saklanmiş -->
 				<ul class="d-none dashboard-sub-menu">

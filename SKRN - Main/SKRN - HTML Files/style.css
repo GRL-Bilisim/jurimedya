@@ -3610,12 +3610,28 @@ body .flex-control-paging *  {
 /* 
 ==========================Styles Added By Nurettin==========================
 */
+.takim-card {
+	align-self: center;
+	aspect-ratio: 3 / 4;
+	min-width: 250px;
+	width: 250px;
+	margin-bottom: 8px;
+	margin-top: 16px;
+	flex-grow: 0;
+}
+
+.takim-card-img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	background-color: #4443;
+}
 
 .winning-order {
 	display: flex;
 	justify-content: space-around;
-	position: absolute;
-	width: calc(100% - 160px);
+	width: 100%;
 	z-index: 1;
 }
 

@@ -258,15 +258,17 @@
 	
 		<main id="col-main">
 			
-			<div class="winning-order">
+			<!-- Saklanmış ve #1 Taşınmış -->
+			<div class="d-none winning-order">
 				<ul class="list-group list-group-horizontal">
-					<li class="btn list-group-item">Geçen Hafta</li>
-					<li class="btn list-group-item">Geçen Ay</li>
+					<li class="btn list-group-item">Hafta</li>
+					<li class="btn list-group-item">Ay</li>
 					<li class="btn list-group-item">Tüm zamanlar</li>
 				  </ul>
 			</div>
 			
-			<div class="flexslider progression-studios-dashboard-slider progression-studios-full-height-slider">
+			<!-- Saklanmış -->
+			<div class="d-none flexslider progression-studios-dashboard-slider progression-studios-full-height-slider">
 		      <ul class="slides">
 					<li class="progression_studios_animate_in">
 						<div class="progression-studios-slider-dashboard-image-background" style="background-image:url(http://via.placeholder.com/1920x698);">
@@ -427,17 +429,33 @@ single New Yorkers.</p>
 				</ul>
 			</div><!-- close .progression-studios-slider - See /js/script.js file for options -->
 
-			<ul class="dashboard-genres-pro">
-				<li style="float: left; min-width: 120px;" data-toggle="modal" data-target="#LoginModal" role="button">
-					<i style="font-size: 50px;" class="fas fa-plus-circle"></i>
-					<h6>Takım oluştur</h6>
-				</li>
-			</ul>
+			<div class="dashboard-container">
+				<h4 class="mt-3">Takımlarım</h4>
+				<ul class="dashboard-genres-pro mb-0 pl-0 pr-0" style="border-bottom: none;">
+					<li style="float: left; min-width: 120px;" data-toggle="modal" data-target="#LoginModal" role="button">
+						<i style="font-size: 50px;" class="fas fa-plus-circle"></i>
+						<h6>Takım oluştur</h6>
+					</li>
+				</ul>
+			</div>
 			
 			<div class="clearfix"></div>
 			
 			<div class="dashboard-container">
 				
+				<!-- #1 -->
+				<div class="d-flex justify-content-center mb-2">
+					<div style="border-bottom: 1px #3334 solid; width: 30%;"></div>
+				</div>
+				<!-- #1 -->
+				<div class="winning-order" >
+					<ul class="list-group list-group-horizontal">
+						<li class="btn list-group-item">Hafta</li>
+						<li class="btn list-group-item">Ay</li>
+						<li class="btn list-group-item">Tüm zamanlar</li>
+					  </ul>
+				</div>
+
 				<h4 class="heading-extra-margin-bottom">Aksiyon</h4>
 				<div class="row">
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3">
@@ -735,7 +753,7 @@ single New Yorkers.</p>
 		 <div class="modal-dialog modal-dialog-centered" role="document">
 		   <div class="modal-content">
 				<div class="modal-header-pro">
-					<h2>Takım Oluştur</h2>
+					<h1>Takım Oluştur</h1>
 				</div>
 				<div class="modal-body-pro">
 					
@@ -743,7 +761,119 @@ single New Yorkers.</p>
 						
 						<section class="mt-4">
 							<h4>Oyuncular</h4>
-							<div class="row" style="border: 1px solid rgba(100, 100, 122, 0.3); border-radius: 4px;">
+							<div class="row flex-wrap justify-content-center" style="border-top: 1px solid rgba(100, 100, 122, 0.3); border-radius: 4px;">
+								<div class="col takim-card">
+									<div class="takim-card-img">
+										<i style="font-size: 50px;" class="fas fa-user"></i>
+									</div>
+									<div class="takim-card-select">
+										<div name="başrolKadın" class="custom-select searchable-select">
+											<input type="text" class="search-input form-control" placeholder="Başrol kadın ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option"><img src="https://images.mubicdn.net/images/cast_member/147538/cache-592239-1601478240/image-w856.jpg?size=800x" alt="Cahide Sonku" class="img-circle">Cahide Sonku</div>
+												<div class="option"><img src="https://img-s1.onedio.com/id-52cd972a4a9a34312900007c/rev-0/w-1200/h-1668/f-jpg/s-0939885286dee5e09903214d34c7b5f65335a089.jpg" alt="Sinem Kobal" class="img-circle">Sinem Kobal</div>
+												<div class="option"><img src="https://img-s1.onedio.com/id-52cd972a4a9a343129000083/rev-0/w-1200/h-1811/f-jpg/s-bad5f42894e7a6f2d56d64b39d497ff766c43ffe.jpg" alt="Cahide Sonku" class="img-circle">Gökçe Bahadır</div>
+												<div class="option"><img src="https://images.mubicdn.net/images/cast_member/147538/cache-592239-1601478240/image-w856.jpg?size=800x" alt="Cahide Sonku" class="img-circle">Cahide Sonku</div>
+												<div class="option"><img src="https://img-s1.onedio.com/id-52cd972a4a9a34312900007c/rev-0/w-1200/h-1668/f-jpg/s-0939885286dee5e09903214d34c7b5f65335a089.jpg" alt="Sinem Kobal" class="img-circle">Sinem Kobal</div>
+												<div class="option"><img src="https://img-s1.onedio.com/id-52cd972a4a9a343129000083/rev-0/w-1200/h-1811/f-jpg/s-bad5f42894e7a6f2d56d64b39d497ff766c43ffe.jpg" alt="Cahide Sonku" class="img-circle">Gökçe Bahadır</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col takim-card">
+									<div class="takim-card-img">
+										<i style="font-size: 50px;" class="fas fa-user"></i>
+									</div>
+									<div class="takim-card-select">
+										<div name="başrolErkek" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Başrol erkek ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option"><img src="https://tiyatrolar.com.tr/files/contributer/a/ayhan-isik/gallery/6103/ayhan-isik-6103.jpg" alt="Ayhan Işık" class="img-circle">Ayhan Işık</div>
+												<div class="option"><img src="https://th.bing.com/th/id/OIP.IE0_9FQh-eDNbsXbKnnPZAHaKU?pid=ImgDet&rs=1" alt="Yılmaz Güney" class="img-circle">Yılmaz Güney</div>
+												<div class="option"><img src="https://www.tarihtebugun.org/dosyas/images/sadri_alisik_dogum_gunu898-tarihtebugun-1589255288-tarihtebugun-800x400.jpg" alt="Sadri Alışık" class="img-circle">Sadri Alışık</div>
+												<div class="option"><img src="https://tiyatrolar.com.tr/files/contributer/a/ayhan-isik/gallery/6103/ayhan-isik-6103.jpg" alt="Ayhan Işık" class="img-circle">Ayhan Işık</div>
+												<div class="option"><img src="https://th.bing.com/th/id/OIP.IE0_9FQh-eDNbsXbKnnPZAHaKU?pid=ImgDet&rs=1" alt="Yılmaz Güney" class="img-circle">Yılmaz Güney</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col takim-card">
+									<div class="takim-card-img">
+										<i style="font-size: 50px;" class="fas fa-user"></i>
+									</div>
+									<div class="takim-card-select">
+										<div name="başrolErkek" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Yardımcı kadın ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option"><img src="https://img-s3.onedio.com/id-52cd972a4a9a343129000075/rev-0/w-1200/h-1600/f-jpg/s-ea60af8587bc82f553f8a0e3678c61039924a3e7.jpg" alt="Ece Uslu" class="img-circle">Ece Uslu</div>
+												<div class="option"><img src="https://img-s1.onedio.com/id-52cd972a4a9a34312900007d/rev-0/w-1200/h-900/f-jpg/s-4e5dee28a144d567081870618f9360ce1ad95cee.jpg" alt="Deniz Çakır" class="img-circle">Deniz Çakır</div>
+												<div class="option"><img src="https://img-s2.onedio.com/id-52cd972a4a9a343129000081/rev-0/w-1200/h-1604/f-jpg/s-7b6ad4cd18a4a2c037d00bbf04bc100af6188cc6.jpg" alt="Tuba Büyüküstün" class="img-circle">Tuba Büyüküstün</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col takim-card">
+									<div class="takim-card-img">
+										<i style="font-size: 50px;" class="fas fa-user"></i>
+									</div>
+									<div class="takim-card-select">
+										<div name="başrolErkek" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Yardımcı erkek ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option"><img src="https://dizioyunculari.net/uppack/m_huseyin-avni-danyal.jpg" alt="Hüseyin Avni Danyal" class="img-circle">Hüseyin Avni Danyal</div>
+												<div class="option"><img src="https://dizioyunculari.net/uppack/m_mehmet-ozan-dolunay.jpg" alt="Mehmet Ozan Dolunay" class="img-circle">Mehmet Ozan Dolunay</div>
+												<div class="option"><img src="https://dizioyunculari.net/uppack/m_bilal-yigit-kocak.jpg" alt="Bilal Yiğit Koçak" class="img-circle">Bilal Yiğit Koçak</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col takim-card">
+									<div class="takim-card-img">
+										<i style="font-size: 50px;" class="fas fa-user"></i>
+									</div>
+									<div class="takim-card-select">
+										<div name="başrolErkek" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Kötü kadın ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option"><img src="https://img-s3.onedio.com/id-52cd972a4a9a343129000082/rev-0/w-1200/h-1800/f-jpg/s-911935639ddf864dc66f5308067119f6fb18fc80.jpg" alt="Gamze Özçelik" class="img-circle">Gamze Özçelik</div>
+												<div class="option"><img src="https://img-s1.onedio.com/id-52cd972a4a9a343129000080/rev-0/w-1200/h-1540/f-jpg/s-271ceec3eed75f94429ecdfe9b51efd39a0d6345.jpg" alt="Berrak Düzünataç" class="img-circle">Berrak Düzünataç</div>
+												<div class="option"><img src="https://img-s2.onedio.com/id-52cd972a4a9a343129000087/rev-0/w-1200/h-768/f-jpg/s-0a4115cd7b081f136274c1c5e95c3bf3ba74e0eb.jpg" alt="Cansu Dere" class="img-circle">Cansu Dere</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col takim-card">
+									<div class="takim-card-img">
+										<i style="font-size: 50px;" class="fas fa-user"></i>
+									</div>
+									<div class="takim-card-select">
+										<div name="başrolErkek" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Kötü erkek ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option"><img src="https://dizioyunculari.net/uppack/m_feyyaz-serifoglu.jpg" alt="Feyyaz Şerifoğlu" class="img-circle">Feyyaz Şerifoğlu</div>
+												<div class="option"><img src="https://dizioyunculari.net/uppack/m_halit-ozgur-sari.jpg" alt="Halit Özgür Sarı" class="img-circle">Halit Özgür Sarı</div>
+												<div class="option"><img src="https://dizioyunculari.net/uppack/m_ugur-aslan.jpg" alt="Uğur Aslan" class="img-circle">Uğur Aslan</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col takim-card">
+									<div class="takim-card-img">
+										<i style="font-size: 50px;" class="fas fa-user"></i>
+									</div>
+									<div class="takim-card-select">
+										<div name="başrolErkek" class="custom-select searchable-select">
+											<input type="text" class="search-input" placeholder="Çocuk oyuncu ara..." autocomplete="off">
+											<div class="select-options"><div class="option"><img src="https://dizioyunculari.net/uppack/m_aybars-kartal-ozson.jpg" alt="Aybars Kartal Özson" class="img-circle">Aybars Kartal Özson</div>
+											<div class="option"><img src="https://s.medyafaresi.com/files/2018/10/13/887149/887149_0.jpg" alt="Alihan Türkdemir" class="img-circle">Alihan Türkdemir</div>
+											<div class="option"><img src="https://s.medyafaresi.com/files/2018/10/13/887149/887149_2.jpg" alt="Beren Gökyıldız" class="img-circle">Beren Gökyıldız</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- <div class="row" style="border: 1px solid rgba(100, 100, 122, 0.3); border-radius: 4px;">
 								
 								<div class="col-sm">
 									<div class="form-group">
@@ -847,13 +977,82 @@ single New Yorkers.</p>
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</section>
 						
 						
 						<section class="mt-5">
 							<h4>Set Ekibi</h4>
-							<div class="row" style="border: 1px solid rgba(100, 100, 122, 0.3); border-radius: 4px;">
+
+							<div class="row flex-wrap justify-content-center" style="border-top: 1px solid rgba(100, 100, 122, 0.3); border-radius: 4px;">
+								<div class="col takim-card">
+									<div class="takim-card-img">
+										<i style="font-size: 50px;" class="fas fa-user"></i>
+									</div>
+									<div class="takim-card-select">
+										<div name="başrolKadın" class="custom-select searchable-select">
+											<input type="text" class="search-input form-control" placeholder="Senarist ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option"><img src="https://th.bing.com/th/id/OIP.wModKhWJtR-N_UMs6VaK4QHaE7?pid=ImgDet&rs=1" alt="Hüseyin Peyda" class="img-circle">Hüseyin Peyda</div>
+												<div class="option"><img src="https://th.bing.com/th/id/OIP.rs3jzgIHOR9Ni6m5Ggn8ygHaEK?w=310&h=180&c=7&r=0&o=5&pid=1.7" alt="Abdullah Oğuz" class="img-circle">Abdullah Oğuz</div>
+												<div class="option"><img src="https://th.bing.com/th/id/R.3075ec53ea6d622853b721c03271d4fc?rik=8w3nE9htG%2fVaKQ&pid=ImgRaw&r=0" alt="Yücel Çakmaklı" class="img-circle">Yücel Çakmaklı</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col takim-card">
+									<div class="takim-card-img">
+										<i style="font-size: 50px;" class="fas fa-user"></i>
+									</div>
+									<div class="takim-card-select">
+										<div name="başrolKadın" class="custom-select searchable-select">
+											<input type="text" class="search-input form-control" placeholder="Kameraman ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option"><img src="https://cdn.armut.com/UserPics/tr:w-325,h-325/54a24d3b-e399-4670-9ed5-19569c10dfe9.jpeg" alt="İrfan Ergül" class="img-circle">İrfan Ergül</div>
+												<div class="option"><img src="https://cdn.armut.com/UserPics/tr:w-325,h-325/0829e5a5-dcad-43d5-9e6a-ddd166939e6e.jpeg" alt="Özkan Emre" class="img-circle">Özkan Emre</div>
+												<div class="option"><img src="https://cdn.armut.com/UserPics/tr:w-325,h-325/392d7f4f-1928-4981-bb3c-aaa344df146d.jpg" alt="İrfan Ergül" class="img-circle">Ahmet Faruk Sarper</div>
+												<div class="option"><img src="https://cdn.armut.com/UserPics/tr:w-325,h-325/54a24d3b-e399-4670-9ed5-19569c10dfe9.jpeg" alt="İrfan Ergül" class="img-circle">İrfan Ergül</div>
+												<div class="option"><img src="https://cdn.armut.com/UserPics/tr:w-325,h-325/0829e5a5-dcad-43d5-9e6a-ddd166939e6e.jpeg" alt="Özkan Emre" class="img-circle">Özkan Emre</div>
+												<div class="option"><img src="https://cdn.armut.com/UserPics/tr:w-325,h-325/392d7f4f-1928-4981-bb3c-aaa344df146d.jpg" alt="İrfan Ergül" class="img-circle">Ahmet Faruk Sarper</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col takim-card">
+									<div class="takim-card-img">
+										<i style="font-size: 50px;" class="fas fa-user"></i>
+									</div>
+									<div class="takim-card-select">
+										<div name="başrolKadın" class="custom-select searchable-select">
+											<input type="text" class="search-input form-control" placeholder="Yapımcı ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option"><img src="https://th.bing.com/th/id/OIP.rs3jzgIHOR9Ni6m5Ggn8ygHaEK?w=310&h=180&c=7&r=0&o=5&pid=1.7" alt="Abdullah Oğuz" class="img-circle">Abdullah Oğuz</div>
+												<div class="option"><img src="https://th.bing.com/th/id/OIP.wModKhWJtR-N_UMs6VaK4QHaE7?pid=ImgDet&rs=1" alt="Hüseyin Peyda" class="img-circle">Hüseyin Peyda</div>
+												<div class="option"><img src="https://cdn.armut.com/UserPics/tr:w-325,h-325/54a24d3b-e399-4670-9ed5-19569c10dfe9.jpeg" alt="İrfan Ergül" class="img-circle">İrfan Ergül</div>
+												<div class="option"><img src="https://th.bing.com/th/id/OIP.wModKhWJtR-N_UMs6VaK4QHaE7?pid=ImgDet&rs=1" alt="Hüseyin Peyda" class="img-circle">Hüseyin Peyda</div>
+												<div class="option"><img src="https://cdn.armut.com/UserPics/tr:w-325,h-325/54a24d3b-e399-4670-9ed5-19569c10dfe9.jpeg" alt="İrfan Ergül" class="img-circle">İrfan Ergül</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col takim-card">
+									<div class="takim-card-img">
+										<i style="font-size: 50px;" class="fas fa-user"></i>
+									</div>
+									<div class="takim-card-select">
+										<div name="başrolKadın" class="custom-select searchable-select">
+											<input type="text" class="search-input form-control" placeholder="Yönetmen ara..." autocomplete="off">
+											<div class="select-options">
+												<div class="option"><img src="https://cdn.armut.com/UserPics/tr:w-325,h-325/0829e5a5-dcad-43d5-9e6a-ddd166939e6e.jpeg" alt="Özkan Emre" class="img-circle">Özkan Emre</div>
+												<div class="option"><img src="https://th.bing.com/th/id/R.3075ec53ea6d622853b721c03271d4fc?rik=8w3nE9htG%2fVaKQ&pid=ImgRaw&r=0" alt="Yücel Çakmaklı" class="img-circle">Yücel Çakmaklı</div>
+												<div class="option"><img src="https://th.bing.com/th/id/OIP.rs3jzgIHOR9Ni6m5Ggn8ygHaEK?w=310&h=180&c=7&r=0&o=5&pid=1.7" alt="Abdullah Oğuz" class="img-circle">Abdullah Oğuz</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- <div class="row" style="border: 1px solid rgba(100, 100, 122, 0.3); border-radius: 4px;">
 								<div class="col-sm">
 									<div class="form-group">
 										<label for="senarist">Senarist:</label>
@@ -914,7 +1113,7 @@ single New Yorkers.</p>
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</section>
 						
 						<div class="form-group row ml-0">

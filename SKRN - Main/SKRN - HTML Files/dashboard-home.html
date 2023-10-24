@@ -256,15 +256,17 @@
 	
 		<main id="col-main">
 			
-			<div class="winning-order">
+			<!-- Saklanmış ve #1'e Taşınmış -->
+			<div class="d-none winning-order">
 				<ul class="list-group list-group-horizontal">
-					<li class="btn list-group-item">Geçen Hafta</li>
-					<li class="btn list-group-item">Geçen Ay</li>
+					<li class="btn list-group-item">Hafta</li>
+					<li class="btn list-group-item">Ay</li>
 					<li class="btn list-group-item">Tüm zamanlar</li>
 				  </ul>
 			</div>
-		
-		<div class="flexslider progression-studios-dashboard-slider">
+
+		<!-- Saklanmiş -->
+		<div class="d-none flexslider progression-studios-dashboard-slider">
 			<ul class="slides">
 				<li class="progression_studios_animate_left">
 					<div class="progression-studios-slider-dashboard-image-background banner-img" style="background-image:url(https://m.media-amazon.com/images/M/MV5BZTMxOTc0MDktMDQxMC00NWVlLWI5ZTYtMDJlYTdkNjNiNjhmXkEyXkFqcGdeQXVyMTY1NzQ3OTM1._V1_.jpg);">
@@ -424,7 +426,7 @@ single New Yorkers.</p>
 				</ul>
 			</div><!-- close .progression-studios-slider - See /js/script.js file for options -->
 
-			<ul class="dashboard-genres-pro">
+			<ul class="dashboard-genres-pro mb-0" style="border-bottom: none;">
 				<li>
 					<img src="images/genres/drama.png" alt="Drama">
 					<h6>Drama</h6>
@@ -478,6 +480,18 @@ single New Yorkers.</p>
 			<div class="clearfix"></div>
 			
 			<div class="dashboard-container">
+				
+				<div class="d-flex justify-content-center mb-2">
+					<div style="border-bottom: 1px #3334 solid; width: 30%;"></div>
+				</div>
+				<!-- #1 -->
+				<div class="winning-order" >
+					<ul class="list-group list-group-horizontal">
+						<li class="btn list-group-item">Hafta</li>
+						<li class="btn list-group-item">Ay</li>
+						<li class="btn list-group-item">Tüm zamanlar</li>
+					  </ul>
+				</div>
 				
 				<h4 class="heading-extra-margin-bottom">Komedi</h4>
 				<div class="row">
