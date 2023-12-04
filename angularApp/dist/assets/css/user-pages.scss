@@ -1,0 +1,37 @@
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    padding: 12px 20px;
+    font-size: 13px;
+    border: 1px solid #e7e7e7;
+    background: #f9f9f9;
+    color: #666666;
+}
+
+.btn.btn-lg {
+    padding: 16px 30px;
+    font-size: 15px;
+}
+
+
+.btn.btn-sm {
+    padding: 10px 18px;
+    font-size: 12px;
+}
+
+button.btn:focus {
+    box-shadow: none;
+}
+
+.btn.btn-display-block {
+    display: block;
+    width: 100%;
+}
+
+.form-group .btn {
+    font-size: 14px;
+}
+
+.btn i {
+    margin-right: 8px;
+}

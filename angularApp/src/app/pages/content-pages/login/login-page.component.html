@@ -1,0 +1,60 @@
+<!--Login Page Starts-->
+<section id="login">
+  <div class="row auth-height full-height-vh m-0">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+      <div class="card overflow-hidden">
+        <div class="card-content">
+          <div class="card-body auth-img">
+            <div class="row m-0">
+              <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center auth-img-bg p-3">
+                <img src="assets/img/gallery/forgot.png" alt="" class="img-fluid" width="500" height="150">
+              </div>
+              <div class="col-lg-6 col-12 px-4 py-3" style="text-align: center;">
+                <img src="assets/img/logocredit.png" alt="" class="img-fluid"  height="0">
+                <p>Kullanıcı bilgilerininle giriş yapın</p>
+                <ngb-alert type="light-danger" class="mb-2" *ngIf="isLoginFailed" (close)="isLoginFailed = false">
+                  <p class="mb-0">Giriş Başarısız</p>
+                </ngb-alert>
+                <form [formGroup]="loginForm">
+                  <div class="form-group">
+                    <input type="text" value="{{kayitlikullanici}}" formControlName="username" class="form-control" placeholder="Kullanıcı Adı/E-Posta"
+                      [ngClass]="{ 'is-invalid': loginFormSubmitted && lf.username.invalid, 'is-valid': loginFormSubmitted && !lf.username.invalid }" [(ngModel)]="kayitlikullanici"
+                      required>
+                    <div *ngIf="loginFormSubmitted && (lf.username.invalid || lf.username.errors?.required)"
+                      class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Bu alan zorunludur</div>
+                  </div>
+                  <div class="form-group">
+                    <input (keydown.enter)="onSubmit();$event.preventDefault()" type="password" formControlName="password" class="form-control" placeholder="Şifreniz"
+                      [ngClass]="{ 'is-invalid': loginFormSubmitted && lf.password.invalid, 'is-valid': loginFormSubmitted && !lf.password.invalid }" value="{{kayitlisifre}}" [(ngModel)]="kayitlisifre"
+                      required>
+                    <div *ngIf="loginFormSubmitted && (lf.password.invalid || lf.password.errors?.required)"
+                      class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Bu alan zorunludur.
+                    </div>
+                  </div>
+                  <div class="d-sm-flex justify-content-between mb-3 font-small-2">
+                    <div class="remember-me mb-2 mb-sm-0">
+                      <div class="checkbox auth-checkbox">
+                        <input type="checkbox" formControlName="rememberMe" class="form-control" id="rememberMe">
+                        <label for="rememberMe"><span class="font-small-2 mb-3 font-weight-normal">Beni Hatırla</span></label>
+                      </div>
+                    </div>
+                    <a [routerLink]="['/pages/forgotpassword']">Şifrenizi mi unuttunuz?</a>
+                  </div>
+                  <div class="d-flex justify-content-between flex-sm-row flex-column ov">
+
+                    <a  class="btn btn-success" (click)="onSubmit()"><i class="ft-user"></i> Giriş</a><br>
+                    <a  class="btn btn-danger" [routerLink]="['/pages/serversettings']" (click)="sunucuayarla()"><i class="ft-settings"></i> Sunucu</a>
+                  </div>
+              
+                </form>
+                <hr>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Login Page Ends-->

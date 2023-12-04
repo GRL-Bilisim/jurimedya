@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4 class="modal-title">Düzenle </h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    x
+  </button>
+</div>
+<form [formGroup]="myForm" class="form-row" (ngSubmit)="submitForm()">
+  <div class="modal-body taskboard-modal">
+    <input (keydown.enter)="$event.preventDefault()" type="hidden" [formControl]="myForm.controls['polId']"  formControlName="polId" class="form-control">
+    <div class="row">
+        <div class="col-md-8">
+          <label for="">Görevi</label>
+ <input  type="text" [formControl]="myForm.controls['gorevi']" formControlName="gorevi" class="form-control"
+          id="todoTitle" placeholder="Yetkinlik" (keydown.enter)="$event.preventDefault()" required #todoTitle>
+        </div>
+
+        <div class="col-md-4">
+          <label for="">Yetkinlik</label>
+          <input  type="text"   maxlength="1" [formControl]="myForm.controls['yetkinlik']" formControlName="yetkinlik" class="form-control"
+          id="todoMessage" placeholder="Görev Tanımı" (keydown.enter)="$event.preventDefault()" required #todoMessage>
+
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer taskboard-modal-footer">
+    <button class="btn btn-primary btn-save  mt-3">
+     Güncelle
+    </button>
+  </div>
+</form>

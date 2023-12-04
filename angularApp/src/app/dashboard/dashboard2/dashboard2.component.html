@@ -1,0 +1,280 @@
+
+<div class="row text-left">
+  <div class="col-md-12">
+    
+     
+        <ul ngbNav #basicnav="ngbNav" [(activeId)]="active" class="nav-tabs">
+       
+          <li [ngbNavItem]="1">
+            <a ngbNavLink style="font-size:16px;">Aktif Projeler(2)</a>
+            <ng-template ngbNavContent>
+              <div class="row col-12">
+      
+
+                <section id="minimal-statistics-bg" style="width: 100%;">
+                  <div class="row">
+                    <div class="col-12 mb-1">
+                      <div class="content-header">API Yönetimi</div>
+                    </div>
+                  </div>
+                
+                  <div class="row col-12">
+
+
+                    <div class="col-xl-3 col-lg-3 col-12">                       
+                      <div class="card card-inverse bg-warning" style="cursor: pointer;" (click)="yeniproje()">
+                        <div class="card-content">
+                          <div class="card-body">
+                            <div class="media">
+                              <div class="media-body text-left">
+                                <h5 class="card-text">Yeni Proje Oluştur</h5>
+                                <span></span>
+                              </div>
+                              <div class="media-right align-self-center">
+                                <i class="ft-plus font-large-2 float-right"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                
+                    <div class="col-xl-3 col-lg-3 col-12" *ngFor="let paket of paketadisyonlar" [style.display]="paket.websitesi==kaynak.kaynakadi ? 'block' : 'none'">                       
+                      <div class="card card-inverse bg-success" *ngIf="paket.websitesi==kaynak.kaynakadi" style="cursor: pointer;" (click)="adisyonac(paket.index_adisyonlar,paket.musteri+'/'+paket.websitesi,paket.adisyonno,paket.garson,paket.adisyonturu,paket.giristarihi+' '+paket.girissaati,paket.durumu,paket.adres)">
+                        <div class="card-content">
+                          <div class="card-body">
+                            <div class="media">
+                              <div class="media-body text-left">
+                                <h5 class="card-text">{{paket.musteri}}</h5>
+                                <span>{{paket.adres}}</span>
+                                <span style="color:bisque"><br> <button (click)="paketadisyon(paket.index_adisyonlar)" class="btn btn-md btn-warning">
+                                  {{paket.durumu}}
+                              </button></span>
+                              </div>
+                              <div class="media-right align-self-center">
+                                <i class="ft-book-open font-large-2 float-right"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                   
+                  </div>
+                
+                 
+                </section>
+
+
+              </div>
+            </ng-template>
+          </li>
+
+          <li [ngbNavItem]="2">
+            <a ngbNavLink style="font-size:16px;">Pasif  Projeler(2)</a>
+            <!-- <ng-template ngbNavContent>
+              <div class="row">
+      
+      
+      
+                <p id="contmenu" (click)="opencontext(mymodal)"></p>
+                <ng-template #mymodal let-c="close" let-d="dismiss"   >
+               
+                  <div class="modal-body" style="text-align: center;">
+                    <a  style="display: none;" title="" id="randevuidsitit"></a>
+                    <button class="btn btn-warning  btn-lg  mr-1 mb-1" (click)="randevuislemiyap('geldi')">Gerçekleşti Yap</button>
+                    <button class="btn btn-danger   btn-lg mr-1 mb-1" (click)="randevuislemiyap('hastadetay')">Hastaya Git</button>
+                    <br>
+                    <button class="btn btn-primary btn-lg mr-1 mb-1" (click)="randevuislemiyap('hesapkarti')">Hesap Kartı</button>
+                    <button class="btn btn-info  btn-lg  mr-1 mb-1" (click)="randevuislemiyap('sil')">Randevu Sil</button>
+                    <br>
+                    <button class="btn btn-success  btn-lg   mr-1 mb-1" (click)="randevuislemiyap('iptal')">Randevu İptal</button>
+                 
+                </div>
+                </ng-template>
+                <div class="col-md-8">
+      
+                  <div class="card">
+                    <div class="card-header">
+                    
+                      <div class="col-md-4" style="float: right;">
+                        <ng-select 
+                        [hidden]="hiddendepart"
+                        (change)="randevularfiltrele($event)" 
+                       [items]="it" 
+                       bindLabel="title" 
+                       bindValue="title" 
+                       id="randevudep"
+                       [(ngModel)]="selectdep"
+                        placeholder="Randevu Birimleri" style="font-size: 14px;">
+                  </ng-select>
+                      </div>
+                    </div>
+                      <div class="card-body">
+                          <full-calendar *ngIf="initialized" [options]="calendarOptions"></full-calendar>
+              
+              
+                      </div>
+              </div>
+                </div>
+              <div class="col-md-4" style="text-align:center;">
+              
+                  <div class="card col-md-12">
+              
+                      <div class="card-content">
+                        <div class="card-body">
+                          <div>
+                     
+                            <button type="button" class="btn btn-outline-success mr-1 mb-1" (click)="bugunsec()"> BUGÜN</button>
+                            <button type="button" class="btn btn-outline-warning mr-1 mb-1" (click)="takvimyenile()">TEMİZLE</button>
+              
+                         
+                          </div>
+                          <div>
+                            <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" (click)="manueltarihsec()" ></ngb-datepicker>
+              
+                          </div>
+              
+                          <nav ngbNav #altnav="ngbNav" class="nav-tabs">
+                            <ng-container ngbNavItem>
+                              <a ngbNavLink>Adisyonlar</a>
+                              <ng-template ngbNavContent>
+                                <button type="button" class="btn btn-danger btn-block mb-2 mt-1" (click)="yeniadisyon()">
+                                  <i class="ft-plus mr-2"></i> Yeni Adisyon</button>
+                                <ul class="list-group">
+                                     
+                                  <ul class="list-group">
+                                    <li class="list-group-item" *ngFor="let adisyon of adisyonlar">
+                                      <div class="row">
+              <div class="col-2">
+                                      <span class="avatar avatar-md mr-2">
+                                        <img [src]="adisyon.profilresim" alt="Avatar">
+                                       
+                                      </span>
+              </div>
+              
+              <div class="col-4">  {{adisyon.caritanimi}}
+              </div>
+              <div class="col-6">
+                                      <span class="float-right"> <button type="button" class="btn btn-outline-info mr-1 mb-1" (click)="adisyonagit(adisyon.id,adisyon.caritanimi,adisyon.index_adisyonlar)"><i class="fa fa-th-large"></i></button>
+                                        <button type="button" class="btn btn-danger mr-1 mb-1" (click)="cikisyap(adisyon.index_adisyonlar)"><i class="fa fa-power-off"></i></button>
+                                   
+                                        </span>
+                                      </div>
+                                    </div>
+                                    </li>
+                                  </ul>
+                                  
+                                </ul>
+                          
+                              </ng-template>
+                            </ng-container>
+                            <ng-container ngbNavItem>
+                              <a ngbNavLink>Görevler</a>
+                              <ng-template ngbNavContent>
+              
+              
+                             
+                                <div class="form-group form-group-compose text-center mb-0">
+                                  <button type="button" class="btn btn-danger btn-block mb-2 mt-1" (click)="yenigorev()">
+                                    <i class="ft-plus mr-2"></i> Yeni Görev</button>
+              
+                                    <ul class="list-group">
+                                     
+                                      <li class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let task of tasks " (click)="satirduzelt(task.taskId)">
+                                        <div class="d-flex w-100 justify-content-between">
+                                         <div class="row">
+              
+                                          <div class="col-2">
+                                            <img [src]="task.assignedTo" alt="profile-img" class="rounded mr-3" height="48"
+                                            width="48">
+                                          </div>
+                                          <div class="col-10">
+                                            <h5 class="mb-3">{{task.taskTitle}}</h5>
+                                            {{task.taskMessage}}
+                                          
+                                          </div>
+                                         
+                                        </div>
+                                        </div>
+                                      
+                                  
+                                      </li>
+                                      
+                                    </ul>
+                                    
+                               
+                                  </div>
+              
+                                
+                                 
+                              
+                              </ng-template>
+                            </ng-container>
+              
+                            <ng-container ngbNavItem>
+                              <a ngbNavLink>Randevular</a>
+                              <ng-template ngbNavContent>
+                                <button type="button" class="btn btn-danger btn-block mb-2 mt-1" (click)="hatirlatmayap()">
+                                  <i class="ft-plus mr-2"></i> Randevu Hatırlat</button>
+                                <ul class="list-group">
+                                     
+                                  <ul class="list-group">
+                                    <li class="list-group-item" *ngFor="let randevular of bekleyenhastalar">
+                                      <div class="row">
+              <div class="col-2">
+                                      <span class="avatar avatar-md mr-2">
+                                        <img [src]="randevular.profilresim" alt="Avatar">
+                                       
+                                      </span>
+              </div>
+              
+              <div class="col-4">  {{randevular.caritanimi}}
+              <br>
+              <span class="badge bg-light-primary">{{randevular.randevu_saat}}</span> {{randevular.randevu_konusu}}
+              </div>
+              <div class="col-6">
+                                      <span class="float-right"> <button type="button" class="btn btn-outline-info mr-1 mb-1" (click)="randevuduzelt(randevular.id)"><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-danger mr-1 mb-1" (click)="randevusil(randevular.id)"><i class="fa fa-trash-o"></i></button>
+                                   
+                                        </span>
+                                      </div>
+                                    </div>
+                                    </li>
+                                  </ul>
+                                  
+                                </ul>
+                          
+                              </ng-template>
+                            </ng-container>
+                            
+                            
+                          </nav>
+              
+                          <div [ngbNavOutlet]="altnav" class="mt-2"></div>
+                        </div>
+                      </div>
+                    </div>
+              
+              </div>
+              </div>
+            </ng-template> -->
+          </li>
+
+      
+                 
+        </ul>
+      
+        <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+
+
+  </div>
+
+</div>
+
+
+
+
+<div class="row" *ngIf="cihazmobilmi==true"></div>
+

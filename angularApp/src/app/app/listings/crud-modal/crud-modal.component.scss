@@ -1,0 +1,62 @@
+
+:host ::ng-deep .donut1 .ct-label {
+    font-size : 4rem;
+    fill : #F77E17;
+  }
+  
+  :host ::ng-deep .donut1 .ct-outstanding .ct-slice-donut {
+    stroke : #F5F5F5;
+  }
+  
+  :host ::ng-deep .donut1 .ct-done .ct-slice-donut {
+    stroke : #FCC173;
+  }
+  
+  :host ::ng-deep .donut2 .ct-label {
+    font-size : 4rem;
+    fill : #2F8BE6;
+  }
+  
+  :host ::ng-deep .donut2 .ct-outstanding .ct-slice-donut {
+    stroke : #F5F5F5;
+  }
+  
+  :host ::ng-deep .donut2 .ct-done .ct-slice-donut {
+    stroke : #81C8F7;
+  }
+  
+  :host ::ng-deep .donut3 .ct-label {
+    font-size : 4rem;
+    fill : #F55252;
+  }
+  
+  :host ::ng-deep .donut3 .ct-outstanding .ct-slice-donut {
+    stroke : #F5F5F5;
+  }
+  
+  :host ::ng-deep .donut3 .ct-done .ct-slice-donut {
+    stroke : #FCA897;
+  }
+  
+
+  :host ::ng-deep .donut4 .ct-label {
+    font-size : 4rem;
+    fill : #9de63e;
+  }
+  
+  :host ::ng-deep .donut4 .ct-outstanding .ct-slice-donut {
+    stroke : #F5F5F5;
+  }
+  
+  :host ::ng-deep .donut4 .ct-done .ct-slice-donut {
+    stroke : #e9ec29;
+  }
+  .my-validation-message::before {
+    display: none;
+  }
+  
+  .my-validation-message i {
+    margin: 0 .4em;
+    color: #f27474;
+    font-size: 1.4em;
+  }

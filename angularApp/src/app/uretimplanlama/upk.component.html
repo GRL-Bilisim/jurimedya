@@ -1,0 +1,107 @@
+
+  <div class="row text-left">
+    <!--Basic navs Starts-->
+    <div class="col-md-12 col-lg-12">
+      <div class="card">
+       
+        <div class="card-content">
+          <div class="card-body">
+            <ul ngbNav #basicnav="ngbNav"  [(activeId)]="active" class="nav-tabs">
+
+              <li [ngbNavItem]="1" >
+                <a ngbNavLink>PLANLAMA</a>
+                <!-- <ng-template    ngbNavContent>
+                  
+                  <ngx-datatable   
+                  [selected]="chkBoxSelected"  [selectionType]="SelectionType.multi"  (dblclick)="dbleditrow(chkBoxSelected)"
+                  (select)="customChkboxOnSelect($event)" class="bootstrap core-bootstrap" [columns]="columns" [columnMode]="ColumnMode.force"
+                    [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="10" [rows]="rows" [scrollbarH]="true">
+                    <ngx-datatable-column [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false"
+                    [resizeable]="false">
+                    <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
+                      let-selectFn="selectFn">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
+                      </div>
+                    </ng-template>
+                    <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected"
+                      let-onCheckboxChangeFn="onCheckboxChangeFn">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox"  [checked]="isSelected" (change)="onCheckboxChangeFn($event)" />
+                      </div>
+                    </ng-template>
+                  </ngx-datatable-column>
+      
+      
+                    <ngx-datatable-column [sortable]="true" *ngFor="let column of columns; let i = index;" name="{{column.prop}}" prop="{{column.Name}}">
+                      
+                      <ng-template #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                        {{row[column.Name]}}
+                        
+                        
+                      </ng-template>
+        
+                    </ngx-datatable-column>
+      
+                   
+                    <ngx-datatable-column name="Eylemler" [width]="200">
+                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                        <div class="col-12" style="width: 240px;">
+                        <button type="button" class="btn btn-outline-info mr-1 mb-1" (click)="editrecord(row.id)"><i class="fa fa-edit"></i></button>
+                        <button type="button" class="btn btn-danger mr-1 mb-1" (click)="deleterecord(row.id)"><i class="fa fa-trash-o"></i></button>
+                        <button type="button" *ngIf="secilenform=='form-tasarimi'" class="btn btn-outline-warning mr-1 mb-1" (click)="tasarla(row.form_index)"><i class="fa fa-plus"></i></button>    
+                        <button type="button" *ngIf="secilenform=='form-tasarimi'" class="btn btn-outline-primary mr-1 mb-1" (click)="formkopyala(mymodalKopyala,row.form_index)"><i class="ft-copy"></i></button>
+      
+                      </div>
+      
+                      </ng-template>
+                    </ngx-datatable-column>
+                  </ngx-datatable>
+
+                </ng-template> -->
+
+              </li>
+ 
+              <li [ngbNavItem]="2" >
+                <a ngbNavLink>TERMİN</a>
+                <ng-template    ngbNavContent>
+
+                </ng-template>              
+              </li>
+
+              <li [ngbNavItem]="3" >
+                <a ngbNavLink>GEÇMİŞ</a>
+                <ng-template    ngbNavContent>
+
+                </ng-template>
+              </li>
+
+              <li [ngbNavItem]="4" >
+                <a ngbNavLink>REÇETE</a>
+                <ng-template    ngbNavContent>
+
+                </ng-template>
+              </li>
+ 
+            </ul>
+
+            <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Basic navs Ends-->
+  </div>
+
+
+
+<!-- Filter Datatables -->
+
+<!--/ Filter Datatables -->
+
+
+
+
+
+

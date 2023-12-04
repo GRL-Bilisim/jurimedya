@@ -1,0 +1,882 @@
+<section id="list">
+  <div *ngIf="cihazmobilmi==true" class="row match-height">
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">{{formtanimi}}</h4>
+          <span class="float-right">
+
+            <button type="button" class="btn btn-outline-info mr-2 mb-1" *ngIf="secilenform!='hamur-sevk' "
+              (click)="yenikayit()"><i class="fa fa-plus mr-1"></i></button>
+            <button type="button" class="btn btn-outline-warning mr-2 mb-1" (click)="excelModal(mymodal)"><i
+                class="fa fa-plus mr-1"></i></button>
+            <button type="button" *ngIf="userroles=='00038' || userroles=='00037' "
+              class="btn btn-outline-success mr-2 mb-1" (click)="formModal(formid,198)"><i
+                class="fa fa-cog "></i></button>
+            <button type="button" *ngIf="userroles=='00038' || userroles=='00037' "
+              class="btn btn-outline-primary mr-2 mb-1" (click)="tasarla(formid)"><i
+                class="fa fa-list-alt "></i></button>
+            <button type="button" class="btn btn-outline-warning mr-2 mb-1" (click)="favorilereEkle(formid)"><i
+                class=" ft-star"></i></button>
+            <button type="button"
+              *ngIf="tabloSecililer.length >0 && (secilenform=='hammadde-kartlari' || secilenform=='yarimamul-kartlari' || secilenform=='mamul-kartlari')  "
+              class="btn btn-outline-danger mr-2 mb-1" (click)="toplubarkodyazdir()"><i
+                class="fa fa-plus mr-1"></i>Barkod Yazdır</button>
+
+            <button type="button" *ngIf="tabloSecililer.length >0  " class="btn btn-outline-danger mr-2 mb-1"
+              (click)="secilileriSil()"><i class="fa fa-plus mr-1"></i>Seçilileri Sil</button>
+
+              <button type="button" *ngIf="tabloSecililer.length >0  " class="btn btn-outline-danger mr-2 mb-1"
+                (click)="secilileriexceleaktar()"><i class="fa fa-plus mr-1"></i>Seçilileri Excel'e Aktar</button>
+  
+
+            <button type="button" *ngIf="tabloSecililer.length >0 && secilenform=='teklif-bekleyenler' "
+              class="btn btn-outline-danger mr-2 mb-1" (click)="teklifeAktar()"><i class="fa fa-plus mr-1"></i>Teklife
+              Dönüştür</button>
+            <button type="button" *ngIf="tabloSecililer.length >0 && secilenform=='teklif-bekleyenler' "
+              class="btn btn-outline-danger mr-2 mb-1" (click)="sipariseAktar()"><i class="fa fa-plus mr-1"></i>Siparişe
+              Dönüştür</button>
+
+            <button (click)="exportAsExcelFile(rows,formtanimi)" class="btn btn-outline-dark mr-2 mb-1">Aktar</button>
+            <button (click)="movecolumnFields(mymodalAlanSirala)" class="btn btn-outline-dark mr-2 mb-1">Sırala</button>
+
+            <button (click)="exportExcelColumns(columns,rows,formtanimi)" class="btn btn-outline-dark mr-2 mb-1">Seçimli
+              Aktar</button>
+
+
+          </span>
+
+
+
+
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+
+
+
+            <div class="row" *ngIf="secilenform==='perakende-satis'">
+
+              <div class="col-9">
+                <ng-select [(ngModel)]="secilenfirma" [items]="firmalistesi" bindLabel="name" bindValue="id"
+                  placeholder="Çıkış için firma Seçin" style="font-size: 14px;width:100%">
+                </ng-select>
+              </div>
+              <div class="col-3">
+                <button (click)="barkodOkut4(formid)" class="btn btn-outline-success mr-2 mb-1"><i
+                    class="fa fa-barcode"></i> Okut</button>
+
+              </div>
+            </div>
+
+
+            <div class="row" *ngIf="secilenform==='hamur-sevk'">
+
+              <div class="col-9">
+                <ng-select [(ngModel)]="secilenuretim" [items]="uretimlistesi" bindLabel="name" bindValue="id"
+                  placeholder="Sevk için üretim seçin" style="font-size: 14px;width:100%">
+                </ng-select>
+              </div>
+              <div class="col-3">
+                <button (click)="barkodOkut3(formid)" class="btn btn-outline-success mr-4 mb-1"><i
+                    class="fa fa-barcode"></i> Okut</button>
+
+              </div>
+            </div>
+            <div class="row" *ngIf="secilenform==='hamur-iade'">
+
+              <div class="col-9">
+                <ng-select [(ngModel)]="secilenhamur" [items]="hamurlistesi" bindLabel="name" bindValue="id"
+                  placeholder="iade için hamur seçin" style="font-size: 14px;width:100%">
+                </ng-select>
+              </div>
+              <div class="col-3">
+                <button (click)="barkodOkutiade(formid)" class="btn btn-outline-success mr-4 mb-1"><i
+                    class="fa fa-barcode"></i> Okut</button>
+
+              </div>
+            </div>
+
+            <span>
+              <div class="form-group form-inline ">
+                <input class="form-control ml-2 mt-2" type="text" name="termB" placeholder="arama"
+                  [(ngModel)]="termB" />
+              </div>
+            </span>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let row of rows  | filter:termB  ">
+                {{row[columns[0].Name]}}
+                <br>
+                <h5 style="font-size: 10px;
+                  font-style: italic;"> {{row[columns[1].Name]}} </h5>
+                <h5 style="font-size: 10px;
+                    font-style: italic;"> {{row[columns[2].Name]}} </h5>
+                <span class="badge bg-primary float-right"></span>
+                <span class="float-right">
+                 
+                  <div class="col-12">
+                 
+                    <button type="button" *ngIf="secilenform=='form-tasarimi'" class="btn btn-sm btn-outline-warning mr-1 mb-1"
+                      (click)="tasarla(row.form_index)"><i class="fa fa-plus"></i></button>
+                    <button type="button" *ngIf="secilenform=='form-tasarimi'" class="btn btn-sm btn-outline-primary mr-1 mb-1"
+                      (click)="formkopyala(mymodalKopyala,row.form_index)"><i class="ft-copy"></i></button>
+                    <button type="button" class="btn btn-sm btn-warning mr-1 mb-1" (click)="mamulkopyala(row.id)"
+                      *ngIf="formid=='254' "><i class="ft ft-copy"></i></button>
+
+
+                    <button type="button" class="btn btn-sm btn-warning mr-1 mb-1" (click)="isemirleriolustur(row.id)"
+                      *ngIf="formid=='782' && row.durum=='Hazır' "><i class="ft ft-play"></i></button>
+
+
+                      <button type="button" class="btn btn-sm btn-md btn-warning mr-1 mb-1" (click)="uretimgir(row.id,row.vardiya,row.uretimemrino,row.goz,row.boru_conta_adedi)"
+                      *ngIf="formid=='793' "><i class="ft-log-in"></i></button>
+                      <button type="button" class="btn btn-sm btn-md btn-info mr-1 mb-1" (click)="uretimgirkapat(row.id,row.vardiya,row.uretimemrino,row.goz,row.boru_conta_adedi)"
+                      *ngIf="formid=='793' "><i class="ft-power"></i></button>
+                      <button type="button" class="btn btn-sm btn-md btn-danger mr-1 mb-1" 
+                      *ngIf="formid=='793' "><i class="ft-printer"></i></button>
+
+                    <button type="button" class="btn btn-sm btn-warning mr-1 mb-1" (click)="satinkalemgor(row.id)"
+                      *ngIf="formid==='755'"><i class="fa fa-info"></i></button>
+                    <button type="button" class="btn btn-sm btn-success mr-1 mb-1" (click)="finansonayver(row.id)"
+                      *ngIf="formid==='755'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger mr-1 mb-1" (click)="finansonayreddet(row.id)"
+                      *ngIf="formid==='755'"><i class="fa fa-close"></i></button>
+
+
+                      <!--- Talep Yönetim Onay  -->
+                      <button type="button" class="btn btn-sm btn-success mr-1 mb-1" (click)="yonetimictaleponay(row.id)"
+                      *ngIf="formid==='800'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger mr-1 mb-1" (click)="yonetimictalepreddet(row.id)"
+                      *ngIf="formid==='800'"><i class="fa fa-close"></i></button>
+
+
+                      
+                    <!--- İç Talepler Kalemlere Onay Verme  --->
+                    <button type="button" class="btn btn-sm btn-success mr-1 mb-1" (click)="ictaleponayver(row.id)"
+                      *ngIf="formid==='564'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger mr-1 mb-1" (click)="ictaleponayreddet(row.id)"
+                      *ngIf="formid==='564'"><i class="fa fa-close"></i></button>
+
+
+                      <button type="button" *ngIf="secilenform =='kabul-edilen-siparisler' " placement="top"
+                      (click)="satinalmasiparisformu(row.id)" class="btn btn-sm btn-success  mr-1 mb-1 "><i
+                        class="ft-file"></i></button>
+
+                    <!-- Finans Teklif Toplama Listesi Kalemlere Onay Verme  --->
+                    <button type="button" class="btn btn-sm btn-success mr-1 mb-1"
+                      (click)="finansteklifonay(row.index_satinalma_teklif_icerigi)" *ngIf="formid==='804'"><i
+                        class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger mr-1 mb-1"
+                      (click)="finansteklifreddet(row.index_satinalma_teklif_icerigi)" *ngIf="formid==='804'"><i
+                        class="fa fa-close"></i></button>
+
+                    <!-- Teklif Toplama Listesi Kalemlere Onay Verme  --->
+                    <button type="button" class="btn btn-sm btn-success mr-1 mb-1"
+                      (click)="teklifkalemonayver(row.index_satinalma_teklif_icerigi)" *ngIf="formid==='767'"><i
+                        class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger mr-1 mb-1"
+                      (click)="teklifkalemonayreddet(row.index_satinalma_teklif_icerigi)" *ngIf="formid==='767'"><i
+                        class="fa fa-close"></i></button>
+
+
+                        <!-- Satış Sipariş Finans Onay --->
+                    <button type="button" class="btn btn-sm btn-warning mr-1 mb-1" (click)="sipariskalemgor(row.id)"
+                    *ngIf="formid==='808'"><i class="fa fa-info"></i></button>
+                  <button type="button" class="btn btn-sm btn-success mr-1 mb-1"
+                    (click)="finanssiparisonay(row.id) && userroles=='00038' || userroles=='00120' "
+                    *ngIf="formid==='808'"><i class="fa fa-check"></i></button>
+                  <button type="button" class="btn btn-sm btn-danger mr-1 mb-1" (click)="finanssiparisreddet(row.id)"
+                    *ngIf="formid==='808'&& userroles=='00038' || userroles=='00120' "><i
+                      class="fa fa-close"></i></button>
+
+
+
+                      
+                        <!-- Satış Sipariş Yönetim Onay --->
+                    <button type="button" class="btn btn-sm btn-warning mr-1 mb-1" (click)="siparisyonetimkalemgor(row.id)"
+                    *ngIf="formid==='810'"><i class="fa fa-info"></i></button>
+                  <button type="button" class="btn btn-sm btn-success mr-1 mb-1"
+                    (click)="yonetimsiparisonay(row.id) && userroles=='00038' || userroles=='00120' "
+                    *ngIf="formid==='810'"><i class="fa fa-check"></i></button>
+                  <button type="button" class="btn btn-sm btn-danger mr-1 mb-1" (click)="yonetimsiparisreddet(row.id)"
+                    *ngIf="formid==='810'&& userroles=='00038' || userroles=='00120' "><i
+                      class="fa fa-close"></i></button>
+
+
+                    <button type="button" class="btn btn-sm btn-warning mr-1 mb-1" (click)="satinkalemgor(row.id)"
+                      *ngIf="formid==='757'"><i class="fa fa-info"></i></button>
+                    <button type="button" class="btn btn-sm btn-success mr-1 mb-1"
+                      (click)="yonetimonayver(row.id) && userroles=='00038' || userroles=='00120' "
+                      *ngIf="formid==='757'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger mr-1 mb-1" (click)="yonetimonayreddet(row.id)"
+                      *ngIf="formid==='757'&& userroles=='00038' || userroles=='00120' "><i
+                        class="fa fa-close"></i></button>
+
+                    <button type="button" class="btn btn-sm btn-success mr-1 mb-1" (click)="sevkonayla(row.id)"
+                      *ngIf="formid==='645'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger mr-1 mb-1" (click)="sevkreddet(row.id)"
+                      *ngIf="formid==='645'"><i class="fa fa-close"></i></button>
+
+                    <button type="button" class="btn btn-sm btn-success mr-1 mb-1" (click)="sevkonayla(row.id)"
+                      *ngIf="formid==='685'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger mr-1 mb-1" (click)="sevkreddet(row.id)"
+                      *ngIf="formid==='685'"><i class="fa fa-close"></i></button>
+
+                    <button type="button" *ngIf="formid=='748'" placement="top" (click)="paletbarkodyazdir(row.id)"
+                      class="btn btn-sm btn-success  mr-1 mb-1 "><i class="ft-file"></i></button>
+
+
+                    <button type="button" class="btn btn-sm btn-success mr-1 mb-1" (click)="pdksdoldur(row)"
+                      alt="Dosya Veritabanına Aktar" *ngIf="formid==='382'"><i class="ft-database"></i></button>
+                    <button type="button" class="btn btn-sm btn-warning mr-1 mb-1" (click)="pdkstanimla(row)"
+                      alt="Dosya Yansıt" *ngIf="formid==='382'"><i class="ft-folder-plus"></i></button>
+
+                    <button type="button" *ngIf="secilenform =='siparis-fisleri' " placement="top"
+                      (click)="satissiparisformu(row.id)" class="btn btn-sm btn-success  mr-1 mb-1 "><i
+                        class="ft-file"></i></button>
+
+                        <button type="button" *ngIf="secilenform =='dis-siparis-fisleri' " placement="top"
+                        (click)="dissatissiparisformu(row.id)" class="btn btn-sm btn-success  mr-1 mb-1 "><i
+                          class="ft-file"></i></button>
+                    <button type="button" *ngIf="secilenform=='dof-bekleyen-iade'"
+                      class="btn btn-sm btn-outline-warning mr-1 mb-1" (click)="dofne(row.id,formid)"><i
+                        class="ft-package"></i></button>
+
+                    <button type="button" *ngIf="secilenform=='siparis-izleme' || secilenform=='dis-proforma' "
+                      class="btn btn-sm btn-info mr-1 mb-1" (click)="sevkemriolustur(row.id,formid)"
+                      title="Sevk Emri Oluştur"><i class="icon-login"></i></button>
+
+                    <button type="button" *ngIf="secilenform=='siparis-izleme'" class="btn btn-sm btn-success mr-1 mb-1"
+                      (click)="rezervEt(row.id,formid)" title="Rezervasyon Yap"><i class="icon-share-alt"></i></button>
+
+                    <button type="button" *ngIf="secilenform=='siparis-izleme'" class="btn btn-sm btn-danger mr-1 mb-1"
+                      (click)="uretimemriolustur(row.id,formid)" title="Üretim Emri Oluştur"><i
+                        class="icon-magnet"></i></button>
+
+                    <button type="button" *ngIf="secilenform=='siparis-izleme'" (click)="rezervlerdencek(row,formid)"
+                      placement="top" class="btn btn-sm btn-warning  mr-1 mb-1 " title="Rezervasyonları Göster"><i
+                        class="ft-book"></i></button>
+
+                    <button type="button" *ngIf="secilenform=='formulasyon'" (click)="formulyazdir(row.id)"
+                      placement="top" class="btn btn-sm btn-warning  mr-1 mb-1 " title="Yazdır"><i
+                        class="ft-file"></i></button>
+
+                  </div>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Filter Datatables -->
+<section id="ngx-datatable-filter" *ngIf="cihazmobilmi==false">
+  <div class="row match-height">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">{{formtanimi}}</h4>
+
+          <button type="button" class="btn btn-outline-info mr-2 mb-1" (click)="yenikayit()"><i
+              class="fa fa-plus mr-1"></i>Yeni Kayıt</button>
+          <button type="button" class="btn btn-outline-warning mr-2 mb-1" (click)="excelModal(mymodal)"><i
+              class="fa fa-plus mr-1"></i>Excelden Aktar</button>
+          <button type="button" *ngIf="userroles=='00038' || userroles=='00037' "
+            class="btn btn-outline-success mr-2 mb-1" (click)="formModal(formid,198)"><i
+              class="fa fa-cog "></i></button>
+          <button type="button" *ngIf="userroles=='00038' || userroles=='00037' "
+            class="btn btn-outline-primary mr-2 mb-1" (click)="tasarla(formid)"><i class="fa fa-list-alt "></i></button>
+          <button type="button" class="btn btn-outline-warning mr-2 mb-1" (click)="favorilereEkle(formid)"><i
+              class=" ft-star"></i></button>
+
+          <button type="button" *ngIf="tabloSecililer.length >0  " class="btn btn-outline-danger mr-2 mb-1"
+            (click)="secilileriSil()"><i class="fa fa-plus mr-1"></i>Seçilileri Sil</button>
+
+
+            <button type="button" *ngIf="tabloSecililer.length >0  " class="btn btn-outline-primary mr-2 mb-1"
+              (click)="secilileriexceleaktar(rows,formtanimi)"><i class="fa fa-plus mr-1"></i>Seçilileri Excel'e Aktar</button>
+
+
+          <button type="button" *ngIf="tabloSecililer.length >0 && secilenform=='satinalma-teklif-toplama' "
+            class="btn btn-outline-warning mr-2 mb-1" (click)="secilisiparisedonustur()"><i
+              class="fa fa-plus mr-1"></i>Seçilileri Siparişe Dönüştür</button>
+
+
+          <button type="button" *ngIf="tabloSecililer.length >0  && secilenform=='aktif-is-emirleri' "
+            class="btn btn-outline-info mr-2 mb-1" (click)="jobTask()"><i class="fa fa-plus mr-1"></i>Makineye
+            Ata</button>
+          <button type="button"
+            *ngIf="tabloSecililer.length >0 && (secilenform=='hammadde-kartlari' || secilenform=='yarimamul-kartlari' || secilenform=='mamul-kartlari')  "
+            class="btn btn-outline-danger mr-2 mb-1" (click)="toplubarkodyazdir()"><i class="fa fa-plus mr-1"></i>Barkod
+            Yazdır</button>
+
+
+            <button type="button"
+            *ngIf="tabloSecililer.length >0 && secilenform=='aktif-is-emirleri'  "
+            class="btn btn-outline-danger mr-2 mb-1" (click)="topluisemriciktisi()"><i class="fa fa-print mr-1"></i>Seçilileri Yazdır</button>
+
+          <button type="button" *ngIf="tabloSecililer.length >0 && secilenform=='teklif-bekleyenler' "
+            class="btn btn-outline-danger mr-2 mb-1" (click)="teklifeAktar()"><i class="fa fa-plus mr-1"></i>Teklife
+            Dönüştür</button>
+          <button type="button" *ngIf="tabloSecililer.length >0 && secilenform=='teklif-bekleyenler' "
+            class="btn btn-outline-danger mr-2 mb-1" (click)="sipariseAktar()"><i class="fa fa-plus mr-1"></i>Siparişe
+            Dönüştür</button>
+
+            
+              
+            <button type="button" *ngIf="tabloSecililer.length >0 && secilenform=='finans-teklif-onay' " class="btn btn-outline-danger mr-2 mb-1"
+              (click)="toplureddetsecililier()"><i class="fa fa-plus mr-1"></i>Seçilileri Reddet</button>
+
+          <!-- <button type="button" class="btn btn-outline-warning mr-2 mb-1" (click)="tasarla(formid)"><i class="fa fa-plus mr-1"></i>Tasarıma Git</button> -->
+
+        </div>
+        <div class="card-content">
+          <button (click)="exportAsExcelFile(rows,formtanimi)" class="btn btn-outline-dark ml-3 mt-2">Excel'e
+            Aktar</button>
+          <button (click)="exportExcelColumns(columns,rows,formtanimi)" class="btn btn-outline-dark ml-3 mt-2">Seçimli
+            Excel'e Aktar</button>
+          <button (click)="movecolumnFields(mymodalAlanSirala)" class="btn btn-outline-dark ml-3 mt-2">Alanları
+            Sırala</button>
+
+          <div class="card-body">
+
+
+            <ng-template #mymodalAlanSirala let-modal>
+              <section id="dd-with-handle">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Tablo Alanlarını Sırala</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="col-sm-12 mb-2 mb-sm-0">
+                    <ul class="list-group" id="handle-list-1" dragula="HANDLES" [(dragulaModel)]="columns">
+                      <li [attr.title]="i" [attr.handleName]="item.Name" *ngFor="let item of columns; let i=index"
+                        class="list-group-item"><span class="handle draggable-move">+</span>{{item.prop}}<button
+                          (click)="alansirasiSil(item.Name)" class="btn-outline-danger btn-icon round mr-1 mb-1"
+                          style="float:right;"><i class="fa fa-times"></i></button></li>
+
+                    </ul>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn  btn-outline-success"
+                    (click)="alanSiralariGuncelle(columns)">Güncelle</button>
+
+                  <button type="button" class="btn btn-outline-dark" (click)="alanSiralaVazgec()">Vazgeç</button>
+                </div>
+              </section>
+            </ng-template>
+
+            <ng-template #mymodal let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Excelden Aktar</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="" method="post" name="frmExcelImport_genel" id="frmExcelImport_genel"
+                  enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <input type="file" name="file" id="file" accept=".xls,.xlsx">
+                    </div>
+                    <input type="hidden" name="menu_id" id="menu_id" value="{{formid}}">
+
+                    <div class="col-md-4">
+                      <button type="submit" id="submit" name="import" class="btn btn-outline-secondary">Yükle</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Tamam</button>
+              </div>
+            </ng-template>
+            <ng-template #mymodalKopyala let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Form Kopyala</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">X</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="" method="post" name="frmkopyala" id="frmkopyala" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input class="form-control" type="text" name="kaynakveritabani" id="kaynakveritabani"
+                        placeholder="Kaynak Veritabanı" value="netbulut_netlaminatdab">
+                    </div>
+                    <div class="col-md-6">
+                      <input class="form-control" type="text" name="hedefveritabani" id="hedefveritabani"
+                        placeholder="Hedef Veritabanı" value="netbulut_netlaminatdab">
+                    </div>
+                    <input type="hidden" id="menuId" name="menuId" value="{{formid}}">
+
+                    <div class="col-md-4 offset-md-8 text-center mt-2">
+                      <button type="submit" id="submit" name="import" class="btn btn-outline-secondary">Yükle</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Tamam</button>
+              </div>
+            </ng-template>
+            <!-- ngx-datatable-filter -->
+            <fieldset class="form-group">
+              <label for="ngx-filter-ref">Ara:
+                <input class="form-control ml-2 mt-2" type="text" name="search_{{formid}}" [id]="formid"
+                  placeholder="Aranacak Kelime" [(ngModel)]="TermArama" />
+
+              </label>
+            </fieldset>
+
+
+            <div class="row text-left" *ngIf="tarihfiltre!=''  ">
+              <div class="col-md-12 col-lg-12">
+                <div class="card">
+           
+                  <div class="card-content">
+                    <div class="card-body">       
+                      <div>
+                        <ul ngbNav #vernav="ngbNav" [(activeId)]="vActive" class="nav-pills nav-tabs  ">
+                          <li ngbNavItem="top">
+                            <a ngbNavLink>İki Tarih Arası</a>
+                            <ng-template ngbNavContent>
+                              <div class="row" style="align-items: flex-end;">
+                                <div class="col-md-3">
+                                  <label for="ilktarih">Başlangıç Tarihi</label>
+                                  <input type="date" id="basic-form-1" class="form-control"  [(ngModel)]="ilktarih" placeholder="tarih seçiniz" >
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="ilktarih">Bitiş Tarihi</label>
+
+                                  <input  type="date" id="basic-form-1" class="form-control"  [(ngModel)]="sontarih" placeholder="tarih seçiniz" >
+
+                                </div>
+                                <div class="col-md-4">                                  
+                                <button (click)="filtrelemeyap(formid,ilktarih,sontarih,'ikitariharasi')" class="btn btn-md btn-warning">
+                                  Filtrele
+                              </button>
+                              <button (click)="filtreyitemizle()" class="btn btn-md btn-danger ml-2">Temizle</button>
+                                </div>
+                              </div>
+                            </ng-template>
+                          </li>
+                          <li ngbNavItem="haftalik">
+                            <a ngbNavLink>Haftalık</a>
+                            <ng-template ngbNavContent>
+                              <div class="row" style="align-items: flex-end;">
+                                <div class="col-md-2">
+                                  <label for="">Hafta Seçiniz</label>
+                                  <ng-select [(ngModel)]="haftasecimi" [items]="haftalar" bindLabel="name" bindValue="id"
+                                  placeholder="ay seçiniz" >
+                                </ng-select>
+                                </div>
+
+                                <div class="col-md-4">                                  
+                                <button (click)="filtrelemeyap(formid,haftasecimi,'','haftalik')" class="btn btn-md btn-warning">
+                                  Filtrele
+                              </button>
+                              <button (click)="filtreyitemizle()" class="btn btn-md btn-danger ml-2">Temizle</button>
+                                </div>
+                              </div>
+                            </ng-template>
+                          </li>
+                          <li ngbNavItem="middle">
+                            <a ngbNavLink>Aylık</a>
+                            <ng-template ngbNavContent>
+                              <div class="row" style="align-items: flex-end;">
+                                <div class="col-md-3">
+                                  <label for="">Yıl Seçiniz</label>
+
+                                  <ng-select [(ngModel)]="yilsecimi" [items]="yillar" bindLabel="name" bindValue="id"
+                                  placeholder="Yıl seçiniz" >
+                                </ng-select>
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="">Ay Seçiniz</label>
+
+                                  <ng-select [(ngModel)]="aysecimi" [items]="aylar" bindLabel="name" bindValue="id"
+                                  placeholder="Ay seçiniz" >
+                                </ng-select>
+                                </div>
+                                <div class="col-md-4">                                  
+                                <button (click)="filtrelemeyap(formid,yilsecimi,aysecimi,'aylik')" class="btn btn-md btn-warning">
+                                  Filtrele
+                              </button>
+                              <button (click)="filtreyitemizle()" class="btn btn-md btn-danger ml-2">Temizle</button>
+                                </div>
+                              </div>
+
+                            </ng-template>
+                          </li>
+                          <li ngbNavItem="bottom">
+                            <a ngbNavLink>3 Aylık </a>
+                            <ng-template ngbNavContent>
+                              <div class="row" style="align-items: flex-end;">
+                                <div class="col-md-3">
+                                  <label for="">Yıl Seçiniz</label>
+
+                                  <ng-select [(ngModel)]="yilsecimi" [items]="yillar" bindLabel="name" bindValue="id"
+                                  placeholder="Yıl seçiniz" >
+                                </ng-select>
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="">Ay Aralığı Seçiniz</label>
+
+                                  <ng-select [(ngModel)]="ucaysecimi" [items]="ucaylar" bindLabel="name" bindValue="id"
+                                  placeholder="Ay seçiniz" >
+                                </ng-select>
+                                </div>
+                                <div class="col-md-4">                                  
+                                <button (click)="filtrelemeyap(formid,yilsecimi,ucaysecimi,'ucaylik')" class="btn btn-md btn-warning">
+                                  Filtrele
+                              </button>
+                              <button (click)="filtreyitemizle()" class="btn btn-md btn-danger ml-2">Temizle</button>
+
+                                </div>
+                              </div>
+                            </ng-template>
+                          </li>
+                          <li ngbNavItem="yillik">
+                            <a ngbNavLink>Yıllık </a>
+                            <ng-template ngbNavContent>
+                              <div class="row" style="align-items: flex-end;">
+                                <div class="col-md-3">
+                                  <label for="">Yıl Seçiniz</label>
+                                  <ng-select [(ngModel)]="yilsecimi" [items]="yillar" bindLabel="name" bindValue="id"
+                                  placeholder="Yıl seçiniz" >
+                                </ng-select>
+                                </div>
+                                <div class="col-md-4">                                  
+                                <button (click)="filtrelemeyap(formid,yilsecimi,'','yillik')" class="btn btn-md btn-warning">
+                                  Filtrele
+                              </button>
+                              <button (click)="filtreyitemizle()" class="btn btn-md btn-danger ml-2">Temizle</button>
+                                </div>
+                              </div>
+                            </ng-template>
+                          </li>
+                          
+                        </ul>
+          
+                        <div [ngbNavOutlet]="vernav" ></div>
+                      </div>
+          
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="row " *ngIf="secilenform==='is-istasyonlari' && tabloSecililer.length>0 ">
+
+
+              <div class="col-2 mb-2 ">
+                <input class="form-control" [(ngModel)]="ilktarih" type="date">
+              </div>
+              <div class="col-2 mb-2 ">
+                <input class="form-control" [(ngModel)]="sontarih" type="date">
+              </div>
+              <div class="col-4 mb-2 ">
+                <button type="button" class="btn btn-outline-success mr-1 mb-1"
+                  (click)="TakvimOlustur(ilktarih,sontarih)">Takvim Oluştur</button>
+                <button type="button" class="btn btn-outline-warning  mb-1" (click)="VardiyaAta()">Vardiyaları
+                  Ata</button>
+
+              </div>
+
+
+            </div>
+            <ngx-datatable [selected]="chkBoxSelected" [selectionType]="SelectionType.multi"
+              (dblclick)="dbleditrow(chkBoxSelected)" (select)="customChkboxOnSelect($event)"
+              class="bootstrap core-bootstrap"       [rowClass]="getRowClass"      [columns]="columns" [columnMode]="ColumnMode.force" [headerHeight]="50"
+              [footerHeight]="50" rowHeight="auto" [limit]="100"  [rows]="rows | filter:TermArama" [scrollbarH]="true">
+
+
+                      
+        <!-- Row Detail Template
+        <ngx-datatable-row-detail 
+        [rowHeight]="auto" 
+        #myDetailRow 
+        (toggle)="onDetailToggle($event)">
+        <ng-template 
+          let-row="row" 
+          let-expanded="expanded" 
+          ngx-datatable-row-detail-template>
+           
+          <ngx-datatable  
+          class="bootstrap core-bootstrap" [columns]="altformsutunlar" [columnMode]="ColumnMode.force"
+            [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="10" [rows]="altformdata" [scrollbarH]="true" >
+          
+          
+            <ngx-datatable-column *ngFor="let column of altformsutunlar; let r = index;" name="{{column.name}}" prop="{{column.id}}">
+              <ng-template  #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                <div *ngIf="row[column.id]!='true'&&row[column.id]!='false'">{{row[column.id]}}</div>
+            
+              </ng-template>
+             
+            </ngx-datatable-column>
+
+           
+          </ngx-datatable>
+        </ng-template>
+        </ngx-datatable-row-detail>
+
+                <ngx-datatable-column
+                [width]="80"
+                [resizeable]="false" 
+                [sortable]="false" 
+                [draggable]="false"
+                [canAutoResize]="false"
+                [frozenLeft]="true">
+                <ng-template 
+                  let-row="row" 
+                  let-rowIndex="rowIndex" 
+                  let-expanded="expanded" 
+                  ngx-datatable-cell-template>
+                  <div *ngIf="expanded " style="display:block; text-align:center;">
+                   <a title="expand" (click)="toggleCollaspeRow(row,'462','1714')"><i class="ft-arrow-up"></i></a>
+                </div>
+                <div *ngIf="!expanded" style="display:block; text-align:center;">
+                 <a title="collapse" (click)="toggleExpandRow(row,'462','1714')"><i class="ft-arrow-down"> </i></a> 
+                </div>
+                  
+                </ng-template>
+              </ngx-datatable-column> -->
+   
+           
+              <ngx-datatable-row-detail 
+              [rowHeight]="auto" 
+              #myDetailRow 
+              (toggle)="onDetailToggle($event)">
+              <ng-template 
+                let-row="row" 
+                let-expanded="expanded" 
+                ngx-datatable-row-detail-template>
+            
+                  <div class="card">
+                    <div class="card-body">
+                        <p *ngFor="let item of rowdetaildata">
+                         {{item.firmaadic}} - {{item.fiyat}} - {{item.parabirimi}} - {{item.rednedeni}} - ({{item.ch_kodu}} {{item.ch_kodus}})
+                        </p>
+                    </div>
+                  </div>
+                 
+              </ng-template>
+              </ngx-datatable-row-detail>
+
+              <ngx-datatable-column [width]="50" [sortable]="false"   [canAutoResize]="false" [draggable]="false"
+                [resizeable]="false">
+                <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
+                  let-selectFn="selectFn">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
+                  </div>
+                </ng-template>
+                <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected"
+                  let-onCheckboxChangeFn="onCheckboxChangeFn">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" [checked]="isSelected" (change)="onCheckboxChangeFn($event)" />
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="Eylemler" [width]="200">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                  <div class="col-12">
+                    <button type="button" class="btn btn-outline-info mr-1 mb-1"
+                      *ngIf="secilenform!='siparis-izleme'&&formid!='672'&&formid!='685'&&formid!='755'&&formid!='757'&&formid!='767'&&formid!='562'&&formid!='564'&&formid!='793'&&formid!='800'&&formid!='804'&&formid!='808'&&formid!='810'"
+                      title="{{row.id}}" (click)="editrecord(row.id)"><i class="fa fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger mr-1 mb-1"
+                      *ngIf="secilenform!='siparis-izleme'&&formid!='672'&&formid!='685'&&formid!='755'&&formid!='757'&&formid!='759'&&formid!='767'&&formid!='562'&&formid!='564'&&formid!='793'&&formid!='800'&&formid!='804'&&formid!='808'&&formid!='810'"
+                      (click)="deleterecord(row.id)"><i class="fa fa-trash-o"></i></button>
+                    <button type="button" *ngIf="secilenform=='form-tasarimi'" class="btn btn-outline-warning mr-1 mb-1"
+                      (click)="tasarla(row.form_index)"><i class="fa fa-plus"></i></button>
+                    <button type="button" *ngIf="secilenform=='form-tasarimi'" class="btn btn-outline-primary mr-1 mb-1"
+                      (click)="formkopyala(mymodalKopyala,row.form_index)"><i class="ft-copy"></i></button>
+                    <button type="button" class="btn btn-warning mr-1 mb-1" (click)="mamulkopyala(row.id)"
+                      *ngIf="formid=='254' "><i class="ft ft-copy"></i></button>
+
+
+                    <button type="button" class="btn btn-warning mr-1 mb-1" (click)="isemirleriolustur(row.id)"
+                      *ngIf="formid=='782' && row.durum=='Hazır' "><i class="ft ft-play"></i></button>
+
+
+                      <button type="button" class="btn btn-md btn-warning mr-1 mb-1" (click)="uretimgir(row.id,row.vardiya,row.uretimemrino,row.goz,row.boru_conta_adedi)"
+                      *ngIf="formid=='793' "><i class="ft-log-in"></i></button>
+                      <button type="button" class="btn btn-md btn-info mr-1 mb-1" (click)="uretimgirkapat(row.id,row.vardiya,row.uretimemrino,row.goz,row.boru_conta_adedi)"
+                      *ngIf="formid=='793' "><i class="ft-power"></i></button>
+                      <button type="button" class="btn btn-md btn-danger mr-1 mb-1" 
+                      *ngIf="formid=='793' "><i class="ft-printer"></i></button>
+
+                    <button type="button" class="btn btn-warning mr-1 mb-1" (click)="satinkalemgor(row.id)"
+                      *ngIf="formid==='755'"><i class="fa fa-info"></i></button>
+                    <button type="button" class="btn btn-success mr-1 mb-1" (click)="finansonayver(row.id)"
+                      *ngIf="formid==='755'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-danger mr-1 mb-1" (click)="finansonayreddet(row.id)"
+                      *ngIf="formid==='755'"><i class="fa fa-close"></i></button>
+
+
+                      <!--- Talep Yönetim Onay  -->
+                      <button type="button" class="btn btn-success mr-1 mb-1" (click)="yonetimictaleponay(row.id)"
+                      *ngIf="formid==='800'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-danger mr-1 mb-1" (click)="yonetimictalepreddet(row.id)"
+                      *ngIf="formid==='800'"><i class="fa fa-close"></i></button>
+
+
+                      
+                    <!--- İç Talepler Kalemlere Onay Verme  --->
+                    <button type="button" class="btn btn-success mr-1 mb-1" (click)="ictaleponayver(row.id)"
+                      *ngIf="formid==='564'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-danger mr-1 mb-1" (click)="ictaleponayreddet(row.id)"
+                      *ngIf="formid==='564'"><i class="fa fa-close"></i></button>
+
+
+                      <button type="button" *ngIf="secilenform =='kabul-edilen-siparisler' " placement="top"
+                      (click)="satinalmasiparisformu(row.id)" class="btn btn-success  mr-1 mb-1 "><i
+                        class="ft-file"></i></button>
+
+                    <!-- Finans Teklif Toplama Listesi Kalemlere Onay Verme  --->
+                    <button type="button" class="btn btn-success mr-1 mb-1"
+                      (click)="finansteklifonay(row.index_satinalma_teklif_icerigi)" *ngIf="formid==='804'"><i
+                        class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-danger mr-1 mb-1"
+                      (click)="finansteklifreddet(row.index_satinalma_teklif_icerigi)" *ngIf="formid==='804'"><i
+                        class="fa fa-close"></i></button>
+
+                    <!-- Teklif Toplama Listesi Kalemlere Onay Verme  --->
+                    
+                    <button type="button" class="btn btn-warning mr-1 mb-1" (click)="reddedilenteklifgor(row.id,row)"
+                      *ngIf="formid==='767'"><i class="fa fa-info"></i></button>
+                    <button type="button" class="btn btn-success mr-1 mb-1"
+                      (click)="teklifkalemonayver(row.index_satinalma_teklif_icerigi)" *ngIf="formid==='767'"><i
+                        class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-danger mr-1 mb-1"
+                      (click)="teklifkalemonayreddet(row.index_satinalma_teklif_icerigi)" *ngIf="formid==='767'"><i
+                        class="fa fa-close"></i></button>
+
+
+                        <!-- Satış Sipariş Finans Onay --->
+                    <button type="button" class="btn btn-warning mr-1 mb-1" (click)="sipariskalemgor(row.id)"
+                    *ngIf="formid==='808'"><i class="fa fa-info"></i></button>
+                  <button type="button" class="btn btn-success mr-1 mb-1"
+                    (click)="finanssiparisonay(row.id) && userroles=='00038' || userroles=='00120' "
+                    *ngIf="formid==='808'"><i class="fa fa-check"></i></button>
+                  <button type="button" class="btn btn-danger mr-1 mb-1" (click)="finanssiparisreddet(row.id)"
+                    *ngIf="formid==='808'&& userroles=='00038' || userroles=='00120' "><i
+                      class="fa fa-close"></i></button>
+
+
+
+                      
+                        <!-- Satış Sipariş Yönetim Onay --->
+                    <button type="button" class="btn btn-warning mr-1 mb-1" (click)="siparisyonetimkalemgor(row.id)"
+                    *ngIf="formid==='810'"><i class="fa fa-info"></i></button>
+                  <button type="button" class="btn btn-success mr-1 mb-1"
+                    (click)="yonetimsiparisonay(row.id) && userroles=='00038' || userroles=='00120' "
+                    *ngIf="formid==='810'"><i class="fa fa-check"></i></button>
+                  <button type="button" class="btn btn-danger mr-1 mb-1" (click)="yonetimsiparisreddet(row.id)"
+                    *ngIf="formid==='810'&& userroles=='00038' || userroles=='00120' "><i
+                      class="fa fa-close"></i></button>
+
+
+                    <button type="button" class="btn btn-warning mr-1 mb-1" (click)="satinkalemgor(row.id)"
+                      *ngIf="formid==='757'"><i class="fa fa-info"></i></button>
+                    <button type="button" class="btn btn-success mr-1 mb-1"
+                      (click)="yonetimonayver(row.id) && userroles=='00038' || userroles=='00120' "
+                      *ngIf="formid==='757'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-danger mr-1 mb-1" (click)="yonetimonayreddet(row.id)"
+                      *ngIf="formid==='757'&& userroles=='00038' || userroles=='00120' "><i
+                        class="fa fa-close"></i></button>
+
+                    <button type="button" class="btn btn-success mr-1 mb-1" (click)="sevkonayla(row.id)"
+                      *ngIf="formid==='645'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-danger mr-1 mb-1" (click)="sevkreddet(row.id)"
+                      *ngIf="formid==='645'"><i class="fa fa-close"></i></button>
+
+                    <button type="button" class="btn btn-success mr-1 mb-1" (click)="sevkonayla(row.id)"
+                      *ngIf="formid==='685'"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-danger mr-1 mb-1" (click)="sevkreddet(row.id)"
+                      *ngIf="formid==='685'"><i class="fa fa-close"></i></button>
+
+                    <button type="button" *ngIf="formid=='748'" placement="top" (click)="paletbarkodyazdir(row.id)"
+                      class="btn btn-success  mr-1 mb-1 "><i class="ft-file"></i></button>
+
+
+                    <button type="button" class="btn btn-success mr-1 mb-1" (click)="pdksdoldur(row)"
+                      alt="Dosya Veritabanına Aktar" *ngIf="formid==='382'"><i class="ft-database"></i></button>
+                    <button type="button" class="btn btn-warning mr-1 mb-1" (click)="pdkstanimla(row)"
+                      alt="Dosya Yansıt" *ngIf="formid==='382'"><i class="ft-folder-plus"></i></button>
+
+                    <button type="button" *ngIf="secilenform =='siparis-fisleri' " placement="top"
+                      (click)="satissiparisformu(row.id)" class="btn btn-success  mr-1 mb-1 "><i
+                        class="ft-file"></i></button>
+
+                        <button type="button" *ngIf="secilenform =='dis-siparis-fisleri' " placement="top"
+                        (click)="dissatissiparisformu(row.id)" class="btn btn-success  mr-1 mb-1 "><i
+                          class="ft-file"></i></button>
+                    <button type="button" *ngIf="secilenform=='dof-bekleyen-iade'"
+                      class="btn btn-outline-warning mr-1 mb-1" (click)="dofne(row.id,formid)"><i
+                        class="ft-package"></i></button>
+
+                    <button type="button" *ngIf="secilenform=='siparis-izleme' || secilenform=='dis-proforma' "
+                      class="btn btn-info mr-1 mb-1" (click)="sevkemriolustur(row.id,formid)"
+                      title="Sevk Emri Oluştur"><i class="icon-login"></i></button>
+
+                    <button type="button" *ngIf="secilenform=='siparis-izleme'" class="btn btn-success mr-1 mb-1"
+                      (click)="rezervEt(row.id,formid)" title="Rezervasyon Yap"><i class="icon-share-alt"></i></button>
+
+                    <button type="button" *ngIf="secilenform=='siparis-izleme'" class="btn btn-danger mr-1 mb-1"
+                      (click)="uretimemriolustur(row.id,formid)" title="Üretim Emri Oluştur"><i
+                        class="icon-magnet"></i></button>
+
+                    <button type="button" *ngIf="secilenform=='siparis-izleme'" (click)="rezervlerdencek(row,formid)"
+                      placement="top" class="btn btn-warning  mr-1 mb-1 " title="Rezervasyonları Göster"><i
+                        class="ft-book"></i></button>
+
+                    <button type="button" *ngIf="secilenform=='formulasyon'" (click)="formulyazdir(row.id)"
+                      placement="top" class="btn btn-warning  mr-1 mb-1 " title="Yazdır"><i
+                        class="ft-file"></i></button>
+
+                  </div>
+
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column [sortable]="true"  [width]="100" *ngFor="let column of columns; let i = index;"
+                name="{{column.prop}}" prop="{{column.Name}}">
+
+                <ng-template #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                  {{row[column.Name]}}
+
+
+                </ng-template>
+
+              </ngx-datatable-column>
+
+
+            </ngx-datatable>
+            <!-- ngx-datatable-filter -->
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ Filter Datatables -->
+
+
+<app-alt #appalt *ngIf="leN=='var' "></app-alt>

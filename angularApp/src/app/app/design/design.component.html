@@ -1,0 +1,117 @@
+
+
+
+<!-- Content types section start -->
+<section id="content-types">
+  <div class="row">
+    <div class="col-12 mb-1">
+      <div class="content-header">{{formtanimi}}-->Tasarım Ekranı</div>
+    </div>
+  </div>
+
+  <div class="row match-height">
+   
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+
+          <span class="float-right">     <button type="button" class="btn  btn-danger mr-1 mb-1" (click)="blokekle()"><i class="fa fa-plus mr-1"></i></button></span>
+          
+          <h4 class="card-title">Bloklar</h4>
+          
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <span>
+              <div class="form-group form-inline ">
+                <input class="form-control ml-2 mt-2" type="text" name="termA" placeholder="arama" [(ngModel)]="termA" />
+              </div>
+            </span> 
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let blok of bloklar  | filter:termA ">
+                <span class="badge bg-primary float-right">{{blok.sirasi}}</span>
+                <span class="float-right"> <button type="button" class="btn btn-outline-info mr-1 mb-1" (click)="blokduzelt(blok.bokindex)"><i class="fa fa-edit"></i></button>
+                  <button type="button" class="btn btn-danger mr-1 mb-1" (click)="bloksil(blok.bokindex)"><i class="fa fa-trash-o"></i></button><button type="button" class="btn btn-warning mr-1 mb-1" *ngIf="blok.bokindex==secilenblok"  (click)="alanlistesiyenile(blok.bokindex)"><i class="ft-box"></i></button><button type="button" class="btn btn-outline-info mr-1 mb-1" *ngIf="blok.bokindex!=secilenblok"  (click)="alanlistesiyenile(blok.bokindex)"><i class="ft-box"></i></button>
+                  </span>{{blok.turu}}<br>
+                  <h7 style="font-size: 10px;
+                  font-style: italic;">{{blok.formtanimi}},GA:{{blok.grupadi}}</h7>
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <span class="float-right">     <button type="button" class="btn btn-danger mr-1 mb-1" (click)="alanekle()"><i class="fa fa-plus mr-1"></i></button> <button type="button" title="Tümünü Aktar" class="btn btn-outline-info mr-1 mb-1" (click)="tumunuaktar()"><i class="fa fa-send"></i></button>   </span>
+        
+          <h4 class="card-title">Tüm Alanlar</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <span>
+              <div class="form-group form-inline ">
+                <input class="form-control ml-2 mt-2" type="text" name="termB" placeholder="arama" [(ngModel)]="termB" />
+              </div>
+            </span> 
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let formalan of formalanlari  | filter:termB  ">
+       {{formalan.alanyazisi}}<br>
+                  <h7 style="font-size: 10px;
+                  font-style: italic;">{{formalan.alanadi}}, LG:{{formalan.listegosterim}}, {{formalan.verigiristuru}} </h7>         <br><br>
+                <span class="badge bg-primary float-right">{{formalan.alansirasi}}</span>
+                <span class="float-right"> <button type="button" class="btn btn-outline-info mr-1 mb-1" (click)="alanduzelt(formalan.alan_index)"><i class="fa fa-edit"></i></button>
+                  <button type="button" class="btn btn-danger mr-1 mb-1" (click)="alansil(formalan.alan_index)"><i class="fa fa-trash-o"></i></button>
+             
+                <button type="button" title="Alan Aktar" class="btn btn-outline-info mr-1 mb-1" (click)="alanaktar(formalan.alan_index)"><i class="fa fa-send"></i></button>   
+                  </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Bloktaki Alanlar</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <span>
+              <div class="form-group form-inline ">
+                <input class="form-control ml-2 mt-2" type="text" name="termC" placeholder="arama" [(ngModel)]="termC" />
+              </div>
+            </span> 
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let blokalan of blokalanlari  | filter:termC  ">
+                <span class="badge bg-primary float-right">{{blokalan.sirano}}</span>
+                <span class="float-right"> <button type="button" class="btn btn-outline-info mr-1 mb-1" (click)="blokalanduzelt(blokalan.altindex)"><i class="fa fa-edit"></i></button>
+                  <button type="button" class="btn btn-danger mr-1 mb-1" (click)="blokalansil(blokalan.altindex)"><i class="fa fa-trash-o"></i></button>
+                  </span>{{blokalan.alanyazisi}}
+              </li>
+            </ul>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  
+  </div>
+
+</section>
+<!-- Content types section end -->
+
+
+
+
+
+
+

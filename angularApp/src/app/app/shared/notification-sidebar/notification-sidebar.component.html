@@ -1,0 +1,96 @@
+<!-- START Notification Sidebar-->
+<aside class="notification-sidebar d-none d-sm-none d-md-block" id="notification-sidebar" [ngClass]="{open: isOpen}">
+  <a class="notification-sidebar-close" (click)="onClose()">
+    <i class="ft-x font-medium-3 grey darken-1"></i>
+  </a>
+  <div class="side-nav notification-sidebar-content" [perfectScrollbar]>
+    <div class="row">
+      <div class="col-12 notification-tab-content">
+        <nav ngbNav #nav="ngbNav" class="nav-tabs">
+          <ng-container ngbNavItem class="nav-item">
+            <a ngbNavLink class="nav-link">Aktiviteler</a>
+            <ng-template ngbNavContent>
+              <div class="row tab-pane" id="activity-tab" role="tabpanel" aria-expanded="true"
+                aria-labelledby="base-tab1">
+                <div class="col-12" id="activity">
+                  <h5 class="my-2 text-bold-500">Sistem Bildirimler  <button class="btn btn-sm btn-danger float-right" (click)="temizle()">Temizle</button></h5>
+                  <div class="timeline-left timeline-wrapper mb-3" id="timeline-1">
+                    <ul class="timeline">
+                      <li class="timeline-line mt-4"></li>
+                      <li class="timeline-item" *ngFor="let sysData of systemNoti">
+                        <div class="timeline-badge">
+                          <span class="bg-primary bg-lighten-4" data-toggle="tooltip" data-placement="right"
+                            title="Portfolio project work">
+                            <i [ngClass]="{'ft-info primary': sysData.bildirimturu=='Bilgi','ft-alert-circle warning': sysData.bildirimturu=='Uyari'}" ></i>
+                          </span>
+                        </div>
+                        <div class="activity-list-text">
+                          <h6 class="mb-1">
+                            <span>{{sysData.bildirimturu}}</span>
+                            <span class="float-right grey font-italic font-small-2">{{sysData.olusturmatarihi}} {{sysData.olusturmasaati}}</span>
+                          </h6>
+                          <p class="mt-0 mb-2 font-small-3">{{sysData.bildirimmetni}}</p>
+                        </div>
+                      </li>
+
+                    </ul>
+                  </div>
+                  <h5 class="my-2 text-bold-500">Mesaj Bildirimleri   <button class="btn btn-sm btn-danger float-right" (click)="temizleX()">Temizle</button></h5>
+                  <div class="timeline-left timeline-wrapper" id="timeline-2">
+                    <ul class="timeline">
+                      <li class="timeline-line mt-4"></li>
+                      <li class="timeline-item" *ngFor="let sysMes of systemMess" (click)="redirectToChat(sysMes.gonderen,sysMes.index_mesajlarim)">
+                        <div class="timeline-badge">
+                          <span class="bg-primary bg-lighten-4" data-toggle="tooltip" data-placement="right"
+                            title="Portfolio project work">
+                            <img class="avatar" [src]="sysMes.kullaniciresim" alt="avatar" width="40">
+                          </span>
+                        </div>
+                        <div class="activity-list-text">
+                          <h6 class="mb-1">
+                            <span>{{sysMes.adi}}</span>
+                            <span class="float-right grey font-italic font-small-2">{{sysMes.olusturma_tarihi}} - {{sysMes.olusturma_saati}}</span>
+                          </h6>
+                          <p class="mt-0 mb-2 font-small-3">{{sysMes.mesaj}}</p>
+
+                        </div>
+                      </li>
+                  
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+           </ng-container>
+          <ng-container ngbNavItem class="nav-item">
+            <a ngbNavLink class="nav-link">Sık Kullanınlar</a>
+            <ng-template ngbNavContent>
+              <div class="row tab-pane" id="settings-tab" aria-labelledby="base-tab2">
+                <div class="col-12" id="settings">
+                  <h5 class="mt-2 mb-3">Sık Kullanılan Formlar</h5>
+                  <ul class="list-unstyled mb-0 mx-2">
+
+                    <li class="mb-3" *ngFor="let sysFav of sysFavor">
+                      <ngb-alert type="success" class="mb-2" [dismissible]="false">
+                        <div class="alert-icon-right">
+                          <i class="ft-heart mr-2"></i>
+                          <span style="cursor: pointer;"  (click)="redirectToForm(sysFav.formurl)">{{sysFav.formadi}}</span>
+                          <button class="btn btn-sm btn-warning" (click)="favorilerdenCikar(sysFav.index_favoriler)">Kaldır</button>
+
+                        </div>
+
+                      </ngb-alert>
+                    </li>
+             
+                  </ul>
+                </div>
+              </div>
+            </ng-template>
+           </ng-container>
+        </nav>
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      </div>
+    </div>
+  </div>
+</aside>
+<!-- END Notification Sidebar-->

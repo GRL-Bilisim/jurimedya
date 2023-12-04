@@ -1,0 +1,104 @@
+<div class="modal-header">
+  <h4 class="modal-title"> {{formbasligi}} </h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    x
+  </button>
+</div>
+<div>
+  <section id="extended" [hidden]="excelsecimli">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+            <form [formGroup]="form"  (ngSubmit)="submitForm()" novalidate>
+
+          <div class="card-content">
+            <div class="card-body table-responsive">
+  
+           
+  
+            <ul class="list-unstyled mb-0">
+              <li class="d-inline-block mr-3 mb-2 col-md-3"  *ngFor="let item of columnsGelen">
+                <div class="checkbox ">
+                  <input type="checkbox"  id="{{item.Name}}" value="{{item.Name}}" (change)="onCheckboxChange($event)"  >
+                  <label for="{{item.Name}}"><span>{{item.prop}}</span></label>
+                </div>
+              </li>
+            </ul>
+            </div>       
+          </div>
+          <div class="row justify-content-end d-flex">
+            <div class="col-md-3 col-xl-3 col-sm-3 mr-2">
+              <div class="card card-danger box-shadow-0 text-end">
+                <button *ngIf="this.form.controls['checkArray'].errors==null " type="submit" class=" btn btn-success mb-1">Seçilileri Aktar</button>
+              </div>
+            </div>  
+            <div class="col-md-3 col-xl-3 col-sm-3 mr-2">
+              <div class="card card-danger box-shadow-0 text-end">
+                <button class="btn btn-danger " (click)="activeModal.close('Close click')">Vazgeç</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="extended" [hidden]="tablolugoster">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+
+          <div class="card-content">
+            <div class="card-body table-responsive">
+              <ngx-datatable [selected]="chkBoxSelected" [selectionType]="SelectionType.checkbox"
+                (select)="customChkboxOnSelect($event)" class="bootstrap core-bootstrap" [columns]="columns"
+                [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="10"
+                [rows]="rows" [scrollbarH]="true">
+                <ngx-datatable-column [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false"
+                  [resizeable]="false">
+                  <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
+                    let-selectFn="selectFn">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
+                    </div>
+                  </ng-template>
+                  <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected"
+                    let-onCheckboxChangeFn="onCheckboxChangeFn">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" [checked]="isSelected" (change)="onCheckboxChangeFn($event)" />
+                    </div>
+                  </ng-template>
+                </ngx-datatable-column>
+
+
+                <ngx-datatable-column *ngFor="let column of columns; let i = index;" name="{{column.name}}"
+                  prop="{{column.prop}}">
+
+                  <ng-template #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                    {{row[column.Name]}}
+
+
+                  </ng-template>
+
+                </ngx-datatable-column>
+
+              </ngx-datatable>
+            </div>
+          </div>
+          <div class="row justify-content-end d-flex">
+   
+            <div class="col-md-3 col-xl-3 col-sm-3 mr-2">
+              <div class="card card-danger box-shadow-0 text-end">
+                <button class="btn btn-danger " (click)="activeModal.close('Close click')">Vazgeç</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

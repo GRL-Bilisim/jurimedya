@@ -1,0 +1,11 @@
+.selectRef{
+    padding-right: 35px;padding-top: 0px;padding-left: 0px;height:39.5px;
+}
+.ng-select.auto-grow {
+    display: flex;
+  
+
+    .ng-dropdown-panel {
+      width: auto;
+    }
+  }

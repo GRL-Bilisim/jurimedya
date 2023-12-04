@@ -1,0 +1,500 @@
+<div id="sidebar-bg">
+
+	<main id="col-main">
+
+		<!-- Saklanmış ve #1'e Taşınmış -->
+		<div class="d-none winning-order">
+			<ul class="list-group list-group-horizontal">
+				<li class="btn list-group-item">Bu Hafta</li>
+				<li class="btn list-group-item">Bu Ay</li>
+				<li class="btn list-group-item">Tüm zamanlar</li>
+			</ul>
+		</div>
+
+		<ul class="dashboard-genres-pro mb-0" style="border-bottom: none;">
+			<li class="active">
+				<img src="https://secure.webtoolhub.com/static/resources/icons/set151/2bdf6243.png" alt="Drama">
+				<h6>Başrol Kadın</h6>
+			</li>
+			<li>
+				<img src="https://www.iconarchive.com/download/i47166/icons-land/vista-people/Occupations-Actor-Male-Light.ico"
+					alt="Comedy">
+				<h6>Başrol Erkek</h6>
+			</li>
+			<li>
+				<img src="https://cdn-icons-png.flaticon.com/512/6347/6347765.png" alt="Action">
+				<h6>Yardımcı kadın</h6>
+			</li>
+			<li>
+				<img src="https://cdn-icons-png.flaticon.com/512/3873/3873997.png" alt="Romance">
+				<h6>Yardımcı erkek</h6>
+			</li>
+			<li>
+				<img src="https://us.123rf.com/450wm/bsd555/bsd5552004/bsd555200400882/144436736-celebrity-black-glyph-icon-famous-female-beauty-influencer-talent-show-participant-movie-actress.jpg"
+					alt="Horror">
+				<h6>Kötü kadın</h6>
+			</li>
+			<li>
+				<img src="https://icon-library.com/images/actor-icon/actor-icon-23.jpg" alt="Fantasy">
+				<h6>Kötü erkek</h6>
+			</li>
+			<li>
+				<img src="https://st2.depositphotos.com/47577860/46263/v/450/depositphotos_462632712-stock-illustration-actor-man-user-icon.jpg"
+					alt="Sci-Fi">
+				<h6>Çocuk</h6>
+			</li>
+			<li>
+				<img src="./assets/images/genres/animation.png" alt="Thriller">
+				<h6>Karakter</h6>
+			</li>
+		</ul>
+
+		<div class="clearfix"></div>
+
+		<div class="dashboard-container">
+
+			<div class="d-flex justify-content-center mb-2">
+				<div style="border-bottom: 1px #3334 solid; width: 30%;"></div>
+			</div>
+			<!-- #1 -->
+			<div class="winning-order mb-3">
+				<ul class="list-group list-group-horizontal">
+					<li class="btn list-group-item">Bu Hafta</li>
+					<li class="btn list-group-item">Bu Ay</li>
+					<li class="btn list-group-item">Tüm zamanlar</li>
+				</ul>
+			</div>
+
+			<h4 class="heading-extra-margin-bottom">Başrol Kadın Oyuncu</h4>
+			<div class="row">
+			
+
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let actor of actors">
+						<div class="item-listing-container-skrn">
+							<a href="dashboard-movie-profile.html"><img style="width: 100%; aspect-ratio: 3 / 4;"
+									src="{{'https://www.jurimedya.com/maratonservices/' + actor.kapakresmi}}"
+									alt="Listing"></a>
+							<div class="item-listing-text-skrn">
+								<div class="item-listing-text-skrn-vertical-align">
+									<div class="item-playlist-text-skrn">
+										<h5><a href="#!">{{actor.oyuncuadi}}</a></h5>
+										<h6>{{actor.diziadi}}</h6>
+									</div>
+									<div class="d-flex justify-items-center">
+										<circle-progress
+                                            [percent]="85"
+                                            [radius]="20"
+                                            [outerStrokeWidth]="3"
+                                            [innerStrokeWidth]="0"
+                                            [outerStrokeColor]="'#78C000'"
+                                            [innerStrokeColor]="'#C7E596'"
+                                            [animation]="true"
+                                            [animationDuration]="100"
+                                            [units]="''"
+                                            [showSubtitle]="false"
+                                        ></circle-progress>
+
+										<button class="btn btn-primary align-self-center ml-2 mt-0 px-2"
+											data-toggle="modal" data-target="#LoginModal" role="button">Oyla</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row d-none">
+
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img style="width: 100%; aspect-ratio: 3 / 4;"
+										src="https://www.jurimedya.com/maratonservices/oyuncular/prdpi0ycjo.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">AYDA AKSEL</a></h5>
+											<h6>GÜLCEMAL</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.87"
+												data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+													&quot;color&quot;: &quot;#42b740&quot;
+												}" data-empty-fill="#def6de" data-reverse="true"><span style="color:#259e36;">8.7</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+		
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img style="width: 100%; aspect-ratio: 3 / 4;"
+										src="https://www.jurimedya.com/maratonservices/oyuncular/qz6wa3247k.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">ZAFER ERGİN</a></h5>
+											<h6>ARKA SOKAKLAR</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.89"
+												data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+													&quot;color&quot;: &quot;#42b740&quot;
+												}" data-empty-fill="#def6de" data-reverse="true"><span style="color:#259e36;">8.9</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+		
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img style="width: 100%; aspect-ratio: 3 / 4;"
+										src="https://www.jurimedya.com/maratonservices/oyuncular/wtp7gnwrwz.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">AYBÜKE PUSAT</a></h5>
+											<h6>TEŞKİLAT</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.61"
+												data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+													&quot;color&quot;: &quot;#42b740&quot;
+												}" data-empty-fill="#def6de" data-reverse="true"><span style="color:#259e36;">6.1</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+		
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img style="width: 100%; aspect-ratio: 3 / 4;"
+										src="https://www.jurimedya.com/maratonservices/oyuncular/9daat1xg3m.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">FEYYAZ DUMAN</a></h5>
+											<h6>ADIM FARAH</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.81"
+												data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+													&quot;color&quot;: &quot;#42b740&quot;
+												}" data-empty-fill="#def6de" data-reverse="true"><span style="color:#259e36;">8.1</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+		
+		
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img
+										src="https://www.jurimedya.com/maratonservices/oyuncular/nd30c8r59j.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">BARIŞ ARDUÇ</a></h5>
+											<h6>ALPARSLAN BÜYÜK SELÇUKLU</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.75"
+												data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+													&quot;color&quot;: &quot;#42b740&quot;
+												}" data-empty-fill="#def6de" data-reverse="true"><span style="color:#259e36;">7.5</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+		
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img
+										src="https://www.jurimedya.com/maratonservices/oyuncular/dn9s5a9m41.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">CELİL NALÇAKAN</a></h5>
+											<h6>KARDEŞLERİM</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.74"
+												data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+													&quot;color&quot;: &quot;#42b740&quot;
+												}" data-empty-fill="#def6de" data-reverse="true"><span style="color:#259e36;">7.4</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+		
+		
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img
+										src="https://www.jurimedya.com/maratonservices/oyuncular/cgbnrqdacn.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">MERT RAMAZAN DEMİR</a></h5>
+											<h6>YALI ÇAPKINI</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.86"
+												data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+													&quot;color&quot;: &quot;#42b740&quot;
+												}" data-empty-fill="#def6de" data-reverse="true"><span style="color:#259e36;">8.1</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+		
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img
+										src="https://www.jurimedya.com/maratonservices/oyuncular/uf5vis5llh.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">YAVUZ SEPETÇİ</a></h5>
+											<h6>GÖNÜL DAĞI</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.86"
+												data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+												  &quot;color&quot;: &quot;#42b740&quot;
+											  }" data-empty-fill="#def6de" data-reverse="true"><span style="color:#ff4141;">7.9</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+		
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img
+										src="https://icdn.turkiyegazetesi.com.tr/images/23-03/28/pinar-denizin-yeni-dizisi-aktris-icin-geri-sayim-basladi-unlu-oyuncuyu-daha-once-hic-kimse-boyle-bir-rolde-gormedi-meger.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">CANAN ERGÜDER</a></h5>
+											<h6>AİLE</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.69"
+												data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+													&quot;color&quot;: &quot;#42b740&quot;
+												}" data-empty-fill="#def6de" data-reverse="true"><span style="color:#259e36;">6.9</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+		
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img
+										src="https://tele1.com.tr/wp-content/uploads/2021/04/hazal-kaya-690x450.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">CANAN ERGÜDER</a></h5>
+											<h6>AİLE</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.60"
+												data-animation-start-value="0.60" data-size="32" data-thickness="3" data-fill="{
+												&quot;color&quot;: &quot;#42b740&quot;
+											}" data-empty-fill="#def6de" data-reverse="true"><span style="color:#ff4141;">6.0</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+		
+		
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img
+										src="https://img.piri.net/mnresize/900/-/resim/upload/2018/11/12/09/51/3b717b87qqai5_1539584220_7033.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">CANAN ERGÜDER</a></h5>
+											<h6>AİLE</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.86"
+												data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+													&quot;color&quot;: &quot;#42b740&quot;
+												}" data-empty-fill="#def6de" data-reverse="true"><span style="color:#42b740;">8.6</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+		
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="item-listing-container-skrn">
+								<a href="dashboard-movie-profile.html"><img
+										src="https://tr.web.img3.acsta.net/pictures/16/10/05/10/06/557284.jpg"
+										alt="Listing"></a>
+								<div class="item-listing-text-skrn">
+									<div class="item-listing-text-skrn-vertical-align">
+										<div class="item-playlist-text-skrn">
+											<h5><a href="#!">CANAN ERGÜDER</a></h5>
+											<h6>AİLE</h6>
+										</div><!-- close .item-listing-text-skrn -->
+										<div class="d-flex justify-items-center">
+											<div class="circle-rating-pro align-self-center" data-value="0.72"
+												data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+												&quot;color&quot;: &quot;#42b740&quot;
+											}" data-empty-fill="#def6de" data-reverse="true"><span style="color:#42b740;">7.2</span>
+											</div>
+											<button class="btn btn-primary align-self-center ml-2 mt-0 px-2" data-toggle="modal"
+												data-target="#LoginModal" role="button">Oyla</button>
+										</div>
+									</div><!-- close .item-listing-text-skrn-vertical-align -->
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+					</div>
+
+
+			</div><!-- close .row -->
+
+			<ul class="page-numbers">
+				<li><a class="previous page-numbers" href="#!"><i class="fas fa-chevron-left"></i></a></li>
+				<li><span class="page-numbers current">1</span></li>
+				<li><a class="page-numbers" href="#!">2</a></li>
+				<li><a class="page-numbers" href="#!">3</a></li>
+				<li><a class="page-numbers" href="#!">4</a></li>
+				<li><a class="next page-numbers" href="#!"><i class="fas fa-chevron-right"></i></a></li>
+			</ul>
+
+		</div><!-- close .dashboard-container -->
+	</main>
+
+	<!-- Modal -->
+	<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModal" aria-hidden="true">
+		<button type="button" class="close float-close-pro" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header-pro">
+					<h2>Tekrar hoşgeldiniz</h2>
+					<h6>JuriMedya'yi kullanmaya devam etmek için hesabınızda oturum açın</h6>
+				</div>
+				<div class="modal-body-pro social-login-modal-body-pro">
+
+					<div class="registration-social-login-container">
+						<form>
+							<div class="form-group">
+								<input type="text" class="form-control" id="username" placeholder="Kullanıcı Adı">
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" id="password" placeholder="Şifre">
+							</div>
+							<div class="form-group">
+								<button type="button" class="btn btn-green-pro btn-display-block">Giriş Yap</button>
+							</div>
+							<div class="container-fluid">
+								<div class="row no-gutters">
+									<div class="col checkbox-remember-pro"><input type="checkbox"
+											id="checkbox-remember"><label for="checkbox-remember"
+											class="col-form-label">Beni Hatırla</label></div>
+									<div class="col forgot-your-password"><a href="#!">Şifremi unuttum</a></div>
+								</div>
+							</div><!-- close .container-fluid -->
+
+						</form>
+
+						<div class="registration-social-login-or">veya</div>
+
+					</div><!-- close .registration-social-login-container -->
+
+					<div class="registration-social-login-options">
+						<h6>Sosyal hesabınızla oturum açın</h6>
+						<div class="social-icon-login facebook-color"><i class="fab fa-facebook-f"></i> Facebook</div>
+						<div class="social-icon-login google-color"><i class="fab fa-google-plus-g"></i> Google</div>
+					</div><!-- close .registration-social-login-options -->
+
+					<div class="clearfix"></div>
+
+
+				</div><!-- close .modal-body -->
+
+				<a class="not-a-member-pro" href="signup-step2.php">Not a member? <span>Join Today!</span></a>
+			</div><!-- close .modal-content -->
+		</div><!-- close .modal-dialog -->
+	</div><!-- close .modal -->
+
+</div><!-- close #sidebar-bg-->
+
+<!-- Required Framework JavaScript -->
+<script src="js/libs/jquery-3.3.1.min.js"></script><!-- jQuery -->
+<script src="js/libs/popper.min.js" defer></script><!-- Bootstrap Popper/Extras JS -->
+<script src="js/libs/bootstrap.min.js" defer></script><!-- Bootstrap Main JS -->
+<!-- All JavaScript in Footer -->
+
+<!-- Additional Plugins and JavaScript -->
+<script src="js/navigation.js" defer></script><!-- Header Navigation JS Plugin -->
+<script src="js/jquery.flexslider-min.js" defer></script><!-- FlexSlider JS Plugin -->
+<script src="js/jquery-asRange.min.js" defer></script><!-- Range Slider JS Plugin -->
+<script src="js/circle-progress.min.js" defer></script><!-- Circle Progress JS Plugin -->
+<script src="js/afterglow.min.js" defer></script><!-- Video Player JS Plugin -->
+<script src="js/script.js" defer></script><!-- Custom Document Ready JS -->
+<script src="js/script-dashboard.js" defer></script><!-- Custom Document Ready for Dashboard Only JS -->
+
+
+<!-- </body>
+</html> -->

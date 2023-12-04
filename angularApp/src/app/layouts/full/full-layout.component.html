@@ -1,0 +1,274 @@
+<ng-container *ngIf="!isAdmin">
+  <header id="videohead-pro" class="sticky-header">
+    <div id="video-logo-background"><a href="dashboard-home.html"><img src="./assets/images/logo.png" alt="Logo"></a>
+    </div>
+
+    <div id="video-search-header">
+      <div id="search-icon-more"></div>
+      <input type="text" placeholder="Dizi, Oyuncu Veya Karakter Ara" aria-label="Search">
+      <div id="video-search-header-filtering">
+        <form id="video-search-header-filtering-padding">
+          <div class="row">
+            <div class="col-sm extra-padding">
+              <h5>Tip:</h5>
+
+              <div class="row">
+                <div class="col-sm">
+                  <label class="checkbox-pro-container">Oyuncu Oyla
+                    <input type="checkbox" checked="checked" id="movies-type">
+                    <span class="checkmark-pro"></span>
+                  </label>
+
+                  <label class="checkbox-pro-container">Dizi Oyla
+                    <input type="checkbox" id="tv-type">
+                    <span class="checkmark-pro"></span>
+                  </label>
+                </div><!-- close .col -->
+                <div class="col">
+                  <label class="checkbox-pro-container">Takımlar
+                    <input type="checkbox" id="movie-type">
+                    <span class="checkmark-pro"></span>
+                  </label>
+
+                  <label class="checkbox-pro-container">Belgesel
+                    <input type="checkbox" id="documentary-type">
+                    <span class="checkmark-pro"></span>
+                  </label>
+                </div><!-- close .col -->
+              </div><!-- close .row -->
+
+              <div class="dotted-dividers-pro"></div>
+            </div><!-- close .col -->
+            <div class="col-sm extra-padding">
+              <h5>Türler:</h5>
+              <select class="custom-select">
+                <option selected>Tüm Türler</option>
+                <option value="1">Aksiyon</option>
+                <option value="2">Macera</option>
+                <option value="3">Drama</option>
+                <option value="4">Çocuk Dizileri</option>
+                <option value="5">Belgesel</option>
+                <option value="6">Drama</option>
+                <option value="7">Korku</option>
+                <option value="8">Gerilim</option>
+                <option value="9">Fantezi</option>
+                <option value="10">Romantik</option>
+                <option value="11">Bilimkurgu</option>
+                <option value="12">Tarihi</option>
+              </select>
+              <div class="dotted-dividers-pro"></div>
+            </div><!-- close .col -->
+            <div class="col-sm extra-padding">
+              <h5>Ülke:</h5>
+              <select class="custom-select">
+                <option selected>Tüm ülkeler</option>
+                <option value="1">Arjantin</option>
+                <option value="2">Avustralya</option>
+                <option value="3">Bahamalar</option>
+                <option value="4">Belçika</option>
+                <option value="5">Brezilya</option>
+                <option value="6">Kanada</option>
+                <option value="7">Şili</option>
+                <option value="8">Çin</option>
+                <option value="9">Danimarka</option>
+                <option value="10">Ekvador</option>
+                <option value="11">Fransa</option>
+                <option value="12">Almanya</option>
+                <option value="13">Yunanistan</option>
+                <option value="14">Guatemala</option>
+                <option value="15">İtalya</option>
+                <option value="16">Japonya</option>
+                <option value="18">Kore</option>
+                <option value="19">Malezya</option>
+                <option value="20">Monako</option>
+                <option value="21">Fas</option>
+                <option value="22">Yeni Zelanda</option>
+                <option value="23">Panama</option>
+                <option value="24">Portekiz</option>
+                <option value="25">Rusya</option>
+                <option value="26">Birleşik Krallık</option>
+                <option value="27">Amerika Birleşik Devletleri</option>
+              </select>
+              <div class="dotted-dividers-pro"></div>
+            </div><!-- close .col -->
+            <div class="col-sm extra-padding extra-range-padding">
+              <h5>Ortalama Puanı:</h5>
+              <input class="range-example-rating-input" type="text" min="0" max="10" value="4,10" step="1" />
+              <!-- JS is under /js/script.jss -->
+            </div><!-- close .col -->
+          </div><!-- close .row -->
+          <div id="video-search-header-buttons">
+            <a href="#!" class="btn btn-green-pro">Aramayı Filtrele</a>
+            <a href="#!" class="btn">Sıfırla</a>
+          </div><!-- close #video-search-header-buttons -->
+        </form><!-- #video-search-header-filtering-padding -->
+      </div><!-- close #video-search-header-filtering -->
+    </div><!-- close .video-search-header -->
+
+    <div id="mobile-bars-icon-pro" class="noselect"><i class="fas fa-bars"></i></div>
+
+
+    <div id="header-user-profile">
+      <div id="header-user-profile-click" class="noselect">
+        <img src="./assets/images/demo/user-profile.jpg" alt="Suzie">
+        <div id="header-username">Ayşe Süslü</div><i class="fas fa-angle-down"></i>
+      </div><!-- close #header-user-profile-click -->
+      <div id="header-user-profile-menu">
+        <ul>
+          <li><a href="dashboard-profile.html"><span class="icon-User"></span>Profilim</a></li>
+          <li><a href="dashboard-favorites.html"><span class="icon-Favorite-Window"></span>Favorilerim</a></li>
+          <li><a href="dashboard-account.html"><span class="icon-Gears"></span>Hesap Detayları</a></li>
+          <li><a href="#!"><span class="icon-Life-Safer"></span>Yardım ve Destek</a></li>
+          <li><a href="index.php"><span class="icon-Power-3"></span>Çıkış Yap</a></li>
+        </ul>
+      </div><!-- close #header-user-profile-menu -->
+    </div><!-- close #header-user-profile -->
+
+    <div id="header-user-notification">
+      <div id="header-user-notification-click" class="noselect">
+        <i class="far fa-bell"></i>
+        <span class="user-notification-count">3</span>
+      </div><!-- close #header-user-profile-click -->
+      <div id="header-user-notification-menu">
+        <h3>BİLDİRİMLER</h3>
+        <div id="header-notification-menu-padding">
+          <ul id="header-user-notification-list">
+            <li><a href="#!"><img src="./assets/images/demo/user-profile-2.jpg" alt="Profile">Lorem ipsum dolor sit
+                amet, consec tetur adipiscing elit. <div class="header-user-notify-time">21 hours ago</div></a></li>
+            <li><a href="#!"><img src="./assets/images/demo/user-profile-3.jpg" alt="Profile">Donec vitae lacus id arcu
+                molestie mollis. <div class="header-user-notify-time">3 days ago</div></a></li>
+            <li><a href="#!"><img src="./assets/images/demo/user-profile-4.jpg" alt="Profile">Aenean vitae lectus non
+                purus facilisis imperdiet. <div class="header-user-notify-time">5 days ago</div></a></li>
+          </ul>
+          <div class="clearfix"></div>
+        </div><!-- close #header-user-profile-menu -->
+      </div>
+    </div><!-- close #header-user-notification -->
+
+
+
+    <div class="clearfix"></div>
+
+    <nav id="mobile-navigation-pro">
+
+      <ul id="mobile-menu-pro">
+        <li class="current-menu-item">
+          <a href="dashboard-home.html">
+            <span class="icon-Old-TV"></span>
+            Dizi Oyla
+          </a>
+        <li>
+        <li>
+          <a href="dashboard-movies.html">
+            <span class="icon-Reel"></span>
+            Oyuncu Oyla
+          </a>
+        </li>
+        <li>
+          <a href="dashboard-playlists.html">
+            <span class="icon-Movie"></span>
+            Set Ekibi Oyla
+          </a>
+        </li>
+        <li>
+          <a href="dashboard-new-arrivals.html">
+            <span class="icon-Movie-Ticket"></span>
+            Takımlar
+          </a>
+        </li>
+        <!-- Saklanmış -->
+        <li class="d-none">
+          <a href="dashboard-coming-soon.html">
+            <span class="icon-Clock"></span>
+            Megazin
+          </a>
+        </li>
+        <li>
+          <a href="#!">
+            <i class="far fa-bell"></i>
+            <span class="user-notification-count">3</span>
+            Bildirimler
+          </a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+
+      <div id="search-mobile-nav-pro">
+        <input type="text" placeholder="Dizi, Oyuncu Veya Karakter Ara" aria-label="Search">
+      </div>
+
+    </nav>
+
+  </header>
+
+  <div class="main-panel">
+    <div class="main-content">
+      <div class="content-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <app-footer></app-footer>
+    <!-- Scroll to top button -->
+    <button class="btn btn-primary scroll-top" type="button" *ngIf="isScrollTopVisible" (click)="scrollToTop()"><i
+        class="ft-arrow-up"></i></button>
+  </div>
+</ng-container>
+
+<!-- *ADMIN LAYOUT* starts -->
+<ng-container *ngIf="isAdmin">
+  <!-- *NAVBAR* starts -->
+  <app-navbar (seachTextEmpty)="checkNavbarSeachTextEmpty($event)"></app-navbar>
+  <!-- *NAVBAR* ends -->
+
+
+  <div class="wrapper" [ngClass]="{'show-overlay': !isNavbarSeachTextEmpty}" (click)="onWrapperClick();"
+    (window:resize)="onResize($event)">
+
+    <!-- *TOP* Menu starts -->
+    <app-horizontal-menu appTopMenu *ngIf="menuPosition === 'Top' && !displayOverlayMenu"></app-horizontal-menu>
+    <!-- *TOP* Menu ends -->
+
+    <!-- *SIDE* Menu starts -->
+    <div appSidebar *ngIf="menuPosition === 'Side' || displayOverlayMenu"
+      [ngClass]="{'main-menu': menuPosition === 'Side' || displayOverlayMenu, 'menu-fixed': menuPosition === 'Side' || displayOverlayMenu, 'menu-native-scroll': !perfectScrollbarEnable }"
+      class="app-sidebar" (mouseenter)="sidebarMouseenter($event)" (mouseleave)="sidebarMouseleave($event)"
+      data-active-color="white"
+      [attr.data-background-color]="config?.layout.variant === 'Transparent' ? 'black': bgColor"
+      [attr.data-image]="bgImage">
+      <app-sidebar></app-sidebar>
+      <div class="sidebar-background" [ngStyle]="{'background-image': 'url(' + bgImage + ')'}"
+        *ngIf="config?.layout.sidebar.backgroundImage"></div>
+    </div>
+    <!-- *SIDE* Menu ends -->
+
+    <div class="main-panel">
+      <div class="main-content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+      <!-- FOOTER -->
+      <app-footer></app-footer>
+      <!-- Scroll to top button -->
+      <button class="btn btn-primary scroll-top" type="button" *ngIf="isScrollTopVisible" (click)="scrollToTop()"><i
+          class="ft-arrow-up"></i></button>
+    </div>
+
+    <!-- *NOTIFICATION-SIDEBAR* starts -->
+    <app-notification-sidebar></app-notification-sidebar>
+    <!-- *NOTIFICATION-SIDEBAR* ends -->
+
+    <!-- *CUSTOMIZER* starts -->
+    <app-customizer></app-customizer>
+    <!-- *CUSTOMIZER* ends -->
+
+
+    <div class="sidenav-overlay" (click)="onOutsideClick($event);"
+      [ngClass]="{'d-none': displayOverlayMenu && hideSidebar && !overlayContent , 'd-block': displayOverlayMenu && !hideSidebar && overlayContent && innerWidth < 1200}">
+    </div>
+    <div class="drag-target"></div>
+  </div>
+</ng-container>
+<!-- *ADMIN LAYOUT* ends -->

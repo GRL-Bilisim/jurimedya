@@ -1,0 +1,52 @@
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel-caption {
+    display: flex;
+    align-content: center;
+    position: absolute;
+    left: 15%;
+    z-index: 1;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    width: 70%;
+    height: 100%;
+}
+
+.progression-studios-slider-caption-align {
+    & * {
+        text-align: left;
+    }
+}
+
+.rating-circle {
+    position: absolute;
+    bottom: 30px;
+    right: 15px;
+}
+
+.picsum-img-wrapper {
+    max-height: 900px;
+    overflow: hidden;
+
+    & img {
+        width: 100%;
+        aspect-ratio: 5 / 4;
+    }
+}
+
+.btn-slider-pro {
+    float: left;
+    margin-right: 12px;
+}
+
+.progression-studios-staring-slider {
+    & img {
+        aspect-ratio: 1 / 1;
+    }
+}

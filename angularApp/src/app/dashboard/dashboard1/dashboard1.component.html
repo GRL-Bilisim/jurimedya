@@ -1,0 +1,132 @@
+
+
+
+
+<!-- Minimal statistics section start -->
+<section id="minimal-statistics" *ngFor="let widget of widgets ">
+  <div class="row">
+    <div class="col-12">
+      <div class="content-header">{{widget.widgetbasligi}}</div>
+      <p class="content-sub-header mb-1">{{widget.widgetbasligi}} ile ilgili son durumu gösterir</p>
+    </div>
+  </div>
+
+
+    <div class="row col-12">
+
+ 
+
+      <div class="col-xl-{{12/widget.kolonsayisi}} col-12" *ngFor="let widget_alti of widgets_alti;let i = index" (click)="formac(widget_alti.formagit)" [style.display]="widget_alti.widgetid==widget.index_widgetler&&widget_alti.tipi!='Tek Veri' ? 'block' : 'none'">
+     
+          <div class="card">
+              <div class="card-header">
+                  <h4 class="card-title">{{widget_alti.etiket}}</h4>
+              </div>
+              <div class="card-content">
+                  <div class="card-body" *ngIf="widget_alti.tipi=='Sutun Grafik'">
+                    <apx-chart
+                    [series]="chartoptions[i].series"
+                    [colors]="barChartOptions.colors"
+                    [chart]="barChartOptions.chart"
+                    [xaxis]="chartoptions[i].xaxis"
+                    [yaxis]="barChartOptions.yaxis"
+                    [title]="barChartOptions.title"
+                    [dataLabels]="barChartOptions.dataLabels"
+                    [stroke]="barChartOptions.stroke"
+                    [grid]="barChartOptions.grid"
+                    [tooltip]="barChartOptions.tooltip"
+                    [plotOptions]="barChartOptions.plotOptions"
+                    [fill]="barChartOptions.fill"
+                    [legend]="barChartOptions.legend"
+                    [labels]="barChartOptions.labels"
+                    [markers]="barChartOptions.markers"
+                    [theme]="barChartOptions.theme"
+                    [responsive]="barChartOptions.responsive"
+                  ></apx-chart>
+                  </div>
+
+                  <div class="card-body" *ngIf="widget_alti.tipi=='Pasta Grafiği'">
+                    <apx-chart
+                    [series]="chartoptions[i].series"
+                    [colors]="pieChartOptions.colors"
+                    [chart]="pieChartOptions.chart"
+                    [xaxis]="pieChartOptions.xaxis"
+                    [yaxis]="pieChartOptions.yaxis"
+                    [title]="pieChartOptions.title"
+                    [dataLabels]="chartoptions[i].dataLabels"
+                    [stroke]="pieChartOptions.stroke"
+                    [grid]="pieChartOptions.grid"
+                    [tooltip]="pieChartOptions.tooltip"
+                    [plotOptions]="pieChartOptions.plotOptions"
+                    [fill]="pieChartOptions.fill"
+                    [legend]="pieChartOptions.legend"
+                    [labels]="chartoptions[i].labels"
+                    [markers]="pieChartOptions.markers"
+                    [theme]="pieChartOptions.theme"
+                    [responsive]="pieChartOptions.responsive"
+                  ></apx-chart>
+                  </div>
+
+
+                  <div class="card-body" *ngIf="widget_alti.tipi=='Çizgi Grafiği'">
+                    <apx-chart
+                    [series]="chartoptions[i].series"
+                    [colors]="lineChartOptions.colors"
+                    [chart]="lineChartOptions.chart"
+                    [xaxis]="lineChartOptions.xaxis"
+                    [yaxis]="lineChartOptions.yaxis"
+                    [title]="lineChartOptions.title"
+                    [dataLabels]="lineChartOptions.dataLabels"
+                    [stroke]="lineChartOptions.stroke"
+                    [grid]="lineChartOptions.grid"
+                    [tooltip]="lineChartOptions.tooltip"
+                    [plotOptions]="lineChartOptions.plotOptions"
+                    [fill]="lineChartOptions.fill"
+                    [legend]="lineChartOptions.legend"
+                    [labels]="chartoptions[i].labels"
+                    [markers]="lineChartOptions.markers"
+                    [theme]="lineChartOptions.theme"
+                    [responsive]="lineChartOptions.responsive"
+                  ></apx-chart>
+                  </div>
+              </div>
+          </div>
+   
+      </div>
+        
+    <div class="col-xl-{{12/widget.kolonsayisi}} col-12" *ngFor="let widget_alti of widgets_alti" (click)="formac(widget_alti.formagit)" [style.display]="widget_alti.widgetid==widget.index_widgetler&&widget_alti.tipi=='Tek Veri' ? 'block' : 'none'">
+      <div class="card" *ngIf="widget_alti.widgetid==widget.index_widgetler">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 {{widget_alti.renk}}" *ngIf="widget_alti.turu=='Sayı'">{{widget_alti.deger}} Adet</h3>
+                <h3 class="mb-1 {{widget_alti.renk}}" *ngIf="widget_alti.turu=='Yüzde'">%{{widget_alti.deger}}</h3>
+                <span>{{widget_alti.etiket}}</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="{{widget_alti.icon}} {{widget_alti.renk}} font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+
+
+
+ 
+  </div>
+
+
+</section>
+<!-- // Minimal statistics section end -->
+
+
+
+
+
+<div class="scrolling-container">
+	<div id="container"></div>
+</div>

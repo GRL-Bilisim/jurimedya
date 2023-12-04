@@ -1,0 +1,107 @@
+<!-- Taskboard Starts -->
+<section id="taskboard" class="app-taskboard">
+  <div class="row">
+  
+    <div class="col-3">
+      <div class="form-group mb-2">
+        <label for="basic-form-1">PERSONEL FİLTRESİ</label>
+      
+        <ng-select 
+                  (change)="onChange($event)"
+                  [(ngModel)]="selectedPer"
+                   [items]="personellistesi" 
+                   bindLabel="name" 
+                   bindValue="id"  placeholder="Personel Listesi" style="font-size: 14px;">
+        </ng-select>
+      </div>
+    </div>
+    <!-- <div class="col-3">
+      
+      <ng-select   (change)="onChange($event)" [items]="departman"
+      bindLabel="departmanad"
+      placeholder="Filtrele"
+      [(ngModel)]="selectedDep">
+</ng-select>
+    </div> -->
+  </div>
+
+  <div class="row">
+    <div class="col-xl-4 col-sm-4 col-12">
+      <h5 class="mt-2 mb-0">
+        <span class="d-flex align-items-center">
+          <i class="ft-cast mr-2"></i>
+          <span>Polivalanslar</span>
+        </span>
+        <span>
+          <div class="form-group form-inline">
+            <input class="form-control ml-2 mt-2" type="text" name="term" placeholder="Aranacak Polivalans" [(ngModel)]="term" />
+          </div>
+
+        </span>
+      </h5>
+
+      <div class='dragdrop-container' [dragula]='"task-group"' id="Polivalanslar" [dragulaModel]='marketingTasks'>
+
+        <div class="card " *ngFor="let task of tasks  | filter:term " [attr.task-id]="task.id">
+          <div class="card-body">
+            <div class="d-flex justify-content-center">
+              <h2 style="white-space: normal;" class="badge bg-light-primary">{{task.gorevtanimi}} <br><br> {{task.birimi}}</h2>
+              <div class="mb-2 col-md-4 text-center " >
+                <label for="basic-form-1">Yetkinlik</label>
+                <input type="text"   maxlength="1"  id="taskVal_{{task.id}}"    class="form-control"  >
+              </div> 
+              <button type="button" class="btn btn-warning btn-sm  mt-1 text-end" (click)="updateManuel(task.id,task.id,'PersonelPolivalans');">
+                <span><i class="icon-action-redo"></i></span>
+            </button> 
+            </div>
+        
+            
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6 col-sm-6 col-12">
+      <h5 class="mt-2 mb-0">
+        <span class="d-flex align-items-center">
+          <i class="ft-codepen mr-2"></i>
+          <span>Atanan Polivalanslar</span>
+       
+        </span>
+        <span>
+          <div class="form-group form-inline ">
+            <input class="form-control ml-2 mt-2" type="text" name="termA" placeholder="Aranacak Polivalans" [(ngModel)]="termA" />
+          </div>
+        </span>
+      </h5>
+      <div class='dragdrop-container' [dragula]='"task-group"' id="PersonelPolivalans" [dragulaModel]='uiDesigningTasks'>
+        <div class="card " *ngFor='let task of taskAtanan  | filter:termA ' [attr.task-id]="task.id">
+          <div class="card-body">
+            <div class=" justify-content-start">
+              <h2 style="white-space: normal;" class="badge bg-light-warning">{{task.gorevi}}</h2>
+              <br>  
+              <p style="white-space: normal;" class="badge bg-light-danger">Yetkinlik : {{task.yetkinlik}}</p>
+              <div style="float: right;">
+
+                <button type="button" class="btn btn-success btn-sm mr-1 text-end" (click)="editTask(task);">
+                  <span>Düzelt</span>
+              </button>
+              <button type="button" class="btn btn-danger btn-sm mr-1 text-end" (click)="deleteTask(task.id);">
+                <span>Sil</span>
+            </button>
+        
+                </div>
+            </div>
+        
+           
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+  </div>
+</section>
+<!-- Taskboard Ends -->

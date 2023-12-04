@@ -1,0 +1,673 @@
+
+
+
+
+
+<!-- Basic Form & Hidden Label Layouts starts -->
+<section id="basic-hidden-label-form-layouts ">
+  <div class="row match-height onlythispage">
+    <!-- Basic Form starts -->
+
+
+    <div class="col-lg-12 col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">{{turu}} - <span class="badge bg-success bg-pill">{{yetkilitelefon}}</span></h4>
+          <button type="button" style="float: right;" *ngIf="userroles=='00038' || userroles=='00037' " (click)="showEditIcon()" class=" btn btn-outline-warning btn-xs "><i [ngClass]="editfieldicon === true ? 'ft-eye' : 'ft-eye-off' "  ></i></button>
+
+        </div>
+        <div class="card-content">
+
+
+          
+          <div class="card-body">
+            <form *ngFor="let veriler of formverileri; let i = index;" [formGroup]="heroForm">
+
+
+
+              
+        
+            
+                <div [class]="blok.blokboyutu" *ngFor="let blok of bloklar ; let i = index;" >
+
+
+                  <div class="col-md-12" *ngIf="blok.turu=== 'Liste' ">
+
+
+
+                
+                     
+                
+
+
+                    <section id="ngx-datatable-filter">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h4 class="card-title">{{blok.formtanimi}}</h4>
+                    
+                              <button type="button" class="btn btn-outline-info mr-2 mb-1" (click)="satirekle(blok.bagliformindex,blok.masterfield,blok.bokindex)"><i class="fa fa-plus mr-1"></i>Ekle</button>
+                              
+                            </div>
+                            <div class="card-content">
+                              <div class="card-body">
+                    
+                                <!-- ngx-datatable-filter -->
+                                <fieldset class="form-group">
+                                  <label for="ngx-filter-ref">Ara:
+                                    <input  class="form-control ml-2 mt-2"    type="text" name="search_{{blok.bokindex}}" [id]="blok.bokindex" placeholder="Aranacak Kelime" [(ngModel)]="blok.bokindexC" />
+
+                                  </label>
+                                </fieldset>
+
+                                <ngx-datatable class="bootstrap core-bootstrap" [columns]="sutunlars[blok.bokindex]" [columnMode]="ColumnMode.force"
+                                  [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="10" [rows]="satirlar[blok.bokindex] | filter:blok.bokindexC" [scrollbarH]="true">
+                                
+                    
+                    
+                                  <ngx-datatable-column *ngFor="let column of sutunlars[blok.bokindex]; let r = index;" name="{{column.name}}" prop="{{column.id}}">
+                                    <ng-template #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                                      {{row[column.id]}}
+                                    </ng-template>
+                                  </ngx-datatable-column>
+                    
+                                 
+                                
+                                 
+                                  <ngx-datatable-column name="Eylemler" [width]="200">
+                                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                                      <div class="col-12" style="width: 240px;">
+                           
+                                      <button type="button" *ngIf=" blok.formturu!='Rapor'"  class="btn btn-outline-info mr-1 mb-1" (click)="editrecord(row.id,blok.bagliformindex,blok.bokindex)"><i class="fa fa-edit"></i></button>
+                                      <button type="button" *ngIf=" blok.formturu!='Rapor'"  class="btn btn-danger mr-1 mb-1" (click)="deleterecord(row.id,blok.bagliformindex,blok.bokindex)"><i class="fa fa-trash-o"></i></button>
+                                    </div>
+                    
+                                    </ng-template>
+                                  </ngx-datatable-column>
+                                </ngx-datatable>
+                                <!-- ngx-datatable-filter -->
+                    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+
+                  </div>
+
+                  <ng-container *ngFor="let alan of blokalanlari"  >
+                    <div [class]="alan.alanboyutu" *ngIf="ayniblokmu(alan.blokindex,blok.bokindex) ">
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Edit'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                        <input type="text" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                        <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu=='True' ">Zorunlu Alan</small>
+
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Combobox'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                      
+                        <ng-select  [virtualScroll]="true"  (change)="islemyap(alan.formindex,alan.alanadi)"   [items]="cities[alan.alan_index]" bindLabel="name" [id]="alan.alanadi"  bindValue="id" [closeOnSelect]="true" [name]="alan.alanadi"  [(ngModel)]="veriler[alan.alanadi]" placeholder="Seçiniz">
+                        
+                       
+                        </ng-select>
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Autocomplete' && alan.alanindex=='10592'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                      
+                        <ng-select
+                        [items]="serverSideFilterItems"
+                        [name]="alan.alanadi"  
+                        (change)="islemyap(alan.formindex,alan.alanadi)"  
+                        [virtualScroll]="true"
+                        [(ngModel)]="veriler[alan.alanadi]"
+                        placeholder="anahtar kelime girin"
+                        bindLabel="caritanimi"
+                        [id]="alan.alanadi"
+                        bindValue="caritanimi"
+                        [typeahead]="peopleTypeahead">
+                        <ng-template ng-typetosearch-tmp>
+                            <div class="ng-option disabled">
+                                anahtar kelime girin...
+                            </div>
+                        </ng-template>
+                        <ng-template ng-notfound-tmp let-searchTerm="searchTerm">
+                            <div class="ng-option disabled">
+                                kayıt bulunamadı "{{searchTerm}}"
+                            </div>
+                        </ng-template>
+                        <ng-template ng-loadingtext-tmp let-searchTerm="searchTerm">
+                            <div class="ng-option disabled">
+                                veriler filtreleniyor "{{searchTerm}}"
+                            </div>
+                        </ng-template>
+                    </ng-select>
+                      </div>
+
+             
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Color'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                        <input (change)="islemyap(alan.formindex,alan.alanadi)" type="text" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                        <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu=='True' ">Zorunlu Alan</small>
+
+                      </div>
+
+          <div class="input-group mb-2 custom-control custom-radio" *ngIf="alan.verigiristuru=='Radiobutton'">
+                        <div class="col-md-12 " style="white-space: nowrap;"><label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label></div>
+                   
+                    
+                        
+                        <div *ngFor="let veri of cities[alan.alan_index] ; let i = index;"  class="radio radio-primary radio-sm d-inline-block mr-2 mb-1">
+                          <input  type="radio" class="" value="{{veri.name}}" [(ngModel)]="veriler[alan.alanadi]" [id]="veri.name+'_'+alan.alan_index" [name]="alan.alanadi" ngModel>
+                          <label class="" for="{{veri.name}}_{{alan.alan_index}}">{{veri.name}}</label>
+
+                       </div>
+
+
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Boolean'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                        <input (change)="islemyap(alan.formindex,alan.alanadi)" type="checkbox" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required [name]="alan.alanadi"   [(ngModel)]="veriler[alan.alanadi]" value='{{veriler[alan.alanadi]}}'>
+                        <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu=='True' ">Zorunlu Alan</small>
+
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Time'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                        <input (change)="islemyap(alan.formindex,alan.alanadi)" type="time" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required [name]="alan.alanadi"  [(ngModel)]="veriler[alan.alanadi]" value='{{veriler[alan.alanadi]}}'>
+                        <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu=='True' ">Zorunlu Alan</small>
+
+                      </div>
+
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Disabled'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                        <input (change)="islemyap(alan.formindex,alan.alanadi)" type="text" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required [name]="alan.alanadi"  [(ngModel)]="veriler[alan.alanadi]" value='{{veriler[alan.alanadi]}}' readonly>
+                      
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Form'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                        <input (change)="islemyap(alan.formindex,alan.alanadi)" type="text" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required [name]="alan.alanadi"  [(ngModel)]="veriler[alan.alanadi]" value='{{veriler[alan.alanadi]}}'>
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Hidden'" style="display: none;">
+                       
+                        <input (change)="islemyap(alan.formindex,alan.alanadi)" type="hidden" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required [name]="alan.alanadi"  [(ngModel)]="veriler[alan.alanadi]" value='{{veriler[alan.alanadi]}}'>
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Password'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                        <input (change)="islemyap(alan.formindex,alan.alanadi)" type="password" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required [name]="alan.alanadi"  [(ngModel)]="veriler[alan.alanadi]" value='{{veriler[alan.alanadi]}}'>
+                        <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu=='True' ">Zorunlu Alan</small>
+
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Textarea'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                        <textarea (change)="islemyap(alan.formindex,alan.alanadi)" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi">{{veriler[alan.alanadi]}}</textarea>
+                        <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu=='True' ">Zorunlu Alan</small>
+
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Date'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                        <input (change)="islemyap(alan.formindex,alan.alanadi)" type="date" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                        <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu=='True' ">Zorunlu Alan</small>
+
+                      </div>
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='File(JPG)'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                 
+                        <div class="media">
+                          
+                          <img [src]="veriler[alan.alanadi]" alt="" class="rounded mr-3" height="auto"      width="100%">
+
+                           
+                          
+                        </div>
+
+                        <input  type="file" [id]="alan.alanadi" class="file-upload" (change)="dosyayukle($event,alan.alanadi)"  [name]="alan.alanadi">
+                           
+                 
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='File(PDF)'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                        <input type="text" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required (change)="dosyayukle($event,alan.alanadi)"   [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='File(PNG)'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                 
+                        <div class="media">
+                          
+                          <img [src]="degistir(veriler[alan.alanadi])" alt="" class="rounded mr-3" height="auto"
+                            width="100%">
+
+                              <input type="file" [id]="alan.alanadi"  (change)="dosyayukle($event,alan.alanadi)"  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" hidden>
+                           
+                          
+                        </div>
+                 
+                      </div>
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Secimli'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                      
+                        <ng-select (change)="islemyap(alan.formindex,alan.alanadi)"  [multiple]="true"  [items]="cities[alan.alan_index]" bindLabel="name" [id]="alan.alanadi"  bindValue="id" [closeOnSelect]="true" [name]="alan.alanadi"  [(ngModel)]="veriler[alan.alanadi]" placeholder="Seçiniz">
+                        
+
+                          <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                            <input id="item-{{index}}" type="checkbox" name="item-{{index}}" [ngModel]="item$.selected"/> {{item.name}}
+                        </ng-template>
+                       
+                        </ng-select>
+                      </div>
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Multiautocomplete'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                        <input (change)="islemyap(alan.formindex,alan.alanadi)" type="text" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu=='True' , 'is-valid':  !required.invalid && alan.zorunlu=='True' }" #required="ngModel" required[name]="alan.alanadi"  [(ngModel)]="veriler[alan.alanadi]" value='{{veriler[alan.alanadi]}}'>
+                        <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu=='True' ">Zorunlu Alan</small>
+
+                      </div>
+
+            
+
+                      <div class="form-group mb-2" *ngIf="alan.verigiristuru=='FixList'">
+                        <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+
+
+                      
+
+                        <ng-select (change)="islemyap(alan.formindex,alan.alanadi)"  [id]="alan.alanadi" [items]="cities[alan.alan_index]" bindLabel="name"  bindValue="id" [closeOnSelect]="true" [name]="alan.alanadi"  [(ngModel)]="veriler[alan.alanadi]" placeholder="Seçiniz">
+                        
+                       
+                        </ng-select>
+
+                      </div>
+
+
+  
+  
+                    </div>
+
+                  </ng-container> 
+                  
+
+
+                </div>
+                
+             
+
+         
+           
+            
+                <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+              <button type="button" class="btn btn-primary mr-sm-2 mb-1" (click)="kaydet()"><i class="ft-check-square mr-1"></i>Kaydet</button>
+              <button type="button" class="btn btn-secondary mb-1" (click)="activeModal.close('Close click')"><i class="ft-x mr-1"></i>Vazgeç</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Basic Form ends -->
+    <!-- Hidden Label starts -->
+    <div class="col-lg-6 col-12" style="display: none;">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Hidden Label Form</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <p>Use <code>label.sr-only</code> to hide a label and <code>input.round</code> for round inputs. You may add <code>placeholder</code> attribute.</p>
+            <form>
+              <div class="form-group">
+                <label class="sr-only" for="hidden-label-form-1">Company Name</label>
+                <input type="text" id="hidden-label-form-1" class="form-control round" name="cname" placeholder="Company Name">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="hidden-label-form-2">Employee Name</label>
+                <input type="text" id="hidden-label-form-2" class="form-control round" name="ename" placeholder="Employee Name">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="hidden-label-form-3">Employee ID</label>
+                <input type="number" id="hidden-label-form-3" class="form-control round" name="eid" placeholder="Employee ID">
+              </div>
+              <div class="form-group position-relative">
+                <label class="sr-only" for="hidden-label-form-4">Date</label>
+                <input type="text" id="hidden-label-form-4" class="form-control pickadate round" placeholder="Joining Date">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="hidden-label-form-5">Supervisor Name</label>
+                <input type="text" id="hidden-label-form-5" class="form-control round" name="sname" placeholder="Supervisor Name">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="hidden-label-form-6">Details</label>
+                <textarea id="hidden-label-form-6" rows="4" class="form-control round" name="comment2" placeholder="Details"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="hidden-label-form-7">Signature</label>
+                <input type="text" id="hidden-label-form-7" class="form-control round" name="sign" placeholder="Signature">
+              </div>
+              <button type="button" class="btn btn-primary mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+              <button type="button" class="btn btn-secondary"><i class="ft-x mr-1"></i>Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hidden Label ends -->
+  </div>
+</section>
+<!-- Basic Form & Hidden Label Layouts ends -->
+
+<!-- Horizontal Form Layout starts -->
+<section id="horizontal-form-layout" style="display: none;">
+  <div class="row match-height">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Horizontal Form</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <p>Use <code>label.col-form-label</code> for proper padding to a label. You can align label to right side by using <code>.text-right</code>. Use <code>input.square</code> for square inputs.</p>
+            <form>
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-1">First Name</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control square" id="horizontal-form-1" name="first-name">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-2">Last Name</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control square" id="horizontal-form-2" name="last-name">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-md-3">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-3">Username</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control square" id="horizontal-form-3" name="username">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-4">Nick Name</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control square" id="horizontal-form-4" name="nick-name">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-5">Email</label>
+                    <div class="col-md-9">
+                      <input type="email" class="form-control square" id="horizontal-form-5" name="e-mail">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-6">Website</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control square" id="horizontal-form-6" name="website">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-7">Contact Number</label>
+                    <div class="col-md-9">
+                      <input type="number" class="form-control square" id="horizontal-form-7" name="phone-number">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-9">About Project</label>
+                    <div class="col-md-9">
+                      <textarea id="horizontal-form-9" rows="6" class="form-control square" name="comment3"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+              <button type="button" class="btn btn-secondary"><i class="ft-x mr-1"></i>Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Horizontal Form Layout ends -->
+
+<!-- Form Action Form Layout starts -->
+<section id="action-form-layout" style="display: none;">
+  <div class="row match-height">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Form Actions</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <p>You can use form actions on top & bottom and can also align them inside the form.</p>
+            <form>
+              <button type="button" class="btn btn-primary mb-2 mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+              <button type="button" class="btn btn-secondary mb-2"><i class="ft-x mr-1"></i>Cancel</button>
+              <div class="form-group">
+                <label for="form-action-1">Issue Title</label>
+                <input type="text" id="form-action-1" class="form-control" name="issue-title">
+              </div>
+              <div class="form-group">
+                <label for="form-action-2">Opened By</label>
+                <input type="text" id="form-action-2" class="form-control" name="opened-by">
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group position-relative">
+                    <label for="form-action-3">Issue Opened</label>
+                    <input type="text" id="form-action-3" class="form-control pickadate" placeholder="Opened Date" name="date-opened">
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group position-relative">
+                    <label for="form-action-4">Issue Closed</label>
+                    <input type="text" id="form-action-4" class="form-control pickadate" placeholder="Closed Date" name="date-closed">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="form-action-5">Priority</label>
+                <select id="form-action-5" name="priority" class="form-control">
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="form-action-6">Status</label>
+                <select id="form-action-6" name="status" class="form-control">
+                  <option value="Not started">Not started</option>
+                  <option value="Started">Started</option>
+                  <option value="Started but not fixed">Started but not fixed</option>
+                  <option value="Fixed">Fixed</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="form-action-7">Comment</label>
+                <textarea id="form-action-7" rows="4" class="form-control" name="comment4"></textarea>
+              </div>
+              <button type="button" class="btn btn-primary mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+              <button type="button" class="btn btn-secondary"><i class="ft-x mr-1"></i>Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Form Action Form Layout ends -->
+
+<!-- Bordered & Striped Row Form Layout starts -->
+<section id="bordered-striped-form-layout" style="display: none;">
+  <div class="row match-height">
+    <!-- Bordered Form Layout starts -->
+    <div class="col-lg-6 col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Bordered Form</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <p>Use <code>form.form-bordered .form-group</code> for bordered form and <code>label.label-control</code> for proper padding to a label.</p>
+            <form class="form-bordered">
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="bordered-form-1">Employee Name</label>
+                <div class="col-md-9">
+                  <div class="position-relative has-icon-left">
+                    <input type="text" id="bordered-form-1" class="form-control" name="employeename">
+                    <div class="form-control-position">
+                      <i class="ft-user"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="bordered-form-2">Project Name</label>
+                <div class="col-md-9">
+                  <div class="position-relative has-icon-left">
+                    <input type="text" id="bordered-form-2" class="form-control" name="projectname">
+                    <div class="form-control-position">
+                      <i class="ft-briefcase"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="bordered-form-3">Rate Per Hour</label>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                    </div>
+                    <input type="text" id="bordered-form-3" class="form-control" aria-label="Amount (to the nearest dollar)" name="rateperhour">
+                    <div class="input-group-append">
+                      <span class="input-group-text">.00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="bordered-form-4">Time</label>
+                <div class="col-md-9">
+                  <div class="position-relative has-icon-left">
+                    <input type="text" id="bordered-form-4" class="form-control pickatime" name="time">
+                    <div class="form-control-position">
+                      <i class="ft-clock"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row last mb-3">
+                <label class="col-md-3 label-control" for="bordered-form-6">Notes</label>
+                <div class="col-md-9">
+                  <div class="position-relative has-icon-left">
+                    <textarea id="bordered-form-6" rows="4" class="form-control" name="notes"></textarea>
+                    <div class="form-control-position">
+                      <i class="ft-file"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+              <button type="button" class="btn btn-secondary"><i class="ft-x mr-1"></i>Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bordered Form Layout ends -->
+    <!-- Striped Row Form Layout starts -->
+    <div class="col-lg-6 col-12" style="display: none;">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Striped Row</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <p>Use <code>form.striped-rows .form-group</code> for striped form and <code>label.label-control</code> for proper padding to a label. You can use bordered and striped both at the same time.</p>
+            <form class="striped-rows">
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="striped-form-1">Full Name</label>
+                <div class="col-md-9">
+                  <input type="text" id="striped-form-1" class="form-control" name="fullname" placeholder="Full Name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="striped-form-2">Title</label>
+                <div class="col-md-9">
+                  <input type="text" id="striped-form-2" class="form-control" name="title" placeholder="Title">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="striped-form-3">Company</label>
+                <div class="col-md-9">
+                  <input type="text" id="striped-form-3" class="form-control" name="company3" placeholder="Company">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="striped-form-4">Email</label>
+                <div class="col-md-9">
+                  <input type="email" id="striped-form-4" class="form-control" name="email2" placeholder="E-mail">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="striped-form-5">Contact Number</label>
+                <div class="col-md-9">
+                  <input type="number" id="striped-form-5" class="form-control" name="contact" placeholder="Contact Number">
+                </div>
+              </div>
+              <div class="form-group row last mb-3">
+                <label class="col-md-3 label-control">Existing Customer</label>
+                <div class="col-md-9">
+                  <div class="input-group col-md-9">
+                    <div class="radio d-inline-block mr-2 mb-1">
+                      <input type="radio" id="striped-form-6" name="striped-radio">
+                      <label for="striped-form-6">Yes</label>
+                    </div>
+                    <div class="radio d-inline-block">
+                      <input type="radio" id="striped-form-7" checked name="striped-radio">
+                      <label for="striped-form-7">No</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+              <button type="button" class="btn btn-secondary"><i class="ft-x mr-1"></i>Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Striped Row Form Layout ends -->
+  </div>
+</section>
+<!-- Bordered & Striped Row Form Layout ends -->

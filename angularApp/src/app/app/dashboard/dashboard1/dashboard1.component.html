@@ -1,0 +1,2178 @@
+
+
+  <div class="row text-left">
+    <!--Basic navs Starts-->
+    <div class="col-md-12 col-lg-12">
+      <div class="card">
+       
+        <div class="card-content">
+          <div class="card-body">
+            <ul ngbNav #basicnav="ngbNav"  [(activeId)]="active" class="nav-tabs">
+              <li [ngbNavItem]="1" [disabled]="disab">
+                <a ngbNavLink>Hızlı Erişim</a>
+                <ng-template    ngbNavContent>
+                 <!--Statistics cards Starts-->
+
+
+  <!-- Fav base content start -->
+  <div class="kb-content">
+    <div class="row kb-content-info match-height mx-1 mx-md-2">
+      <div class="col-md-3 col-sm-6 kb-content-card"  *ngFor="let fm of favoriMenuleri " >
+        <div class="card bg-warning" style="box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);"  (click)="redirectToForm(fm.formurl)">
+          <div class="card-content">
+            <div class="card-body text-center p-4" >
+              <a href="javascript:;"  (click)="redirectToForm(fm.formurl)">
+                <i class="ft-gitlab mr-2 "></i>
+                <h6 class="mt-2 white">{{fm.formadi}}</h6>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+
+  <!-- Knowledge base content start -->
+  <div class="kb-content">
+    <div class="row kb-content-info match-height mx-1 mx-md-2">
+      <div class="col-md-3 col-sm-6 kb-content-card"  *ngFor="let kb of mainmenuBox " >
+        <div class="card" style="box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);" (click)="viewCategories(kb.submenu)">
+          <div class="card-content">
+            <div class="card-body text-center p-4">
+              <a href="javascript:;" (click)="viewCategories(kb.submenu)">
+                <i [class]="kb.icon"></i>
+                <h6 class="mt-2">{{kb.title}}</h6>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+  <!-- Knowledge base content ends -->
+                </ng-template>
+              </li>
+
+
+              <li [ngbNavItem]="7" [disabled]="disab">
+                <a ngbNavLink>Yönetim</a>
+                <ng-template    ngbNavContent>
+                 <!--Statistics cards Starts-->
+<div class="row" (resized)="onResized($event)">
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-purple-love">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$2,156</h3>
+              <span>İç Satış Toplamı</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-activity font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class=" WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart.data" [type]="WidgetlineChart.type" [options]="WidgetlineChart.options" [responsiveOptions]="WidgetlineChart.responsiveOptions"
+					 [events]="WidgetlineChart.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-ibiza-sunset">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$15,678</h3>
+              <span>Dış Satış Toplamı</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-percent font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart1.data" [type]="WidgetlineChart1.type" [options]="WidgetlineChart1.options" [responsiveOptions]="WidgetlineChart1.responsiveOptions"
+					 [events]="WidgetlineChart1.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-mint">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$45,668</h3>
+              <span>Toplam Maliyet</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-trending-up font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart2.data" [type]="WidgetlineChart2.type" [options]="WidgetlineChart2.options" [responsiveOptions]="WidgetlineChart2.responsiveOptions"
+					 [events]="WidgetlineChart2.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$32,454</h3>
+              <span>Net Kar</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Statistics cards Ends-->
+
+<!--Line with Area Chart 1 Starts-->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Son 8 Ay Performans</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div class="chart-info mb-3 ml-3">
+            <span class="gradient-purple-bliss d-inline-block rounded-circle mr-1" style="width:15px; height:15px;"></span>
+            <span>Alınan Sipariş</span>
+            <span class="gradient-mint d-inline-block rounded-circle mr-1 ml-2" style="width:15px; height:15px;"></span>
+            <span>Faturalanan Sipariş</span>
+          </div>
+          <div id="line-area" class="lineArea">
+						<x-chartist class="height-350" [data]="lineArea.data" [type]="lineArea.type" [options]="lineArea.options"
+						 [responsiveOptions]="lineArea.responsiveOptions" [events]="lineArea.events">
+						</x-chartist>
+					</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Line with Area Chart 1 Ends-->
+<!-- 
+<div class="row match-height">
+  <div class="col-xl-4 col-lg-12 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Statistics</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <p class="font-medium-2 text-center my-2">Last 6 Months Sales</p>
+          <div id="Stack-bar-chart" class="Stackbarchart mb-2">
+            <x-chartist class="height-300" [data]="Stackbarchart.data" [type]="Stackbarchart.type" [options]="Stackbarchart.options"
+             [responsiveOptions]="Stackbarchart.responsiveOptions" [events]="Stackbarchart.events">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+<div class="row match-height">
+  <div class="col-xl-8 col-lg-12 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title mb-0">Fatura & Tahsilat Göstergesi</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div class="chart-info mb-2">
+            <span class="text-uppercase mr-3"><i class="fa fa-circle success font-small-2 mr-1"></i> Fatura</span>
+            <span class="text-uppercase"><i class="fa fa-circle info font-small-2 mr-1"></i> Tahsilat</span>
+          </div>
+          <div id="line-area2" class="lineArea2">
+						<x-chartist class="height-400" [data]="lineArea2.data" [type]="lineArea2.type" [options]="lineArea2.options"
+						 [responsiveOptions]="lineArea2.responsiveOptions" [events]="lineArea2.events">
+						</x-chartist>
+					</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-lg-12 col-12">
+    <div class="card gradient-purple-bliss">
+      <div class="card-content">
+        <div class="card-body">
+          <h4 class="card-title white">Üretim Adedi</h4>
+          <div class="p-2 text-center">
+            <a class="white font-medium-1">Ay</a>
+            <a class="btn round bg-light-info mx-3 px-3">Hafta</a>
+            <a class="white font-medium-1">Yıl</a>
+          </div>
+          <div class="my-3 text-center white">
+            <div class="font-large-2 d-block mb-1">
+              <span>18.000</span>
+              <i class="ft-arrow-up font-large-2"></i>
+            </div>
+            <span class="font-medium-1">Week2 +15.44</span>
+          </div>
+        </div>
+        <div id="lineChart" class="lineChart lineChartShadow">
+					<x-chartist class="height-250" [data]="lineChart.data" [type]="lineChart.type" [options]="lineChart.options"
+					 [responsiveOptions]="lineChart.responsiveOptions" [events]="lineChart.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row match-height">
+  <div class="col-xl-4 col-md-6 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Performans</h4>
+      </div>
+      <div class="card-content">
+
+        <p class="font-medium-2 text-center mb-0 mt-2"></p>
+        <div id="bar-chart" class="BarChartShadow BarChart">
+					<x-chartist class="height-250" [data]="BarChart.data" [type]="BarChart.type" [options]="BarChart.options"
+					 [responsiveOptions]="BarChart.responsiveOptions" [events]="BarChart.events">
+					</x-chartist>
+				</div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col text-center">
+              <span class="gradient-starfall d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">48</span>
+              <span class="font-small-3">Satış Fırsatı</span>
+            </div>
+            <div class="col text-center">
+              <span class="gradient-mint d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">9</span>
+              <span class="font-small-3">Direk Sipariş</span>
+            </div>
+            <div class="col text-center">
+              <span class="gradient-purple-bliss d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">26</span>
+              <span class="font-small-3">Verilen Teklif</span>
+            </div>
+            <div class="col text-center">
+              <span class="gradient-ibiza-sunset d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">17</span>
+              <span class="font-small-3">Onaylı Teklif</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-md-6 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title mb-0">Top 5 Müşteri</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div class="media pt-0 pb-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-12.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">Şampiyon</h4>
+              <p class="text-muted font-small-3 m-0">$45.000</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox1" checked="">
+                <label for="dash-checkbox1"></label>
+              </div>
+            </div>
+          </div>
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-11.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">Astaş</h4>
+              <p class="text-muted font-small-3 m-0">$75.000</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox2">
+                <label for="dash-checkbox2"></label>
+              </div>
+            </div>
+          </div>
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-3.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">Fil Filtre</h4>
+              <p class="text-muted font-small-3 m-0">$27.000</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox3">
+                <label for="dash-checkbox3"></label>
+              </div>
+            </div>
+          </div>
+       
+         
+       
+          <div class="text-center mt-2">
+            <button type="button" class="btn bg-light-primary">Yeni Müşteri</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Üretim Etkinliği</h4>
+      </div>
+      <div class="card-content">
+
+        <p class="font-medium-2 text-center mb-0 mt-2">Güncel OEE Değeri</p>
+        <div id="donut-dashboard-chart" class="donut">
+					<x-chartist class="height-250" [data]="DonutChart.data" [type]="DonutChart.type" [options]="DonutChart.options" [responsiveOptions]="DonutChart.responsiveOptions"
+					 [events]="DonutChart.events">
+					</x-chartist>
+				</div>
+
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col">
+              <span class="mb-1 text-muted d-block">23% Kullanılabilir</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 23%;" aria-valuenow="23"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col">
+              <span class="mb-1 text-muted d-block">28% Kalite</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 28%;" aria-valuenow="28"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <span class="mb-1 text-muted d-block">35% Performans</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 35%;"
+                  aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col">
+              <span class="mb-1 text-muted d-block">14% Son OEE</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 14%;" aria-valuenow="14"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                </ng-template>
+              </li>
+
+              <li [ngbNavItem]="2" [disabled]="disab">
+                <a ngbNavLink>Satınalma</a>
+                <ng-template    ngbNavContent>
+                 <!--Statistics cards Starts-->
+<div class="row" (resized)="onResized($event)">
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-purple-love">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">25 Adet</h3>
+              <span>Bekleyen İç Talep</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-activity font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class=" WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart.data" [type]="WidgetlineChart.type" [options]="WidgetlineChart.options" [responsiveOptions]="WidgetlineChart.responsiveOptions"
+					 [events]="WidgetlineChart.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-ibiza-sunset">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">32 Adet</h3>
+              <span>Alınan Teklif</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-percent font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart1.data" [type]="WidgetlineChart1.type" [options]="WidgetlineChart1.options" [responsiveOptions]="WidgetlineChart1.responsiveOptions"
+					 [events]="WidgetlineChart1.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-mint">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">7 Adet</h3>
+              <span>Beklenen Sipariş</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-trending-up font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart2.data" [type]="WidgetlineChart2.type" [options]="WidgetlineChart2.options" [responsiveOptions]="WidgetlineChart2.responsiveOptions"
+					 [events]="WidgetlineChart2.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">17 Adet</h3>
+              <span>Karşılanan Talep</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Statistics cards Ends-->
+
+
+ 
+                </ng-template>
+              </li>
+
+
+              <li [ngbNavItem]="3" [disabled]="disab">
+                <a ngbNavLink>Satış</a>
+                <ng-template    ngbNavContent>
+                 <!--Statistics cards Starts-->
+<div class="row" (resized)="onResized($event)">
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-purple-love">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$2,156</h3>
+              <span>Yıllık Gelir</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-activity font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class=" WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart.data" [type]="WidgetlineChart.type" [options]="WidgetlineChart.options" [responsiveOptions]="WidgetlineChart.responsiveOptions"
+					 [events]="WidgetlineChart.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-ibiza-sunset">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$15,678</h3>
+              <span>Sevk Bekleyen</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-percent font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart1.data" [type]="WidgetlineChart1.type" [options]="WidgetlineChart1.options" [responsiveOptions]="WidgetlineChart1.responsiveOptions"
+					 [events]="WidgetlineChart1.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-mint">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$45,668</h3>
+              <span>Onaylanan Sipariş</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-trending-up font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart2.data" [type]="WidgetlineChart2.type" [options]="WidgetlineChart2.options" [responsiveOptions]="WidgetlineChart2.responsiveOptions"
+					 [events]="WidgetlineChart2.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$32,454</h3>
+              <span>Reddedilen Sipariş</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Statistics cards Ends-->
+
+<!--Line with Area Chart 1 Starts-->
+
+<!--Line with Area Chart 1 Ends-->
+<!-- 
+<div class="row match-height">
+  <div class="col-xl-4 col-lg-12 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Statistics</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <p class="font-medium-2 text-center my-2">Last 6 Months Sales</p>
+          <div id="Stack-bar-chart" class="Stackbarchart mb-2">
+            <x-chartist class="height-300" [data]="Stackbarchart.data" [type]="Stackbarchart.type" [options]="Stackbarchart.options"
+             [responsiveOptions]="Stackbarchart.responsiveOptions" [events]="Stackbarchart.events">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+
+
+                </ng-template>
+              </li>
+
+
+              <li [ngbNavItem]="4" [disabled]="disab">
+                <a ngbNavLink>Muhasebe</a>
+                <ng-template    ngbNavContent>
+                 <!--Statistics cards Starts-->
+<div class="row" (resized)="onResized($event)">
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-purple-love">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">7 Adet</h3>
+              <span>Fatura Bekleyen</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-activity font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class=" WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart.data" [type]="WidgetlineChart.type" [options]="WidgetlineChart.options" [responsiveOptions]="WidgetlineChart.responsiveOptions"
+					 [events]="WidgetlineChart.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-ibiza-sunset">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$15,678</h3>
+              <span>Alacak Vadesi Gelen</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-percent font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart1.data" [type]="WidgetlineChart1.type" [options]="WidgetlineChart1.options" [responsiveOptions]="WidgetlineChart1.responsiveOptions"
+					 [events]="WidgetlineChart1.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-mint">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$45,668</h3>
+              <span>Borç Vadesi Gelen</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-trending-up font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart2.data" [type]="WidgetlineChart2.type" [options]="WidgetlineChart2.options" [responsiveOptions]="WidgetlineChart2.responsiveOptions"
+					 [events]="WidgetlineChart2.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$32,454</h3>
+              <span>Alınan Fatura</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$32,454</h3>
+              <span>Kesilen Fatura</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">2 Adet</h3>
+              <span>Faturalanacak İrsaliye</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+
+   <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">2 Adet</h3>
+              <span>Faturalanacak İrsaliye</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$32,454</h3>
+              <span>Toplam Borçlar</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$32,454</h3>
+              <span>Toplam Alacak</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$32,454</h3>
+              <span>Portföydeki Çek/Senet</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row match-height">
+  <div class="col-xl-8 col-lg-12 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title mb-0">Fatura & Tahsilat Göstergesi</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div class="chart-info mb-2">
+            <span class="text-uppercase mr-3"><i class="fa fa-circle success font-small-2 mr-1"></i> Fatura</span>
+            <span class="text-uppercase"><i class="fa fa-circle info font-small-2 mr-1"></i> Tahsilat</span>
+          </div>
+          <div id="line-area2" class="lineArea2">
+						<x-chartist class="height-400" [data]="lineArea2.data" [type]="lineArea2.type" [options]="lineArea2.options"
+						 [responsiveOptions]="lineArea2.responsiveOptions" [events]="lineArea2.events">
+						</x-chartist>
+					</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-lg-12 col-12">
+    <div class="card gradient-purple-bliss">
+      <div class="card-content">
+        <div class="card-body">
+          <h4 class="card-title white">Fatura Sayısı</h4>
+          <div class="p-2 text-center">
+            <a class="white font-medium-1">Ay</a>
+            <a class="btn round bg-light-info mx-3 px-3">Hafta</a>
+            <a class="white font-medium-1">Yıl</a>
+          </div>
+          <div class="my-3 text-center white">
+            <div class="font-large-2 d-block mb-1">
+              <span>18</span>
+              <i class="ft-arrow-up font-large-2"></i>
+            </div>
+            <span class="font-medium-1">Week2 +15.44</span>
+          </div>
+        </div>
+        <div id="lineChart" class="lineChart lineChartShadow">
+					<x-chartist class="height-250" [data]="lineChart.data" [type]="lineChart.type" [options]="lineChart.options"
+					 [responsiveOptions]="lineChart.responsiveOptions" [events]="lineChart.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                </ng-template>
+              </li>
+
+
+              <li [ngbNavItem]="5" [disabled]="disab">
+                <a ngbNavLink>Üretim</a>
+                <ng-template    ngbNavContent>
+                 <!--Statistics cards Starts-->
+<div class="row" (resized)="onResized($event)">
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-purple-love">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">2,156</h3>
+              <span>Bugün Üretilen</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-activity font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class=" WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart.data" [type]="WidgetlineChart.type" [options]="WidgetlineChart.options" [responsiveOptions]="WidgetlineChart.responsiveOptions"
+					 [events]="WidgetlineChart.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-ibiza-sunset">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">15,678</h3>
+              <span>Bu hafta üretilen</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-percent font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart1.data" [type]="WidgetlineChart1.type" [options]="WidgetlineChart1.options" [responsiveOptions]="WidgetlineChart1.responsiveOptions"
+					 [events]="WidgetlineChart1.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-mint">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">45,668</h3>
+              <span>Bu Ay Üretilen</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-trending-up font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart2.data" [type]="WidgetlineChart2.type" [options]="WidgetlineChart2.options" [responsiveOptions]="WidgetlineChart2.responsiveOptions"
+					 [events]="WidgetlineChart2.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">%48</h3>
+              <span>KKO</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+
+
+ 
+
+
+</div>
+<!--Statistics cards Ends-->
+
+<!--Line with Area Chart 1 Starts-->
+
+<!--Line with Area Chart 1 Ends-->
+<!-- 
+<div class="row match-height">
+  <div class="col-xl-4 col-lg-12 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Statistics</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <p class="font-medium-2 text-center my-2">Last 6 Months Sales</p>
+          <div id="Stack-bar-chart" class="Stackbarchart mb-2">
+            <x-chartist class="height-300" [data]="Stackbarchart.data" [type]="Stackbarchart.type" [options]="Stackbarchart.options"
+             [responsiveOptions]="Stackbarchart.responsiveOptions" [events]="Stackbarchart.events">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+
+<div class="row match-height">
+  <div class="col-xl-8 col-lg-12 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title mb-0">Üretim&Fire Adetleri</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div class="chart-info mb-2">
+            <span class="text-uppercase mr-3"><i class="fa fa-circle success font-small-2 mr-1"></i> Üretim</span>
+            <span class="text-uppercase"><i class="fa fa-circle info font-small-2 mr-1"></i> Fire</span>
+          </div>
+          <div id="line-area2" class="lineArea2">
+            <x-chartist class="height-400" [data]="lineArea2.data" [type]="lineArea2.type" [options]="lineArea2.options"
+             [responsiveOptions]="lineArea2.responsiveOptions" [events]="lineArea2.events">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-lg-12 col-12">
+    <div class="card gradient-purple-bliss">
+      <div class="card-content">
+        <div class="card-body">
+          <h4 class="card-title white">Üretim Adedi</h4>
+          <div class="p-2 text-center">
+            <a class="white font-medium-1">Ay</a>
+            <a class="btn round bg-light-info mx-3 px-3">Hafta</a>
+            <a class="white font-medium-1">Yıl</a>
+          </div>
+          <div class="my-3 text-center white">
+            <div class="font-large-2 d-block mb-1">
+              <span>18.000</span>
+              <i class="ft-arrow-up font-large-2"></i>
+            </div>
+            <span class="font-medium-1">Week2 +15.44</span>
+          </div>
+        </div>
+        <div id="lineChart" class="lineChart lineChartShadow">
+          <x-chartist class="height-250" [data]="lineChart.data" [type]="lineChart.type" [options]="lineChart.options"
+           [responsiveOptions]="lineChart.responsiveOptions" [events]="lineChart.events">
+          </x-chartist>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+                </ng-template>
+              </li>
+
+
+              
+              <li [ngbNavItem]="9" [disabled]="disab">
+                <a ngbNavLink>Üretim Planlama</a>
+                <ng-template    ngbNavContent>
+                 <!--Statistics cards Starts-->
+<div class="row" (resized)="onResized($event)">
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-purple-love">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">%65</h3>
+              <span>Planlanan/Gerçekleşen</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-activity font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class=" WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart.data" [type]="WidgetlineChart.type" [options]="WidgetlineChart.options" [responsiveOptions]="WidgetlineChart.responsiveOptions"
+					 [events]="WidgetlineChart.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-ibiza-sunset">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">335 Adet</h3>
+              <span>Devam Eden İş Emri</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-percent font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart1.data" [type]="WidgetlineChart1.type" [options]="WidgetlineChart1.options" [responsiveOptions]="WidgetlineChart1.responsiveOptions"
+					 [events]="WidgetlineChart1.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-mint">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">250 Adet</h3>
+              <span>Bekleyen İş Emri</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-trending-up font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart2.data" [type]="WidgetlineChart2.type" [options]="WidgetlineChart2.options" [responsiveOptions]="WidgetlineChart2.responsiveOptions"
+					 [events]="WidgetlineChart2.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">%5</h3>
+              <span>Kayıp Zaman</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Statistics cards Ends-->
+
+<!--Line with Area Chart 1 Starts-->
+
+<!--Line with Area Chart 1 Ends-->
+<!-- 
+<div class="row match-height">
+  <div class="col-xl-4 col-lg-12 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Statistics</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <p class="font-medium-2 text-center my-2">Last 6 Months Sales</p>
+          <div id="Stack-bar-chart" class="Stackbarchart mb-2">
+            <x-chartist class="height-300" [data]="Stackbarchart.data" [type]="Stackbarchart.type" [options]="Stackbarchart.options"
+             [responsiveOptions]="Stackbarchart.responsiveOptions" [events]="Stackbarchart.events">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+
+
+<div class="row match-height">
+  <div class="col-xl-4 col-md-6 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Duruşlar</h4>
+      </div>
+      <div class="card-content">
+
+        <p class="font-medium-2 text-center mb-0 mt-2"></p>
+        <div id="bar-chart" class="BarChartShadow BarChart">
+					<x-chartist class="height-250" [data]="BarChart.data" [type]="BarChart.type" [options]="BarChart.options"
+					 [responsiveOptions]="BarChart.responsiveOptions" [events]="BarChart.events">
+					</x-chartist>
+				</div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col text-center">
+              <span class="gradient-starfall d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">48</span>
+              <span class="font-small-3">Kalıp Takma</span>
+            </div>
+            <div class="col text-center">
+              <span class="gradient-mint d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">9</span>
+              <span class="font-small-3">Makine Arızası</span>
+            </div>
+            <div class="col text-center">
+              <span class="gradient-purple-bliss d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">26</span>
+              <span class="font-small-3">Kalıp Sorunu</span>
+            </div>
+            <div class="col text-center">
+              <span class="gradient-ibiza-sunset d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">17</span>
+              <span class="font-small-3">Yanlış Üretim</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-md-6 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title mb-0">Sıradaki 10 Sipariş</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div class="media pt-0 pb-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-12.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">YF-1000</h4>
+              <p class="text-muted font-small-3 m-0">45.000 Adet</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox1" checked="">
+                <label for="dash-checkbox1"></label>
+              </div>
+            </div>
+          </div>
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-11.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">YF-1001</h4>
+              <p class="text-muted font-small-3 m-0">75.000 Adet</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox2">
+                <label for="dash-checkbox2"></label>
+              </div>
+            </div>
+          </div>
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-3.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">YF-1002</h4>
+              <p class="text-muted font-small-3 m-0">7.000 Adet</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox3">
+                <label for="dash-checkbox3"></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-3.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">YF-1003</h4>
+              <p class="text-muted font-small-3 m-0">9.000 Adet</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox3">
+                <label for="dash-checkbox3"></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-3.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">YF-1004</h4>
+              <p class="text-muted font-small-3 m-0">9.000 Adet</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox3">
+                <label for="dash-checkbox3"></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-3.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">YF-1007</h4>
+              <p class="text-muted font-small-3 m-0">12.000 Adet</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox3">
+                <label for="dash-checkbox3"></label>
+              </div>
+            </div>
+          </div>
+       
+         
+       
+          <div class="text-center mt-2">
+            <button type="button" class="btn bg-light-primary">Yeni İş Emri</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Üretim Etkinliği</h4>
+      </div>
+      <div class="card-content">
+
+        <p class="font-medium-2 text-center mb-0 mt-2">Güncel OEE Değeri</p>
+        <div id="donut-dashboard-chart" class="donut">
+					<x-chartist class="height-250" [data]="DonutChart.data" [type]="DonutChart.type" [options]="DonutChart.options" [responsiveOptions]="DonutChart.responsiveOptions"
+					 [events]="DonutChart.events">
+					</x-chartist>
+				</div>
+
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col">
+              <span class="mb-1 text-muted d-block">23% Kullanılabilir</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 23%;" aria-valuenow="23"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col">
+              <span class="mb-1 text-muted d-block">28% Kalite</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 28%;" aria-valuenow="28"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <span class="mb-1 text-muted d-block">35% Performans</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 35%;"
+                  aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col">
+              <span class="mb-1 text-muted d-block">14% Son OEE</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 14%;" aria-valuenow="14"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+                </ng-template>
+              </li>
+
+              <li [ngbNavItem]="6" [disabled]="disab">
+                <a ngbNavLink>İnsan Kaynakları</a>
+                <ng-template    ngbNavContent>
+                 <!--Statistics cards Starts-->
+<div class="row" (resized)="onResized($event)">
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-purple-love">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">225</h3>
+              <span>Beyaz Yaka</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-activity font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class=" WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart.data" [type]="WidgetlineChart.type" [options]="WidgetlineChart.options" [responsiveOptions]="WidgetlineChart.responsiveOptions"
+					 [events]="WidgetlineChart.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-ibiza-sunset">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">150</h3>
+              <span>Mavi Yaka</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-percent font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart1.data" [type]="WidgetlineChart1.type" [options]="WidgetlineChart1.options" [responsiveOptions]="WidgetlineChart1.responsiveOptions"
+					 [events]="WidgetlineChart1.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">3</h3>
+              <span>Özlük Dosyaları Eksik</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-mint">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">5</h3>
+              <span>İzinli</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-trending-up font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart2.data" [type]="WidgetlineChart2.type" [options]="WidgetlineChart2.options" [responsiveOptions]="WidgetlineChart2.responsiveOptions"
+					 [events]="WidgetlineChart2.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">3</h3>
+              <span>Bugün Gelmeyen</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">2</h3>
+              <span>Bekleyen İzin Talebi</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">2</h3>
+              <span>Avans Talebi</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">2</h3>
+              <span>İş Başvurusu</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Statistics cards Ends-->
+
+<!--Line with Area Chart 1 Starts-->
+
+<!--Line with Area Chart 1 Ends-->
+<!-- 
+<div class="row match-height">
+  <div class="col-xl-4 col-lg-12 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Statistics</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <p class="font-medium-2 text-center my-2">Last 6 Months Sales</p>
+          <div id="Stack-bar-chart" class="Stackbarchart mb-2">
+            <x-chartist class="height-300" [data]="Stackbarchart.data" [type]="Stackbarchart.type" [options]="Stackbarchart.options"
+             [responsiveOptions]="Stackbarchart.responsiveOptions" [events]="Stackbarchart.events">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+<div class="row match-height">
+  <div class="col-xl-4 col-md-6 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">İşgücü Dağılımı</h4>
+      </div>
+      <div class="card-content">
+
+        <p class="font-medium-2 text-center mb-0 mt-2"></p>
+        <div id="bar-chart" class="BarChartShadow BarChart">
+					<x-chartist class="height-250" [data]="BarChart.data" [type]="BarChart.type" [options]="BarChart.options"
+					 [responsiveOptions]="BarChart.responsiveOptions" [events]="BarChart.events">
+					</x-chartist>
+				</div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col text-center">
+              <span class="gradient-starfall d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">48</span>
+              <span class="font-small-3">Komp.</span>
+            </div>
+            <div class="col text-center">
+              <span class="gradient-mint d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">9</span>
+              <span class="font-small-3">Hamur</span>
+            </div>
+            <div class="col text-center">
+              <span class="gradient-purple-bliss d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">26</span>
+              <span class="font-small-3">Tesviye</span>
+            </div>
+            <div class="col text-center">
+              <span class="gradient-ibiza-sunset d-block rounded-circle mx-auto mb-2" style="width:10px; height:10px;"></span>
+              <span class="font-medium-4 d-block mb-2">17</span>
+              <span class="font-small-3">Paket</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-md-6 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title mb-0">Aramıza Son Katılanlar</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div class="media pt-0 pb-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-12.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">Cemil Şamlı</h4>
+              <p class="text-muted font-small-3 m-0">21.11.2021</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox1" checked="">
+                <label for="dash-checkbox1"></label>
+              </div>
+            </div>
+          </div>
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-11.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">Sinan Doğru</h4>
+              <p class="text-muted font-small-3 m-0">02.11.2021</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox2">
+                <label for="dash-checkbox2"></label>
+              </div>
+            </div>
+          </div>
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-3.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">Mehmet Kanlıoğlu</h4>
+              <p class="text-muted font-small-3 m-0">01.11.2021</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox3">
+                <label for="dash-checkbox3"></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-3.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">Mehmet Kanlıoğlu</h4>
+              <p class="text-muted font-small-3 m-0">01.11.2021</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox3">
+                <label for="dash-checkbox3"></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-3.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">Mehmet Kanlıoğlu</h4>
+              <p class="text-muted font-small-3 m-0">01.11.2021</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox3">
+                <label for="dash-checkbox3"></label>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="media py-2">
+            <img class="mr-3 avatar" src="assets/img/portrait/small/avatar-s-3.png" alt="Avatar" width="35">
+            <div class="media-body">
+              <h4 class="font-medium-1 mb-0">Mehmet Kanlıoğlu</h4>
+              <p class="text-muted font-small-3 m-0">01.11.2021</p>
+            </div>
+            <div class="mt-1">
+              <div class="checkbox">
+                <input type="checkbox" id="dash-checkbox3">
+                <label for="dash-checkbox3"></label>
+              </div>
+            </div>
+          </div>
+       
+         
+       
+          <div class="text-center mt-2">
+            <button type="button" class="btn bg-light-primary">Bugün Doğanlar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Polivalans</h4>
+      </div>
+      <div class="card-content">
+
+        <p class="font-medium-2 text-center mb-0 mt-2">Tanımlanma Oranı</p>
+        <div id="donut-dashboard-chart" class="donut">
+					<x-chartist class="height-250" [data]="DonutChart.data" [type]="DonutChart.type" [options]="DonutChart.options" [responsiveOptions]="DonutChart.responsiveOptions"
+					 [events]="DonutChart.events">
+					</x-chartist>
+				</div>
+
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col">
+              <span class="mb-1 text-muted d-block">23% Kompresyon</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 23%;" aria-valuenow="23"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col">
+              <span class="mb-1 text-muted d-block">28% Hamurhane</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 28%;" aria-valuenow="28"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <span class="mb-1 text-muted d-block">35% Tesviye</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 35%;"
+                  aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col">
+              <span class="mb-1 text-muted d-block">14% Paket</span>
+              <div class="progress" style="height: 5px;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 14%;" aria-valuenow="14"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+                </ng-template>
+              </li>
+
+
+              <li [ngbNavItem]="8" [disabled]="disab">
+                <a ngbNavLink>Kalite Kontrol</a>
+                <ng-template    ngbNavContent>
+                 <!--Statistics cards Starts-->
+<div class="row" (resized)="onResized($event)">
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-purple-love">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$2,156</h3>
+              <span>Total Tax</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-activity font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class=" WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart.data" [type]="WidgetlineChart.type" [options]="WidgetlineChart.options" [responsiveOptions]="WidgetlineChart.responsiveOptions"
+					 [events]="WidgetlineChart.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-ibiza-sunset">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$15,678</h3>
+              <span>Total Cost</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-percent font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart1.data" [type]="WidgetlineChart1.type" [options]="WidgetlineChart1.options" [responsiveOptions]="WidgetlineChart1.responsiveOptions"
+					 [events]="WidgetlineChart1.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-mint">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$45,668</h3>
+              <span>Total Sales</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-trending-up font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart2.data" [type]="WidgetlineChart2.type" [options]="WidgetlineChart2.options" [responsiveOptions]="WidgetlineChart2.responsiveOptions"
+					 [events]="WidgetlineChart2.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+    <div class="card gradient-king-yna">
+      <div class="card-content">
+        <div class="card-body py-0">
+          <div class="media pb-1">
+            <div class="media-body white text-left">
+              <h3 class="font-large-1 white mb-0">$32,454</h3>
+              <span>Total Earning</span>
+            </div>
+            <div class="media-right white text-right">
+              <i class="ft-credit-card font-large-1"></i>
+            </div>
+          </div>
+        </div>
+        <div id="Widget-line-chart" class="WidgetlineChart WidgetlineChartshadow mb-2">
+					<x-chartist class="height-75" [data]="WidgetlineChart3.data" [type]="WidgetlineChart3.type" [options]="WidgetlineChart3.options" [responsiveOptions]="WidgetlineChart3.responsiveOptions"
+					 [events]="WidgetlineChart3.events">
+					</x-chartist>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Statistics cards Ends-->
+
+<!--Line with Area Chart 1 Starts-->
+
+<!--Line with Area Chart 1 Ends-->
+<!-- 
+<div class="row match-height">
+  <div class="col-xl-4 col-lg-12 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Statistics</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <p class="font-medium-2 text-center my-2">Last 6 Months Sales</p>
+          <div id="Stack-bar-chart" class="Stackbarchart mb-2">
+            <x-chartist class="height-300" [data]="Stackbarchart.data" [type]="Stackbarchart.type" [options]="Stackbarchart.options"
+             [responsiveOptions]="Stackbarchart.responsiveOptions" [events]="Stackbarchart.events">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+
+
+
+
+
+                </ng-template>
+              </li>
+              <li [ngbNavItem]="10" >
+                <a ngbNavLink>İş Emri Takibi</a>
+                <ng-template    ngbNavContent>
+                 <!--Statistics cards Starts-->
+
+                
+<!-- Knowledge base content start -->
+<div class="kb-content" >
+  <div class="row kb-content-info match-height mx-1 mx-md-2">
+    <div class="col-xl-3 col-lg-3 col-md-3 ">
+      <div class="card gradient-purple-love">
+        <div class="card-content">
+          <div class="card-body ">
+                <div>
+             <!--Using items input-->
+             <ng-select 
+             (ngModelChange)="isistasyonGetir($event)" 
+                        [items]="ismerkezleri" 
+                        bindLabel="name" 
+                        bindValue="id" 
+                        [(ngModel)]="selectedMer" placeholder="İş Merkezi" style="font-size: 14px;">
+             </ng-select>
+            </div>
+  
+             <div class="mt-2"  [hidden]="isIstasyon">
+              <ng-select
+              (ngModelChange)="isistasyonSec($event)" 
+                         [items]="isistasyonlari" 
+                         bindLabel="name" 
+                         bindValue="name" 
+                         [(ngModel)]="selectedIs" placeholder="İş İstasyonu" style="font-size: 14px;">
+              </ng-select>
+             </div>
+           
+    
+           
+          </div>
+      
+        </div>
+      
+      </div>
+      <fieldset class="form-group">
+        <label for="ngx-filter-ref">Ara:
+          <input  class="form-control ml-2 mt-2"    type="text" name="search_{{formid}}" [id]="formid" placeholder="Aranacak Kelime" [(ngModel)]="TermArama" />
+  
+        </label>
+      </fieldset>
+    </div>
+
+    <!-- <div class="col-md-12">
+      <div class="card">
+      <div class="card-body">
+
+
+        <fieldset class="form-group">
+          <label for="ngx-filter-ref">Ara:
+            <input  class="form-control ml-2 mt-2"    type="text" name="search_{{formid}}" [id]="formid" placeholder="Aranacak Kelime" [(ngModel)]="TermArama" />
+
+          </label>
+        </fieldset>
+        <ngx-datatable   
+        [selected]="chkBoxSelected"   [selectionType]="SelectionType.multi"
+        class="bootstrap core-bootstrap" [columns]="columns" [columnMode]="ColumnMode.force"
+          [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="50" [rows]="rows | filter:TermArama" [scrollbarH]="true">
+          <ngx-datatable-column [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false"
+          [resizeable]="false">
+          <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
+            let-selectFn="selectFn">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
+            </div>
+          </ng-template>
+          <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected"
+            let-onCheckboxChangeFn="onCheckboxChangeFn">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox"  [checked]="isSelected" (change)="onCheckboxChangeFn($event)" />
+            </div>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Eylemler"  >
+          <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+            <div class="col-12" >
+              <button type="button" class="btn btn-outline-success mr-1 mb-1" title="{{row.id}}" *ngIf="row.baslamatarihi=='' && row.baslamasaati=='' && row.bitistarihi=='' && row.bitissaati=='' "   (click)="uretimeBaslat(row.id)">Başlat</button>
+              <button type="button" class="btn btn-outline-success mr-1 mb-1" title="{{row.id}}" *ngIf="row.baslamatarihi!='' && row.baslamasaati!='' && row.bitistarihi=='' && row.bitissaati=='' "   (click)="uretimeDurdur(row.id)">Bitir</button>
+            <button type="button" class="btn btn-outline-success mr-1 mb-1" title="{{row.id}}"  (click)="satirekle('780',row.id)"><i class="fa fa-check"></i></button>
+              <button  class="btn btn-sm btn-outline-warning  mb-1" (click)="modalAc(row.id,'uretimverileri')">Fire/Duruş</button>
+            </div>
+
+          </ng-template>
+        </ngx-datatable-column>
+
+
+
+          <ngx-datatable-column [sortable]="true" *ngFor="let column of columns; let i = index;" name="{{column.prop}}" prop="{{column.Name}}">
+            
+            <ng-template #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+              {{row[column.Name]}}
+              
+              
+            </ng-template>
+
+          </ngx-datatable-column>
+
+         
+
+        </ngx-datatable>
+
+      </div>
+    </div>
+    </div> -->
+
+  <div class="col-xl-4 col-md-4 col-sm-4 kb-content-card"  *ngFor="let isemri of rows  | filter:TermArama">
+    <div class="card" style="box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);" >
+      <div class="card-content">
+        <!-- (click)="isemri.id = !isemri.id" [attr.aria-controls]="isemri.id"  [attr.aria-expanded]="!isCollapsed" --->
+        <div class="card-body  text-center p-4">
+          <a href="javascript:;" >
+            <h6 class="mt-2">{{isemri.isemrino}}</h6>
+            <h5 class="mt-2">{{isemri.malzemekodu}}</h5>
+            <h5 class="mt-2">{{isemri.pbaslamatarihi}} {{isemri.pbaslamasaati}}</h5>
+              <h6 style="color: black !important;"><button class="btn btn-light" type="button" >
+                {{isemri.makine}} - {{isemri.ismerkezi}}
+              </button></h6>
+          </a>
+          <button type="button" class="btn btn-success mr-1 mb-1" title="{{isemri.id}}"   (click)="uretimeBaslat(isemri.id)">Başlat</button>
+          <button type="button" class="btn btn-danger mr-1 mb-1" title="{{isemri.id}}"  (click)="uretimeDurdur(isemri.id,isemri.ismerkezi)">Bitir</button>
+          <!-- <button type="button" class="btn btn-outline-success mr-1 mb-1" title="{{row.id}}"  (click)="satirekle('780',row.id)"><i class="fa fa-check"></i></button> -->
+          <button  class="btn  btn-secondary  mb-1" (click)="modalAc(isemri.id,'uretimverileri')">Fire/Duruş</button>
+      
+        </div>
+       <div class="card-body text-center" >
+          <div>
+            <p><small class="mt-2">P. Miktarı: {{isemri.siparismiktari}}</small></p>
+            <p> <small class="mt-2">G. Miktarı: {{isemri.gerceklesenislempartisi}}</small></p>
+            <p> <small class="mt-2">P. Kalan Süre: {{isemri.tahminisure}}</small></p>
+              </div>
+              <div class="row justify-content-center">
+
+                <div class="col-md-4"><button  class="btn btn-sm btn-outline-info  mb-1" (click)="modalAc(isemri.index_isemrioperasyonlari,'isemrianalizi')">Analiz Kontrol</button></div>
+                <div class="col-md-4"><button  class="btn btn-sm btn-outline-danger  mb-1" (click)="modalAc(isemri.index_isemrioperasyonlari,'isemrikalite')">Kalite Kontrol</button></div>
+                <div class="col-md-4"><button  class="btn btn-sm btn-outline-primary  mb-1" (click)="modalAc(isemri.index_isemrioperasyonlari,'uretimverileri')">Üretim Verileri</button></div>
+              </div>  
+
+        </div> 
+      </div>
+    </div>
+  </div> 
+
+
+
+  </div>
+</div>
+<!--Statistics cards Ends-->
+
+<!--Line with Area Chart 1 Starts-->
+
+<!--Line with Area Chart 1 Ends-->
+<!-- 
+<div class="row match-height">
+  <div class="col-xl-4 col-lg-12 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Statistics</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <p class="font-medium-2 text-center my-2">Last 6 Months Sales</p>
+          <div id="Stack-bar-chart" class="Stackbarchart mb-2">
+            <x-chartist class="height-300" [data]="Stackbarchart.data" [type]="Stackbarchart.type" [options]="Stackbarchart.options"
+             [responsiveOptions]="Stackbarchart.responsiveOptions" [events]="Stackbarchart.events">
+            </x-chartist>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+
+
+
+
+
+                </ng-template>
+              </li>   
+            </ul>
+
+            <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Basic navs Ends-->
+  </div>
+
+

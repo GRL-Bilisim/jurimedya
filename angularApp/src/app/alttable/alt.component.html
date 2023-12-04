@@ -1,0 +1,188 @@
+
+  <div class="row text-left" style="white-space: nowrap ;" >
+    <!--Basic navs Starts-->
+    <div [ngClass]="{ 'col-md-12 col-lg-12':  anfrom!=='562' , 'col-md-4 col-lg-4':  anfrom=='562'  }">
+      <div class="card">
+       
+        <div class="card-content">
+          <div class="card-body">
+            <form #form="ngForm">
+            <ul ngbNav #basicnav="ngbNav"  [(activeId)]="active" class="nav-tabs" (navChange)="navChanged1($event,'')">
+              <li [ngbNavItem]="12" style="display: none;" >
+                <a ngbNavLink>Deneme</a>
+
+              </li>
+              <li [ngbNavItem]="tab"   *ngFor="let tab of tabs let i=index">
+                <a [ngClass]="{ 'varsayilanaktif':  tab.sirasi==0 }"   ngbNavLink>{{tab.tabbar}}</a>
+
+                <ng-template     ngbNavContent>
+                  <button type="button" *ngIf="formid=='624'" class="btn btn-outline-info mr-2 mb-1" (click)="uretimEkle()"><i class="fa fa-plus mr-1"></i>Ekle</button>
+
+
+                  <button type="button" *ngIf="formid=='713'" class="btn btn-outline-info mr-2 mb-1" (click)="satirekle(formid,'terminid','')"><i class="fa fa-plus mr-1"></i>Ekle</button>
+
+                  <ngx-datatable   
+                  [selected]="chkBoxSelected"   [selectionType]="SelectionType.single"  (dblclick)="dbleditrow(chkBoxSelected,formid)"
+                  (select)="customChkboxOnSelect($event)" class="bootstrap core-bootstrap" [columns]="columns" [columnMode]="ColumnMode.force"
+                    [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="10" [rows]="rows | filter:TermArama" [scrollbarH]="true">
+                    <ngx-datatable-column [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false"
+                    [resizeable]="false">
+                    <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
+                      let-selectFn="selectFn">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
+                      </div>
+                    </ng-template>
+                    <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected"
+                      let-onCheckboxChangeFn="onCheckboxChangeFn">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox"  [checked]="isSelected" (change)="onCheckboxChangeFn($event)" />
+                      </div>
+                    </ng-template>
+                  </ngx-datatable-column>
+                 
+                  <ngx-datatable-column *ngIf="formid!='250'" name="Eylemler" [width]="200" >
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+      
+                    </ng-template>
+                  </ngx-datatable-column>
+      
+                  <ngx-datatable-column *ngIf="formid=='624'"  name="MRP" prop="mrpsi" >
+                      
+                    <ng-template #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                      <button type="button" (click)="MrpOlustur(formid,row)" class="btn btn-success  mr-1 mb-1 "><i class="ft-box"></i></button>                  
+                    </ng-template>
+
+                  </ngx-datatable-column>
+      
+
+                    <ngx-datatable-column [sortable]="true" *ngFor="let column of columns; let i = index;" name="{{column.prop}}" prop="{{column.Name}}">
+                      
+                      <ng-template  #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                        {{row[column.Name]}}
+
+                        
+                      </ng-template>
+        
+                    </ngx-datatable-column>
+      
+        
+                  </ngx-datatable>
+                  <!-- ngx-datatable-filter -->
+                      </ng-template>
+              </li>
+         
+ 
+ 
+ 
+
+            </ul>
+          </form>
+  
+            <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Basic navs Ends-->
+
+
+    <div class="col-md-8 col-lg-8" *ngIf="anfrom=='562'">
+      <div class="card">
+       
+        <div class="card-content">
+          <div class="card-body">
+   
+              <button type="button" class="btn btn-warning btn-md mr-2 mb-1" *ngIf="tabloSecililer.length>0" (click)="uretimEkle()"><i class="fa fa-plus my-2 mr-2 mt-2"></i>Ekle</button>
+
+              <ngx-datatable   
+                [selectionType]="SelectionType.single" 
+              (select)="customChkboxOnSelect2($event)" class="bootstrap core-bootstrap" [columns]="columnsPl" [columnMode]="ColumnMode.force"
+                [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="10" [rows]="rowsPl | filter:TermArama" [scrollbarH]="true">
+                <ngx-datatable-column [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false"
+                [resizeable]="false">
+           
+                <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected"
+                  let-onCheckboxChangeFn2="onCheckboxChangeFn2">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox"  [checked]="isSelected" (change)="onCheckboxChangeFn2($event)" />
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+             
+              <ngx-datatable-column name="Eylemler" [width]="200" >
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                  <button type="button" (click)="deleterecord(row.id)" class="btn btn-danger btn-sm  "><i class="ft-trash my-2 mt-4 "></i></button>                  
+
+                </ng-template>
+              </ngx-datatable-column>
+  
+              <ngx-datatable-column   name="MRP" prop="mrpsi" >
+                  
+                <ng-template #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                  <button type="button" (click)="MrpOlustur(formid,row)" class="btn btn-success btn-sm  "><i class="ft-box my-2 mt-4 "></i></button>                  
+                </ng-template>
+
+              </ngx-datatable-column>
+  
+
+                <ngx-datatable-column [sortable]="true" *ngFor="let column of columnsPl; let i = index;" name="{{column.prop}}" prop="{{column.Name}}">
+                  
+                  <ng-template  #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                    {{row[column.Name]}}
+
+                    
+                  </ng-template>
+    
+                </ngx-datatable-column>
+  
+    
+              </ngx-datatable>
+              <!-- ngx-datatable-filter -->
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="col-md-4 col-lg-4" *ngIf="anfrom=='562'">
+      <div class="card">
+       
+        <div class="card-content">
+          <div class="card-body">
+
+              <ngx-datatable   
+                     [selectionType]="SelectionType.single" 
+             class="bootstrap core-bootstrap" [columns]="columnsUer" [columnMode]="ColumnMode.force"
+                [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="10" [rows]="rowsUer " [scrollbarH]="true">
+                <ngx-datatable-column [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false"
+                [resizeable]="false">
+
+              </ngx-datatable-column>
+             
+
+                <ngx-datatable-column [sortable]="true" *ngFor="let column of columnsUer; let i = index;" name="{{column.prop}}" prop="{{column.Name}}">
+                  
+                  <ng-template  #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                    {{row[column.Name]}}
+
+                    
+                  </ng-template>
+    
+                </ngx-datatable-column>
+  
+    
+              </ngx-datatable>
+          
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+
+
+
+
+

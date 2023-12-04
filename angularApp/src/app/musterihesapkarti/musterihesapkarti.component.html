@@ -1,0 +1,891 @@
+
+<div class="chat-application">
+  <div #contentOverlay class="app-content-overlay" [ngClass]="{show: isContentOverlay}" (click)="onContentOverlay()">
+  </div>
+  <div [perfectScrollbar] #chatSidebar class="{{clasim}} d-md-block" *ngIf="recordid==null">
+    <span class="sidebar-close-icon d-md-none" (click)="isContentOverlay = false">
+      <i class="ft-x"></i>
+    </span>
+ 
+    <div class="chat-sidebar-content" >
+      <div class="chat-fixed-search py-2 px-3 my-1">
+
+                              
+
+        <form action="javascript:;" >
+          <div class="position-relative has-icon-left">
+            <input class="form-control" placeholder="Hesap Kartı için Müşteri arayın" id="timesheetinput1" name="employeename" type="text"
+              [(ngModel)]="searchQuery" (keyup)="hastaara()">
+            <div class="form-control-position">
+              <i class="ft-user"></i>
+            </div>
+          </div>
+        </form>
+
+        
+      </div>
+      <hr class="m-0">
+      <div id="users-list" class="list-group" >
+        <div class="users-list-padding position-relative">
+
+          <div *ngIf="recordid==null">
+          <a  class="list-group-item " [ngClass]="{'selected-chat': user.isActiveChat}"
+            *ngFor="let user of usersChat | search:'caritanimi':searchQuery" (click)="viewChat(user,user.cariindex)">
+            <div class="media chat-list-text py-1" [ngClass]="{'align-items-center': !user.isActiveChat}">
+              <span class="avatar avatar-md mr-2">
+                <img [src]="user.profilresim" alt="Avatar">
+                <span class="avatar-status-{{user.durumu}}"></span>
+                <i></i>
+              </span>
+              <div class="media-body">
+                <h6 class="list-group-item-heading mb-1">{{user.caritanimi}}
+                  
+                </h6>
+                <p class="list-group-item-text chat-user-list-text m-0">
+                  <!-- <i class="ft-check primary font-small-2 mr-1"></i><span>{{user.lastChatMessage}}</span> -->
+                  <span class="float-right primary">
+                    <i class="font-medium-1 icon-pin" *ngIf="user.isPinnedUser"></i>
+                    <i class="font-medium-1 icon-volume-off mr-1" *ngIf="user.isMuted"></i>
+                    <!-- <span class="badge badge-pill bg-light-primary badge-round"
+                      *ngIf="user.unreadMessageCount != '' ">{{user.unreadMessageCount}}</span> -->
+                  </span> 
+                  <span class="chat-list-text font-small-2 float-right chat-time">{{user.yetkiligsm}}</span>
+                  <span class="chat-list-text font-small-2 float-left chat-time">{{user.tckimlikno}}</span>
+                </p>
+              </div>
+            </div>
+          </a>
+          </div>
+
+
+          <div *ngIf="secilengrup!=null">
+            <a  class="list-group-item " [ngClass]="{'selected-chat': user.isActiveChat}"
+              *ngFor="let user of tedaviler | search:'hizmettanimi':searchQuery" (click)="tedavisec(user,user.id)">
+              <div class="media chat-list-text py-1" style="border: 1px;">
+                
+                <div class="media-body">
+             
+                 
+                    <div class="d-flex justify-content-between mb-2"><span class="badge bg-light-primary">{{user.hizmettanimi}}</span>
+                      <div *ngIf="user.onecikar=='H'||user.onecikar==''"><i class="ft-star mr-1 primary cursor-pointer" (click)="onecikar(user.id)" ></i></div>
+                      <div *ngIf="user.onecikar=='E'"><i class="ft-star-on mr-1 primary cursor-pointer" (click)="onecikar_gerial(user.id)"></i></div></div>
+            
+               
+                </div>
+              </div>
+            </a>
+            </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row" *ngIf="recordid!=null&&cihazmobilmi==true">
+    <div class="col-xl-3 col-lg-6 col-6">
+      <div class="card card-inverse bg-warning">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h7 class="card-text">{{bakiyeler[0].islemtoplami}} ₺</h7>
+                <br>
+                <span>İşlem</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-briefcase font-large-1 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-6">
+      <div class="card card-inverse bg-success">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h7 class="card-text">{{bakiyeler[0].odemetoplami}} ₺</h7>
+                <br>
+                <span>Ödeme</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-user font-large-1 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-6">
+      <div class="card card-inverse bg-danger">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h7 class="card-text">{{bakiyeler[0].bakiye}} ₺</h7><br>
+                <span *ngIf="bakiyeler[0].odemetoplami-bakiyeler[0].islemtoplami>0">Borçlu</span>
+                <span *ngIf="bakiyeler[0].odemetoplami-bakiyeler[0].islemtoplami<0">Alacaklı</span>
+                <span *ngIf="bakiyeler[0].odemetoplami-bakiyeler[0].islemtoplami===0">Temiz</span>
+          
+                <span>Bakiye</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-pie-chart font-large-1 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-6">
+      <div class="card card-inverse bg-primary">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h7 class="card-text">{{uyari}}</h7>
+                <br>
+                <span>Uyarı</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-life-buoy font-large-1 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="chat-name2 p-2" *ngIf="recordid!=null">
+   
+    <div class="d-flex justify-content-between mb-2" *ngIf="recordid!=null"><span class="badge bg-light-primary">{{secilenhasta}}</span>
+      <div><i class="ft-info mr-1 primary cursor-pointer" (click)="hastakarti()"></i><i class="ft-menu danger cursor-pointer" (click)="listeyedon()"></i></div></div>
+
+    <div *ngIf="recordid!=null" class="row">
+     
+     
+  </div> 
+
+  <div class="row" *ngIf="recordid!=null&&cihazmobilmi==false">
+    <div class="col-xl-3 col-lg-6 col-6">
+      <div class="card card-inverse bg-warning">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h7 class="card-text">{{bakiyeler[0].islemtoplami}} TL</h7>
+                <br>
+                <span>İşlem Toplamı</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-briefcase font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-6">
+      <div class="card card-inverse bg-success">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h7 class="card-text">{{bakiyeler[0].odemetoplami}} TL</h7>
+                <br>
+                <span>Ödeme Toplamı</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-user font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-6">
+      <div class="card card-inverse bg-danger">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h7 class="card-text">{{bakiyeler[0].bakiye}}  TL</h7><br>
+                <span *ngIf="bakiyeler[0].odemetoplami-bakiyeler[0].islemtoplami>0">Borçlu</span>
+                <span *ngIf="bakiyeler[0].odemetoplami-bakiyeler[0].islemtoplami<0">Alacaklı</span>
+                <span *ngIf="bakiyeler[0].odemetoplami-bakiyeler[0].islemtoplami===0">Temiz</span>
+               
+                <span> Bakiye</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-pie-chart font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-6">
+      <div class="card card-inverse bg-primary">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h7 class="card-text">{{uyari}}</h7>
+                <span>Uyarı</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-life-buoy font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="media p-1">
+      <span class="chat-app-sidebar-toggle ft-menu font-medium-4 mr-3 d-block d-md-none"
+        (click)="onSidebarToggle()"></span>
+      <div class="media-body">
+        <div *ngIf="recordid!=null">
+       
+          <button type="button" class="btn btn-xs btn-danger mr-2 mb-1"  style="font-size: 10px;" (click)="satirekle('419','cariindex','1668')" >Alım Faturası Ekle</button>
+          <button type="button" class="btn btn-xs btn-success mr-2 mb-1"  style="font-size: 10px;" (click)="satirekle('732','cariindex','1668')" >Ödeme Yap</button>
+
+       
+        </div>    
+        
+  
+  
+        
+      </div>
+      <div class="position-relative float-right">
+        <div ngbDropdown display="dynamic" [placement]="placement" class="d-inline-block">
+          <i class="ft-more-vertical- mt-1 dropdown-toggle" id="chatOptions" ngbDropdownToggle></i>
+          <div ngbDropdownMenu aria-labelledby="chatOptions">
+            <a href="javascript:;" class="dropdown-item" (click)="hastakarti()">Müşteri Bilgisi</a>
+         
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="chat-app-window2 position-relative" [perfectScrollbar]  style="background-color: white;height:fit-content !important" *ngIf="recordid!=null">
+   
+
+
+    <section id="basic-hidden-label-form-layouts" style="margin-top:10px;margin-left: 13px;" *ngIf="recordid!=null">
+      <div class="row match-height">
+        <!-- Basic Form starts -->
+    
+    
+        <ul class="justify-content-start nav nav-tabs" id="myTab" role="tablist">
+    
+    
+       
+    
+          <li class="nav-item" *ngFor="let grup of grupbasliklari; let y = index;">
+            <a class="nav-link" href="javascript:;" [ngClass]="{active: activeTab === grup.name}"
+              (click)="setActiveTab(grup.name)" [id]=grup.id data-toggle="tab" role="tab" aria-controls="general"
+              aria-selected="true">
+              <i class="ft-settings  align-middle"></i>
+              <span class="align-middle">{{baslikkontrol(grup.name)}}</span>
+            </a>
+          </li>
+    
+    
+    
+          
+         
+         
+        </ul>
+    
+        <div class="col-12" style="margin-top:-5px;text-align: left;">
+    
+          <div class="card">
+         
+            <div class="card-content">
+    
+    
+              
+              <div class="card-body">
+    
+                
+    
+    
+               
+                
+                    <div  *ngFor="let blok of bloklar ; let i = index;" >
+    
+    
+                      <div [class]="blok.blokboyutu" id="{{blok.bokindex}}" [style.display]="activeTab === blok.grupadi ? 'block' : 'none'" *ngIf="blok.turu==='Liste'&&activeTab === blok.grupadi">
+    
+    
+    
+    
+
+
+                        <section id="list">
+                          <div *ngIf="cihazmobilmi==true" class="row match-height">
+                        
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                              <div class="card">
+                                <div class="card-header">
+                                  <h4 class="card-title">{{formtanimi}}</h4>
+                                
+                                  <div *ngIf="blok.formturu!='Rapor' ">
+                                    <button type="button" class="btn btn-outline-info mr-2 mb-1" (click)="satirekle(blok.bagliformindex,blok.masterfield,blok.bokindex)"><i class="fa fa-plus mr-1"></i>Ekle</button>
+                                   <button type="button" *ngIf="userroles=='00038' || userroles=='00037' " class="btn btn-outline-success mr-2 mb-1" (click)="formModal(blok.bagliformindex,198)"><i class="fa fa-cog "></i></button>
+                                    <button type="button"  *ngIf="userroles=='00038' || userroles=='00037' "  class="btn btn-outline-primary mr-2 mb-1" (click)="tasarla(blok.bagliformindex)"><i class="fa fa-list-alt "></i></button>
+                                   
+                                    <button type="button" class="btn btn-outline-warning mr-2 mb-1" (click)="excelModal(mymodal)"  *ngIf="cihazmobilmi==false"><i class="fa fa-plus mr-1"></i>Excelden Aktar</button>
+                                    <button (click)="exportAsExcelFile(satirlar[blok.bokindex],blok.formtanimi)" class="btn btn-outline-dark mr-2 mb-1" *ngIf="cihazmobilmi==false">Excel'e Aktar</button>
+                                    <button *ngIf="blok.bagliformindex=='598'"  (click)="barkodOkut(blok.bagliformindex)" class="btn btn-outline-success mr-2 mb-1"><i class="fa fa-barcode"></i></button>
+                                    <button type="button" *ngIf="blok.bagliformindex=='664'" class="btn btn-outline-warning mr-2 mb-1" (click)="maliyethesapla('Satınalma')"><i class="fa fa-plus mr-1"></i>Yeniden Hesapla</button>
+      
+      
+                                    <button type="button" class="btn btn-outline-info mr-2 mb-1" (click)="sarjdoldur(blok.bagliformindex,blok.masterfield,blok.bokindex)" *ngIf="blok.bagliformindex=='653'"><i class="fa fa-plus mr-1"></i>Doldur</button>
+      
+                                    <button type="button" class="btn btn-outline-info mr-2 mb-1" (click)="otomatikdoldur(blok.bagliformindex,blok.masterfield,blok.bokindex)" *ngIf="formid=='486'"><i class="fa fa-plus mr-1"></i>Otomatik Doldur</button>
+                                   
+                                    <button type="button" *ngIf="blok.bagliformindex=='657'"  placement="top" (click)="mixsarjformuyazdir(recordid)" class="btn btn-success  mr-1 mb-1 "><i class="ft-file"></i></button>
+                                    <button type="button" *ngIf="blok.bagliformindex=='605'" class="btn btn-outline-warning mr-2 mb-1" (click)="bekleyensiparisler(veriler)"><i class="fa fa-plus mr-1"></i>Bekleyen Siparişlerden Aktar</button>
+                                     </div>
+                                  
+                                
+                                 
+                                </div>
+                                <div class="card-content">
+                                  <div class="">
+                                    <span>
+                                      <div class="form-group form-inline ">
+                                        <input class="form-control ml-2 mt-2" type="text" name="termB" placeholder="arama" [(ngModel)]="termB" />
+                                      </div>
+                                    </span> 
+                                    <ul class="list-group" >
+                                 
+                                      <li class="list-group-item" *ngFor="let row of satirlar[blok.bokindex]; let r=index" >
+                            
+                               
+                                          <div *ngFor="let column of sutunlars[blok.bokindex].slice(0, 4); let y = index;">
+                                            <h7 style="font-size: 10px;
+                                            font-style: italic;"  >{{row[column.id]}} </h7> 
+                                            
+                                          </div> 
+                                 
+                        
+                        
+                                        
+                                        <span class="float-right"> 
+                                        
+                                          <button type="button" class="btn btn-danger mr-1 mb-1" *ngIf="secilenform!='siparis-izleme'&&blok.bagliformindex!='627'&&blok.bagliformindex!='631'&&blok.bagliformindex!='637'&&blok.bagliformindex!='639'&&blok.bagliformindex!='670'&&blok.bagliformindex!='645'&&blok.bagliformindex!='666'&&blok.bagliformindex!='655'&&blok.bagliformindex!='668'"  (click)="deleterecord(row.id,blok.bagliformindex,blok.bokindex)" ><i class="fa fa-trash-o"></i></button>
+                                         
+                                          <button type="button" class="btn btn-outline-info mr-1 mb-1" *ngIf="secilenform!='siparis-izleme'&&blok.bagliformindex!='631'&&blok.bagliformindex!='637'&&blok.bagliformindex!='639'&&blok.bagliformindex!='645'&&blok.bagliformindex!='666'&&blok.bagliformindex!='670'"  (click)="editrecord(row.id,blok.bagliformindex,blok.bokindex)"><i class="fa fa-edit"></i></button>
+                                       
+                        
+                        
+                        
+                                          
+                        
+                                       
+                                        </span>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </div>
+                            </div>
+                          </section>      
+       
+                         
+    
+    
+                        <section id="ngx-datatable-filter" *ngIf="cihazmobilmi==false">
+    
+    
+                                              <!-- coverflow effect swiper start -->
+    <section id="swiper-coverflow"  *ngIf="blok.bagliformindex==='726'">
+      <div class="row">
+          <div class="col-12">
+              <div class="card ">
+                  <div class="card-header">
+                      <h4 class="card-title">Resimler arasında geçiş yapabilir, büyük boyutlu görebilir ve inceleyebilirsiniz.</h4>
+                  </div>
+                  <div class="card-content">
+                      <div class="card-body">
+                          <div class="swiper-coverflow swiper-container" [swiper]="swiperCoverflowEffectConfig">
+                              <div class="swiper-wrapper">
+                                  <div class="swiper-slide" *ngFor="let satir of satirlar[blok.bokindex]; let r = index;"><img class="img-fluid" src="{{localStorage.getItem('url')+satir.dosya}}" alt="banner"></div>
+                            
+                              </div>
+                              <!-- Add Pagination -->
+                              <div class="swiper-pagination"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+    <!-- coverflow effect swiper ends -->
+                 
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="card">
+                                <div class="card-header">
+                                  <h4 class="card-title">{{blok.formtanimi}}</h4>
+                                    <div *ngIf="blok.formturu!='Rapor' ">
+                                  <button type="button" class="btn btn-outline-info mr-2 mb-1" (click)="satirekle(blok.bagliformindex,blok.masterfield,blok.bokindex)"><i class="fa fa-plus mr-1"></i>Ekle</button>
+                                 <button type="button" *ngIf="userroles=='00038' || userroles=='00037' " class="btn btn-outline-success mr-2 mb-1" (click)="formModal(blok.bagliformindex,198)"><i class="fa fa-cog "></i></button>
+                                  <button type="button"  *ngIf="userroles=='00038' || userroles=='00037' "  class="btn btn-outline-primary mr-2 mb-1" (click)="tasarla(blok.bagliformindex)"><i class="fa fa-list-alt "></i></button>
+                                 
+                                  <button type="button" class="btn btn-outline-warning mr-2 mb-1" (click)="excelModal(mymodal)"><i class="fa fa-plus mr-1"></i>Excelden Aktar</button>
+                                  <button (click)="exportAsExcelFile(satirlar[blok.bokindex],blok.formtanimi)" class="btn btn-outline-dark mr-2 mb-1">Excel'e Aktar</button>
+                                  <button *ngIf="blok.bagliformindex=='598'"  (click)="barkodOkut(blok.bagliformindex)" class="btn btn-outline-success mr-2 mb-1"><i class="fa fa-barcode"></i></button>
+                                  <button type="button" *ngIf="blok.bagliformindex=='664'" class="btn btn-outline-warning mr-2 mb-1" (click)="maliyethesapla('Satınalma')"><i class="fa fa-plus mr-1"></i>Yeniden Hesapla</button>
+    
+    
+                                  <button type="button" class="btn btn-outline-info mr-2 mb-1" (click)="sarjdoldur(blok.bagliformindex,blok.masterfield,blok.bokindex)" *ngIf="blok.bagliformindex=='653'"><i class="fa fa-plus mr-1"></i>Doldur</button>
+    
+                                  <button type="button" class="btn btn-outline-info mr-2 mb-1" (click)="otomatikdoldur(blok.bagliformindex,blok.masterfield,blok.bokindex)" *ngIf="formid=='486'"><i class="fa fa-plus mr-1"></i>Otomatik Doldur</button>
+                                 
+                                  <button type="button" *ngIf=" blok.bagliformindex=='657'"  placement="top" (click)="mixsarjformuyazdir(recordid)" class="btn btn-success  mr-1 mb-1 "><i class="ft-file"></i></button>
+                                  <button type="button" *ngIf="blok.bagliformindex=='605'" class="btn btn-outline-warning mr-2 mb-1" (click)="bekleyensiparisler(veriler)"><i class="fa fa-plus mr-1"></i>Bekleyen Siparişlerden Aktar</button>
+                                   </div>
+                                </div>
+                                <div class="card-content">
+                                  <div class="card-body">
+                                    <ng-template #mymodal let-modal >
+                                      <div class="modal-header">
+                                        <h4 class="modal-title" id="modal-basic-title">Excelden Aktar</h4>
+                                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                          <span aria-hidden="true">×</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <form action="" method="post" name="frmExcelImport_genel" id="frmExcelImport_genel" enctype="multipart/form-data" *ngIf="blok.formturu!='Rapor' ">
+                                          <div class="row">
+                                              <div class="col-md-8">
+                                                <input type="file" name="file"
+                                                  id="file" accept=".xls,.xlsx"></div>
+                                                  <input type="hidden" name="menu_id"
+                                                  id="menu_id" value="{{blok.bagliformindex}}">
+                                                  <input type="hidden" name="recordid" id="recordid" value="{{recordid}}">
+                                                  <input type="hidden" name="detailfield" id="detailfield" value="{{blok.detailfield}}">
+                  
+                                                <div class="col-md-4 text-center">  
+                                              <button type="submit" id="submit" name="import"
+                                                  class="btn btn-outline-secondary">Yükle</button>
+                                      </div>
+                                          </div>
+                                          </form>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Tamam</button>
+                                      </div>
+                                    </ng-template>
+                                    <!-- ngx-datatable-filter -->
+                                    <fieldset class="form-group">
+    
+    
+                                      <label for="ngx-filter-ref">Ara:
+                                        <input  class="form-control ml-2 mt-2"    type="text" name="search_{{blok.bokindex}}" [id]="blok.bokindex" placeholder="Aranacak Kelime" [(ngModel)]="blok.bagliformindexC" />
+                                      </label>
+                                    </fieldset>
+    
+                                    <ngx-datatable class="bootstrap core-bootstrap" [columns]="sutunlars[blok.bokindex]" [columnMode]="ColumnMode.force"
+                                      [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="10" [rows]="satirlar[blok.bokindex]" [scrollbarH]="true">
+                                    
+                        
+                        
+                                      <ngx-datatable-column *ngFor="let column of sutunlars[blok.bokindex]; let r = index;" name="{{column.name}}" prop="{{column.id}}">
+                                        <ng-template  #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                                          <div *ngIf="row[column.id]!='true'&&row[column.id]!='false'">{{row[column.id]}}</div>
+                                      
+                                          <div *ngIf="row[column.id]=='true'" style="text-align: center;"><input type='checkbox'  class='' checked></div>
+                                          <div *ngIf="row[column.id]=='false'" style="text-align: center;"><input type='checkbox'  class='' ></div>
+                                      
+                                      
+                                        </ng-template>
+                                       
+                                      </ngx-datatable-column>
+    
+                                      
+                                     
+                                      <ngx-datatable-column name="Eylemler" [width]="200" *ngIf="blok.formturu!='Rapor' ">
+                                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                                          <div class="col-12" style="width: 240px;">
+                                      
+                                            <button type="button"  *ngIf=" blok.bagliformindex=='610' || blok.bagliformindex=='614'||blok.bagliformindex=='618'||blok.bagliformindex=='616'" placement="top" title="Yüzde Gir" (click)="yuzdegir(row.id,blok.bokindex,row.yuzdepayi)" class="btn btn-primary  mr-1 mb-1 "><i class="ft-percent"></i></button>
+    
+                                            <button type="button" *ngIf="blok.bagliformindex=='257'" class="btn btn-success mr-1 mb-1" (click)="parametreler(row.id,blok.bagliformindex)" title=""><i class="icon-share-alt"></i></button>
+                                          <button type="button" *ngIf="blok.bagliformindex=='278'" class="btn btn-success mr-1 mb-1" (click)="rezervEt(row.id,blok.bagliformindex)" title=""><i class="icon-share-alt"></i></button>
+                                          
+                                          <button *ngIf="blok.bagliformindex=='621'"  (click)="barkodOkut(blok.bagliformindex)" class="btn btn-outline-success mr-2 mb-1"><i class="fa fa-barcode"></i></button>
+    
+                                          <button type="button" *ngIf=" blok.bagliformindex=='642' && blok.formindex=='621' "  placement="top" (click)="paletbarkodyazdir(row.id)" class="btn btn-success  mr-1 mb-1 "><i class="ft-file"></i></button>
+    
+                                          <button type="button" *ngIf="blok.formindex=='395'"  placement="top" (click)="barkodyazdir(row.id)" class="btn btn-success  mr-1 mb-1 "><i class="ft-file"></i></button>
+    
+    
+                                          <button type="button" class="btn btn-success mr-1 mb-1" (click)="sarjbittionay(row.id)" *ngIf="blok.bagliformindex=='653'"><i class="fa fa-check"></i></button>
+    
+                                          <button type="button" *ngIf=" blok.bagliformindex=='653' && blok.formindex=='621' "  placement="top" (click)="sarjformuyazdir(row.id)" class="btn btn-warning mr-1 mb-1 "><i class="ft-file"></i></button>
+    
+                                          <button type="button" class="btn btn-outline-info mr-1 mb-1" (click)="editrecord(row.id,blok.bagliformindex,blok.bokindex)" *ngIf="row.HareketTuru!='Ürün Satışı'&&row.HareketTuru!='Paket Satışı'"><i class="fa fa-edit"></i></button>
+                                        
+                                          <button type="button" class="btn btn-outline-info mr-1 mb-1" (click)="editrecord(row.id,'742',blok.bokindex)" *ngIf="row.HareketTuru=='Ürün Satışı'"><i class="fa fa-edit"></i></button>
+                                          <button type="button" class="btn btn-outline-info mr-1 mb-1" (click)="editrecord(row.id,'743',blok.bokindex)" *ngIf="row.HareketTuru=='Paket Satışı'"><i class="fa fa-edit"></i></button>
+
+
+
+                                          <button type="button" class="btn btn-danger mr-1 mb-1" (click)="deleterecord(row.id,blok.bagliformindex,blok.bokindex)"><i class="fa fa-trash-o"></i></button>
+                                          <button type="button" *ngIf=" blok.bagliformindex=='250' && blok.formindex=='254' "  placement="top" ngbTooltip="Üretim Yöntemleri Git" (click)="uretimYontemGit(row.id,blok.bagliformindex)" class="btn btn-success  mr-1 mb-1 "><i class="ft-box"></i></button>
+                                          <button type="button" *ngIf=" blok.bagliformindex=='278' && blok.formindex=='277' " (click)="rezervlerdencek(veriler,blok.bagliformindex)"  placement="top"  class="btn btn-warning  mr-1 mb-1 "><i class="ft-book"></i></button>
+    
+                                          <button type="button" *ngIf=" blok.bagliformindex=='513' && blok.formindex=='491' "  placement="top" title="VDF Formuna Git" (click)="formlaraGit(row.id,blok.bagliformindex,'veridagitimformu','musteri_urun_kodu','kalemkodu')" class="btn btn-success  mr-1 mb-1 "><i class="ft-box"></i></button>
+                                          <button type="button"  *ngIf=" blok.bagliformindex=='513' && blok.formindex=='491' " placement="top" title="Maliyet Analizi Git" (click)="formlaraGit(row.id,blok.bagliformindex,'maliyet_analizi','','')" class="btn btn-warning  mr-1 mb-1 "><i class="ft-disc"></i></button>
+    
+                                          <button type="button"  *ngIf=" blok.bagliformindex=='610' || blok.bagliformindex=='614'||blok.bagliformindex=='618'||blok.bagliformindex=='616'" placement="top" title="Kartına Git" (click)="kartinagit(row.id)" class="btn btn-warning  mr-1 mb-1 "><i class="ft-disc"></i></button>
+    
+                                         
+                                            </div>
+                                        </ng-template>
+                                      </ngx-datatable-column>
+    
+                                      <ngx-datatable-footer *ngIf=" blok.bagliformindex=='610' || blok.bagliformindex=='614'||blok.bagliformindex=='618'||blok.bagliformindex=='616'">
+                                        <ng-template
+                                          ngx-datatable-footer-template
+                                          let-rowCount="rowCount"
+                                          let-pageSize="pageSize"
+                                          let-selectedCount="selectedCount"
+                                          let-curPage="curPage">
+                                          <div>
+                                          
+                                        
+                                            <div>
+                                              Toplam KG: {{ getirs(blok.bagliformindex) }}
+                                            </div>
+    
+                                            <div>
+                                              Toplam Yüzde: {{ getirs_2(blok.bagliformindex) }}
+                                            </div>
+                                          </div>
+                                        </ng-template>
+                                      </ngx-datatable-footer>
+    
+                                      <ngx-datatable-footer *ngIf="blok.bagliformindex=='664'">
+                                        <ng-template
+                                          ngx-datatable-footer-template
+                                          let-rowCount="rowCount"
+                                          let-pageSize="pageSize"
+                                          let-selectedCount="selectedCount"
+                                          let-curPage="curPage">
+                                          <div>
+                                          
+                                        
+                                            <div>
+                                              Toplam Maliyet: {{toplammaliyet}} TL
+                                            </div>
+                                            <div>
+                                              Birim Maliyet: {{birimmaliyet}} TL
+                                            </div>
+                                          </div>
+                                        </ng-template>
+                                      </ngx-datatable-footer>
+    
+                                    </ngx-datatable>
+                                    <!-- ngx-datatable-filter -->
+                        
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+    
+    
+                      </div>
+    
+    
+                      <form *ngFor="let veriler of formverileri; let i = index;">
+    
+    
+                        <ng-container *ngIf="activeTab == 'notifications'">
+                        <div class="form-row col-12" >
+          
+                            <div class="col-md-3">
+                          <div class="form-group mb-2" >
+                            <label for="basic-form-1">Kayıt Tarihi</label>
+                            <input type="text" readonly id="basic-form-1" class="form-control" [name]="kayittarihi"  value="{{veriler.kayittarihi}}">
+                          </div>
+                        </div>
+          
+                        <div class="col-md-3">
+                          <div class="form-group mb-2" >
+                            <label for="basic-form-1">Son Düzenleme T.</label>
+                            <input type="text" readonly id="basic-form-1" class="form-control"  [name]="sonduzenlemetarihi"  value="{{veriler.sonduzenlemetarihi}}">
+                          </div>
+                          </div>
+          
+                          <div class="col-md-3">
+                          <div class="form-group mb-2" >
+                            <label for="basic-form-1">Oluşturan</label>
+                            <input type="text" readonly id="basic-form-1" class="form-control" [name]="olusturan" value="{{veriler.olusturans}}">
+                          </div>
+                          </div>
+          
+                          <div class="col-md-3">
+                          <div class="form-group mb-2" >
+                            <label for="basic-form-1">Son Düzenleyen</label>
+                            <input type="text" readonly id="basic-form-1" class="form-control" [name]="sonduzenleyen" value="{{veriler.sonduzenleyen}}">
+                          </div>
+                          </div>
+                          </div>
+                        
+                        </ng-container>
+    
+                      <ng-container *ngFor="let alan of blokalanlari">
+    
+                        <div [class]="alan.alanboyutu" *ngIf="ayniblokmu(alan.blokindex,blok.bokindex)&&activeTab === blok.grupadi">
+    
+    
+                          <div class="form-group mb-2 " *ngIf="alan.verigiristuru=='Edit'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)"  type="text" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu==='True' , 'is-valid':  !required.invalid && alan.zorunlu==='True' }" #required="ngModel" required [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                            <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu==='True' ">Zorunlu Alan</small>
+    
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Combobox'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <ng-select [id]="alan.alanadi" [ngClass]="{ ' is-invalid    ':  required.errors?.required && alan.zorunlu==='True' , '  is-valid ':  !required.invalid && alan.zorunlu==='True','form-control selectRef':alan.zorunlu==='True' }" #required="ngModel" required [items]="cities[alan.alan_index]" (change)="islemyap(alan.formindex,alan.alanadi)" bindLabel="name"  bindValue="id" [closeOnSelect]="true" [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi"    placeholder="Seçiniz">
+                            </ng-select>
+                            <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu==='True' ">Zorunlu Alan</small>
+    
+                          </div>
+    
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Color'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)" type="color" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu==='True' , 'is-valid':  !required.invalid && alan.zorunlu==='True' }" #required="ngModel" required  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                            <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu==='True' ">Zorunlu Alan</small>
+    
+                          </div>
+    
+                
+                          <div class="input-group mb-2 custom-control custom-radio" *ngIf="alan.verigiristuru=='Radiobutton'">
+                            <div class="col-md-12 " style="white-space: nowrap;"><label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label></div>
+    
+                            <div *ngFor="let veri of cities[alan.alan_index] ; let i = index;"  class="radio radio-primary radio-sm d-inline-block mr-2 mb-1">
+                              <input  type="radio" class="" value="{{veri.name}}" [(ngModel)]="veriler[alan.alanadi]" [id]="veri.name+'_'+alan.alan_index" [name]="alan.alanadi" ngModel>
+                              <label class="" for="{{veri.name}}_{{alan.alan_index}}">{{veri.name}}</label>
+    
+                           </div>
+    
+    
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Boolean'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)" type="checkbox" [id]="alan.alanadi" class="form-control" [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Time'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)" type="time" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu==='True' , 'is-valid':  !required.invalid && alan.zorunlu==='True' }" #required="ngModel" required  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                            <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu==='True' ">Zorunlu Alan</small>
+    
+                          </div>
+    
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Disabled'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)" type="text" [id]="alan.alanadi" class="form-control" [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}' readonly>
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Form'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)" type="text" [id]="alan.alanadi" class="form-control" [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Hidden'" style="display: none;">
+                           
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)" type="hidden" [id]="alan.alanadi" class="form-control" [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Password'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)" type="password" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu==='True' , 'is-valid':  !required.invalid && alan.zorunlu==='True' }" #required="ngModel" required  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                            <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu==='True' ">Zorunlu Alan</small>
+    
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Textarea'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <textarea [id]="alan.alanadi" class="form-control" [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi">{{veriler[alan.alanadi]}}</textarea>
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Date'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)" type="date" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu==='True' , 'is-valid':  !required.invalid && alan.zorunlu==='True' }" #required="ngModel" required  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                            <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu==='True' ">Zorunlu Alan</small>
+    
+                          </div>
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Datetime'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)" type="datetime-local" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu==='True' , 'is-valid':  !required.invalid && alan.zorunlu==='True' }" #required="ngModel" required  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                            <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu==='True' ">Zorunlu Alan</small>
+    
+                          </div>
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='File(JPG)'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                     
+                            <div class="media">
+                              
+                              <img [src]="veriler[alan.alanadi]"  alt="" class="rounded mr-3" height="auto"
+                                width="100%">
+    
+                               
+                              
+                            </div>
+    
+                            <input type="file" [id]="alan.alanadi" class="file-upload" [(ngModel)]="veriler[alan.alanadi]"   (change)="dosyayukle($event,alan.alanadi)"  [name]="alan.alanadi">
+                               
+                     
+                          </div>
+    
+                      
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='File(PDF)'">
+    
+                            
+                     
+                            <div class="media">
+                              
+                              <img src="../../assets/img/pdf-photo.png" alt="" class="rounded mr-3" height="auto" (click)="pdfegit(veriler[alan.alanadi])"  width="50%">
+    
+                               
+                              
+                            </div>
+    
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input type="file" [id]="alan.alanadi" class="file-upload" (change)="pdfdosyayukle($event,alan.alanadi)"  [name]="alan.alanadi">
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='File(PNG)'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                     
+                            <div class="media">
+                              
+                              <img [src]="degistir(veriler[alan.alanadi])" alt="" class="rounded mr-3" height="auto"
+                                width="100%">
+    
+                                  <input type="file" id="select-files" [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" hidden>
+                               
+                              
+                            </div>
+                     
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Secimli'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>                      
+                            <ng-select [ngClass]="{ ' is-invalid    ':  required.errors?.required && alan.zorunlu==='True' , '  is-valid ':  !required.invalid && alan.zorunlu==='True','form-control selectRef':alan.zorunlu==='True' }" #required="ngModel" required multiple="true"  [items]="cities[alan.alan_index]" bindLabel="name" [id]="alan.alanadi"  bindValue="id" [closeOnSelect]="true" [name]="alan.alanadi"  [(ngModel)]="veriler[alan.alanadi]" placeholder="Seçiniz">
+                            </ng-select>
+                            <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu==='True' ">Zorunlu Alan</small>
+    
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Multiautocomplete'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)" type="text" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu==='True' , 'is-valid':  !required.invalid && alan.zorunlu==='True' }" #required="ngModel" required  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                            <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu==='True' ">Zorunlu Alan</small>
+    
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='Autocomplete'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <input (change)="islemyap(alan.formindex,alan.alanadi)" type="text" [id]="alan.alanadi" class="form-control"  [ngClass]="{ 'is-invalid ':  required.errors?.required && alan.zorunlu==='True' , 'is-valid':  !required.invalid && alan.zorunlu==='True' }" #required="ngModel" required  [(ngModel)]="veriler[alan.alanadi]" [name]="alan.alanadi" value='{{veriler[alan.alanadi]}}'>
+                            <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu==='True' ">Zorunlu Alan</small>
+    
+                          </div>
+    
+                          <div class="form-group mb-2" *ngIf="alan.verigiristuru=='FixList'">
+                            <label for="basic-form-1">{{alan.alanyazisi}} <i class="ft-edit-2 " (click)="AlanOzellikleri(alan.alanindex,'199')" [hidden]="editfieldicon" style="font-size: 15px;"></i></label>
+                            <ng-select [id]="alan.alanadi"  [ngClass]="{ ' is-invalid    ':  required.errors?.required && alan.zorunlu==='True' , '  is-valid ':  !required.invalid && alan.zorunlu==='True','form-control selectRef':alan.zorunlu==='True' }" #required="ngModel" required [items]="cities[alan.alan_index]" bindLabel="name" (change)="islemyap(alan.formindex,alan.alanadi)"  bindValue="id" [closeOnSelect]="true" [name]="alan.alanadi"  [(ngModel)]="veriler[alan.alanadi]"  placeholder="Seçiniz">
+                            </ng-select>
+                            <small class="form-text text-muted danger" *ngIf="required.errors?.required && alan.zorunlu==='True' ">Zorunlu Alan</small>
+                          </div>
+    
+    
+      
+      
+                        </div>
+    
+                      </ng-container> 
+    
+                    </form>
+    
+                    </div>
+                    
+                 
+    
+               
+            
+               
+            
+                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+               
+    
+                      <button type="button" *ngIf="formid=='198'" (click)="tabloOlustur(recordid)" class="btn btn-info mr-2"><i class="ft-check-square mr-1"></i>Tablo Oluştur</button>
+                      <button type="button" *ngIf="formid=='198'" (click)="eksikAlanlar(recordid)" class="btn btn-warning mr-2"><i class="ft-check-square mr-1"></i>Eksik Alanları Oluştur</button>
+    
+                      <button type="button" *ngIf="formid=='445'" (click)="isemriformu(recordid)" class="btn btn-info btn-sm mr-2"><i class="ft-check-square mr-1"></i>İş Emri Formu</button>
+                      <button type="button" *ngIf="formid=='445'" (click)="kalitekontrolformu(recordid)" class="btn btn-warning btn-sm mr-2"><i class="ft-check-square mr-1"></i>Kalite Kontrol Formu</button>
+    
+               
+                 <button type="button" *ngIf="formid=='282'" (click)="sipariseDonustur(recordid)" class="btn btn-success mr-2"><i class="ft-check-square mr-1"></i>Siparişe Dönüştür</button>
+    
+                </div>
+            
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Basic Form ends -->
+        <!-- Hidden Label starts -->
+       
+        <!-- Hidden Label ends -->
+      </div>
+    </section>
+    
+
+
+
+  </section>
+  
+
+  
+ 
+
+
+
+
+    <!-- Basic Form & Hidden Label Layouts starts -->
+
+<!-- Basic Form & Hidden Label Layouts ends -->
+
+  
+</div>
+
+
+  

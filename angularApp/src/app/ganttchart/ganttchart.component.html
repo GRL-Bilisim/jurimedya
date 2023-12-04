@@ -1,0 +1,222 @@
+<!-- Taskboard Starts -->
+
+<section id="minimal-statistics">
+  <div class="row">
+    <div class="col-12">
+      <div class="content-header">İş Emri Göstergeleri</div>
+      <p class="content-sub-header mb-1">İş Merkezi Bazında Gantt Şemasını Daraltabilirsiniz.</p>
+    </div>
+  </div>
+
+
+  <div class="row">
+
+    <div class="col-xl-3 col-lg-6 col-12">
+      <div class="card" (click)="ayrintiliGor('plansizemri')">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 danger">{{plansizIsemri}}</h3>
+                <span>Plansız İş Emri</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-briefcase danger font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-12">
+      <div class="card" (click)="ayrintiliGor('baslanmamisemri')">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 success">{{baslanmamisIsemri}}</h3>
+                <span>Başlanmamış İş Emri</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-user success font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 col-12">
+      <div class="card" (click)="ayrintiliGor('surenemri')"> 
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 warning">{{surenIsemri}}</h3>
+                <span>Süren İş Emri</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-pie-chart warning font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-12">
+      <div class="card" (click)="ayrintiliGor('kompemri')">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 primary">{{kompresyonIsemri}}</h3>
+                <span>Kompresyon İş Emri</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-life-buoy primary font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-12">
+      <div class="card" (click)="ayrintiliGor('hamuremri')">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 primary">{{hamurIsemri}}</h3>
+                <span>Hamur İş Emri</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-book-open primary font-large-2 float-right"></i>
+              </div>
+            </div>
+            <ngb-progressbar type="primary" [value]="80" class="progress-bar-sm" height="4px"></ngb-progressbar>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-12">
+      <div class="card" (click)="ayrintiliGor('azotemri')">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 warning">{{azotIsemri}}</h3>
+                <span>Azot İş Emri</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-message-square warning font-large-2 float-right"></i>
+              </div>
+            </div>
+            <ngb-progressbar type="warning" [value]="35" class="progress-bar-sm" height="4px"></ngb-progressbar>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-12">
+      <div class="card" (click)="ayrintiliGor('tesviyeemri')">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 success">{{tesviyeIsemri}}</h3>
+                <span>Tesviye İş Emri</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-trending-up success font-large-2 float-right"></i>
+              </div>
+            </div>
+            <ngb-progressbar type="success" [value]="60" class="progress-bar-sm" height="4px"></ngb-progressbar>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-12">
+      <div class="card" (click)="ayrintiliGor('dofemri')">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 danger">{{dofIsemri}}</h3>
+                <span>DÖF İş Emri</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="ft-map-pin danger font-large-2 float-right"></i>
+              </div>
+            </div>
+            <ngb-progressbar type="danger" [value]="40" class="progress-bar-sm" height="4px"></ngb-progressbar>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+
+</section>
+<!-- // Minimal statistics section end -->
+
+<section id="taskboard" class="app-taskboard">
+  <div class="row">
+  
+    <div class="col-3">
+      <div class="form-group mb-2">
+        <label for="basic-form-1">GANTT CHART</label>
+      
+        <ng-select 
+                  (change)="isistasyonGetir($event)"
+                  [(ngModel)]="selectedPer"
+                   [items]="Merkezlistesi" 
+                   bindLabel="name" 
+                   bindValue="id"  placeholder="İş Merkezleri" style="font-size: 14px;">
+        </ng-select>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="form-group mb-2">
+        <label for="basic-form-1">TARİH ARALIĞI</label>
+      
+        <ng-select 
+                  (change)="onChange($event)"
+                  [(ngModel)]="selectedDate"
+                   [items]="ZamanListesi" 
+                   bindLabel="name" 
+                   bindValue="id"  placeholder="Tarih Aralığı" style="font-size: 14px;">
+        </ng-select>
+      </div>
+    </div>
+
+    <!-- <div class="col-3">
+      <div class="form-group mb-2">
+        <label for="basic-form-1">DEPARTMAN FİLTRESİ</label>
+      
+        <ng-select multiple="true" (change)="yenidenyukle()"  [items]="cities[2316]" bindLabel="name" id="ilgilidepartman"  bindValue="id" [closeOnSelect]="true" name="ilgilidepartman" [(ngModel)]="ilgilidepartman">
+        
+       
+        </ng-select>
+      </div>
+    </div> -->
+    <!-- <div class="col-3">
+      
+      <ng-select   (change)="onChange($event)" [items]="departman"
+      bindLabel="departmanad"
+      placeholder="Filtrele"
+      [(ngModel)]="selectedDep">
+</ng-select>
+    </div> -->
+  </div>
+
+ <div class="row">
+  <highcharts-chart 
+  [Highcharts]="Highcharts" 
+  [constructorType]="'ganttChart'" 
+  [options]="chartOptions" style="width:100%">
+</highcharts-chart>
+  </div>
+
+
+</section>
+<!-- Taskboard Ends -->

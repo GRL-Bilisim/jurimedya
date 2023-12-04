@@ -1,0 +1,14 @@
+.selecteddis
+{
+    border:1px;
+    border-style: solid;
+}
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row .datatable-body-cell {
+    
+    padding: 0 !important;
+  }
+  .datatable-row-wrapper:nth-child(2n){
+    background-color: rgb(120, 209, 239) !important;
+}
+

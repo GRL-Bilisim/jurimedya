@@ -1,0 +1,963 @@
+ <div class="modal-header">
+  <h4 class="modal-title"> {{modalBaslik}} </h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    x
+  </button>
+</div>
+<div [hidden]="isEmriAnalizi">
+  <div class="card">
+    <div class="card-content">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+            <div class="card card-outline-warning box-shadow-0 text-center">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col align-self-center">
+                      <h4 class="card-title mb-1">{{IsemriNo}}</h4>
+                      <p class="card-text">{{projeKodu}}</p>
+                      <p class="card-text">{{isIstasyonu}}</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+            <div class="card card-outline-warning box-shadow-0 text-center">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col align-self-center">
+                      <h4 class="card-title mb-3">Kalan İş Emri Süresi</h4>
+                      <p class="card-text">{{islemSuresi}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row  justify-content-center">
+          <div class=" col-xl-3 col-md-3 col-sm-3 col-12">
+            <div class="card">
+              <div class="card-header text-center pb-0">
+                <span class="font-medium-2 warning">OEE</span>
+                <h6 class=" mt-2">7261</h6>
+              </div>
+              <div class="card-content">
+                <div id="donut-chart1" class="donut1">
+                  <x-chartist class="height-250" [data]="DonutChart1.data" [type]="DonutChart1.type"
+                    [options]="DonutChart1.options" [responsiveOptions]="DonutChart1.responsiveOptions"
+                    [events]="DonutChart1.events">
+                  </x-chartist>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-3 col-sm-3 col-12">
+            <div class="card">
+              <div class="card-header text-center pb-0">
+                <span class="font-medium-2 info">Kalite</span>
+                <h6 class=" mt-2">5.6
+                </h6>
+              </div>
+              <div class="card-content">
+                <div id="donut-chart2" class="donut2">
+                  <x-chartist class="height-250" [data]="DonutChart2.data" [type]="DonutChart2.type"
+                    [options]="DonutChart2.options" [responsiveOptions]="DonutChart2.responsiveOptions"
+                    [events]="DonutChart2.events">
+                  </x-chartist>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-3 col-sm-3 col-12">
+            <div class="card">
+              <div class="card-header text-center pb-0">
+                <span class="font-medium-2 danger">Performans</span>
+                <h6 class=" mt-2">4025
+                </h6>
+              </div>
+              <div class="card-content">
+                <div id="donut-chart3" class="donut3">
+                  <x-chartist class="height-250" [data]="DonutChart3.data" [type]="DonutChart3.type"
+                    [options]="DonutChart3.options" [responsiveOptions]="DonutChart3.responsiveOptions"
+                    [events]="DonutChart3.events">
+                  </x-chartist>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-3 col-sm-3 col-12">
+            <div class="card">
+              <div class="card-header text-center pb-0">
+                <span class="font-medium-2 danger">Kullanılabilirlik</span>
+                <h6 class=" mt-2">4025
+                </h6>
+              </div>
+              <div class="card-content">
+                <div id="donut-chart4" class="donut4">
+                  <x-chartist class="height-250" [data]="DonutChart4.data" [type]="DonutChart4.type"
+                    [options]="DonutChart4.options" [responsiveOptions]="DonutChart4.responsiveOptions"
+                    [events]="DonutChart4.events">
+                  </x-chartist>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+          <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+            <div class="card gradient-ibiza-sunset">
+              <div class="card-content">
+                <div class="card-body py-0">
+                  <div class="media pb-1">
+                    <div class="media-body white text-left">
+                      <h3 class="font-large-1 white mb-0">{{planlananUretim}}</h3>
+                      <span>Planlanan Üretim Miktarı</span>
+                    </div>
+                    <div class="media-right white text-right">
+                      <i class="ft-percent font-large-1"></i>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+            <div class="card gradient-mint">
+              <div class="card-content">
+                <div class="card-body py-0">
+                  <div class="media pb-1">
+                    <div class="media-body white text-left">
+                      <h3 class="font-large-1 white mb-0">{{hatasizUretim}}</h3>
+                      <span>Hatasız Üretim Miktarı</span>
+                    </div>
+                    <div class="media-right white text-right">
+                      <i class="ft-trending-up font-large-1"></i>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+            <div class="card gradient-king-yna">
+              <div class="card-content">
+                <div class="card-body py-0">
+                  <div class="media pb-1">
+                    <div class="media-body white text-left">
+                      <h3 class="font-large-1 white mb-0">{{hataliUretim}}</h3>
+                      <span>Hatalı Üretim Miktarı</span>
+                    </div>
+                    <div class="media-right white text-right">
+                      <i class="ft-credit-card font-large-1"></i>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-lg-12 col-12" [hidden]="isEmriKalite">
+  <div class="card">
+    <div class="card-content">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+            <div class="card card-outline-warning box-shadow-0 text-center">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col align-self-center">
+                      <h4 class="card-title mb-1">{{IsemriNo}}</h4>
+                      <p class="card-text">{{projeKodu}}</p>
+                      <p class="card-text">{{isIstasyonu}}</p>
+                      <p class="card-text">{{aktifOperator}}</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+            <div class="card card-outline-warning box-shadow-0 text-center">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col-md-12 align-self-center   ">
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2" (click)="asamaKontrolEt('N1')" [ngClass]="kontrolNe=='N1' ? 'btn-success' : 'btn-secondary' ">N1</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N2')" [ngClass]="kontrolNe=='N2' ? 'btn-success' : 'btn-secondary' ">N2</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N3')" [ngClass]="kontrolNe=='N3' ? 'btn-success' : 'btn-secondary' ">N3</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N4')" [ngClass]="kontrolNe=='N4' ? 'btn-success' : 'btn-secondary' ">N4</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N5')" [ngClass]="kontrolNe=='N5' ? 'btn-success' : 'btn-secondary' ">N5</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N6')" [ngClass]="kontrolNe=='N6' ? 'btn-success' : 'btn-secondary' ">N6</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N7')" [ngClass]="kontrolNe=='N7' ? 'btn-success' : 'btn-secondary' ">N7</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N8')" [ngClass]="kontrolNe=='N8' ? 'btn-success' : 'btn-secondary' ">N8</button>
+
+                    </div>
+
+
+
+                  </div>
+                  <form #userForm="ngForm" (ngSubmit)="kontrolPlaniEkle(userForm.value)">
+                  <div class="row justify-content-center d-flex" *ngFor="let olcu of UrunOlculeri">
+                    <input type="text" [(ngModel)]="olcu.index_urunolculeri" [hidden]="true" ngModel class="form-control"  name="turu_{{olcu.index_urunolculeri}}">
+
+                    <div class="col-md-3 col-xl-3 col-sm-3 " >
+                      <div class="card card-inverse bg-warning">
+                        <div class="card-content">
+                          <div class="card-body">
+                            <div class="media">
+                              <div class="media-body text-center">
+                                <span>Ölçü Türü:<br>{{olcu.olcuturu}}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3 col-xl-3 col-sm-3 " >
+                      <div class="card card-inverse bg-warning">
+                        <div class="card-content">
+                          <div class="card-body">
+                            <div class="media">
+                              <div class="media-body text-center">
+                                <span class="card-text">Hedef Değer:<br>{{olcu.hedefdeger}}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+
+                      <div class="col-md-3 col-xl-3 col-sm-3 " >
+                      <div class="card card-inverse bg-warning">
+                        <div class="card-content">
+                          <div class="card-body">
+                            <div class="media">
+                              <div class="media-body text-center">
+                                <span class="card-text">Tolerans:<br>+{{olcu.tolerans_arti}} -{{olcu.tolerans_eksi}} </span>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>                         
+                      <div class="col-md-3 col-xl-3 col-sm-4 d-flex">
+                        <div class="card card-warning box-shadow-0 text-center">
+                          <label for="Ölçü">Ölçü Değeri</label>
+                             <input type="text"  ngModel   name="olcu_{{olcu.index_urunolculeri}}" id="olcu_{{olcu.index_urunolculeri}}" class="form-control" placeholder="Ölçü">
+                        </div>
+                      </div>               
+                  </div>
+                  <div class="row justify-content-end d-flex" >
+                    <div class="col-md-4 col-xl-4 col-sm-4 ">
+                      <div class="card card-warning box-shadow-0 text-end">
+                        <button class="btn btn-success " type="submit">Kaydet</button>
+                      </div>
+                    </div>  
+                                 
+                  </div>
+               </form>
+          
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-end d-flex" >
+        <div class="col-md-3 col-xl-3 col-sm-3 ">
+          <div class="card card-danger box-shadow-0 text-end">
+            <button class="btn btn-danger " (click)="activeModal.close('Close click')">Vazgeç</button>
+          </div>
+      </div>
+      </div>
+      </div>  
+    </div>
+  </div>
+</div>
+<div class="col-lg-12 col-12" [hidden]="uretimVerileri">
+  <div class="card">
+    <div class="card-content">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+            <div class="card card-outline-warning box-shadow-0 text-center">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col align-self-center">
+                      <h4 class="card-title mb-1">{{IsemriNo}}</h4>
+                      <p class="card-text">{{projeKodu}}</p>
+                      <p class="card-text">{{isIstasyonu}}</p>
+                      <p class="card-text">{{aktifOperator}}</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+    
+
+      </div>
+
+      <div class="row" [hidden]="divGizle">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-4" >
+          <div class=" card card-inverse bg-warning box-shadow-0 text-center">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="row d-flex">
+                  <div class="col align-self-center">
+                    <h4 class="card-title mb-1">Toplam Üretim</h4>
+                    <p>{{uretilenmiktar}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-4 col-4" >
+        <div class=" card card-inverse bg-success box-shadow-0 text-center">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="row d-flex">
+                <div class="col align-self-center">
+                  <h4 class="card-title mb-1">Toplam Süre</h4>
+                  <p>{{uretimsuresi}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-4 col-md-4 col-4">
+      <div class=" card card-inverse bg-secondary box-shadow-0 text-center">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="row d-flex">
+              <div class="col align-self-center">
+                <h4 class="card-title mb-1">Başlama Zamanı</h4>
+                <p>{{baslamazamani}}</p>
+                <button [hidden]="durusbaslatbutton" class="btn btn-danger mr-1 mb-1" (click)="durusBaslat(eId)" >Duruş Başlat</button>
+                <button [hidden]="durusbitirbutton" class="btn btn-danger mr-1 mb-1" (click)="durusBitir(eId)" >Duruş Bitir</button>
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-xl-4 col-lg-4 col-md-4 col-4" >
+    <div class=" card card-inverse bg-primary box-shadow-0 text-center">
+      <div class="card-content">
+        <div class="card-body">
+          <div class="row d-flex">
+            <div class="col align-self-center">
+              <h4 class="card-title mb-1">Hatalı Üretim</h4>
+              <p>{{firemiktar}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-xl-4 col-lg-4 col-md-4 col-4" >
+  <div class=" card card-inverse bg-info box-shadow-0 text-center">
+    <div class="card-content">
+      <div class="card-body">
+        <div class="row d-flex">
+          <div class="col align-self-center">
+            <button class="btn btn-warning mr-1  mb-1" (click)="fireGir()">Fire Gir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="col-xl-4 col-lg-4 col-md-4 col-4" >
+  <div class=" card card-inverse bg-danger box-shadow-0 text-center">
+    <div class="card-content">
+      <div class="card-body">
+        <div class="row d-flex">
+          <div class="col align-self-center">
+            <p>{{uretimbaslatarihi}}</p>
+            <button [hidden]="uretbaslat" class="btn btn-success mr-1  mb-1" (click)="uretimeBaslat(eId)">Üretim Başlat</button>
+            <button [hidden]="uretdurdur" class="btn btn-success mr-1  mb-1" (click)="uretimeDurdur(eId)">Üretim Durdur</button>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+      </div>
+
+      <div class="row" [hidden]="DurusGizle">
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-12"  style="text-align: end;">
+          <button class="btn btn-danger mr-1 mb-1" (click)="durusVazgec('durusgizle')"><i class="icon-arrow-left"></i></button>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-3"  *ngFor="let durus of durusGruplari">
+          <div class=" card card-inverse bg-warning box-shadow-0 text-center" (click)="durusAltGrup(durus.grupkodu)">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="row d-flex">
+                  <div class="col align-self-center">
+                    <p style="font-size: 14px;" class="card-title mb-1">{{durus.grupadi}}</p>
+                    <p>{{durus.grupkodu}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="row" [hidden]="DurusAltGizle">
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-12"  style="text-align: end;">
+          <button class="btn btn-danger mr-1 mb-1" (click)="durusVazgec('altgrup')"><i class="icon-arrow-left"></i></button>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-3"  *ngFor="let durus of durusAltGruplari">
+          <div class=" card card-inverse bg-warning box-shadow-0 text-center" (click)='durusOlustur(durus.index_durustanimlari)'>
+            <div class="card-content">
+              <div class="card-body">
+                <div class="row d-flex">
+                  <div class="col align-self-center">
+                    <p style="font-size: 14px;" class="card-title mb-1">{{durus.durustanimi}}</p>
+                    <p>{{durus.duruskodu}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+
+      <div class="row" [hidden]="fireGizle">
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-12"  style="text-align: end;">
+          <span>
+            <div class="form-group form-inline ">
+              <input class="form-control ml-2 mt-2" type="text" name="term" placeholder="Aranacak Hata" [(ngModel)]="term" />
+            </div>
+            </span>
+          <button class="btn btn-danger mr-1 mb-1" (click)="durusVazgec('fireGizle')"><i class="icon-arrow-left"></i></button>
+        </div>
+       
+        <div class="col-xl-3 col-lg-3 col-md-3 col-3"  *ngFor="let fire of fireNedenleriData | filter:term">
+          <div class=" card card-inverse bg-info box-shadow-0 text-center"  (click)="fireOlustur(fire.index_firenedenleri)">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="row d-flex">
+                  <div class="col align-self-center">
+                    <p style="font-size: 14px;" class="card-title mb-1">{{fire.firetanimi}}</p>
+                    <p>{{fire.firekodu}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- 
+<div class="modal-header">
+  <h4 class="modal-title"> {{modalBaslik}} </h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    x
+  </button>
+</div>
+<div [hidden]="isEmriAnalizi">
+  <div class="card">
+    <div class="card-content">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+            <div class="card card-outline-warning box-shadow-0 text-center">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col align-self-center">
+                      <h4 class="card-title mb-1">{{IsemriNo}}</h4>
+                      <p class="card-text">{{projeKodu}}</p>
+                      <p class="card-text">{{isIstasyonu}}</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+            <div class="card card-outline-warning box-shadow-0 text-center">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col align-self-center">
+                      <h4 class="card-title mb-3">Kalan İş Emri Süresi</h4>
+                      <p class="card-text">{{islemSuresi}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row  justify-content-center">
+          <div class=" col-xl-3 col-md-3 col-sm-3 col-12">
+            <div class="card">
+              <div class="card-header text-center pb-0">
+                <span class="font-medium-2 warning">OEE</span>
+                <h6 class=" mt-2">7261</h6>
+              </div>
+              <div class="card-content">
+                <div id="donut-chart1" class="donut1">
+                  <x-chartist class="height-250" [data]="DonutChart1.data" [type]="DonutChart1.type"
+                    [options]="DonutChart1.options" [responsiveOptions]="DonutChart1.responsiveOptions"
+                    [events]="DonutChart1.events">
+                  </x-chartist>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-3 col-sm-3 col-12">
+            <div class="card">
+              <div class="card-header text-center pb-0">
+                <span class="font-medium-2 info">Kalite</span>
+                <h6 class=" mt-2">5.6
+                </h6>
+              </div>
+              <div class="card-content">
+                <div id="donut-chart2" class="donut2">
+                  <x-chartist class="height-250" [data]="DonutChart2.data" [type]="DonutChart2.type"
+                    [options]="DonutChart2.options" [responsiveOptions]="DonutChart2.responsiveOptions"
+                    [events]="DonutChart2.events">
+                  </x-chartist>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-3 col-sm-3 col-12">
+            <div class="card">
+              <div class="card-header text-center pb-0">
+                <span class="font-medium-2 danger">Performans</span>
+                <h6 class=" mt-2">4025
+                </h6>
+              </div>
+              <div class="card-content">
+                <div id="donut-chart3" class="donut3">
+                  <x-chartist class="height-250" [data]="DonutChart3.data" [type]="DonutChart3.type"
+                    [options]="DonutChart3.options" [responsiveOptions]="DonutChart3.responsiveOptions"
+                    [events]="DonutChart3.events">
+                  </x-chartist>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-3 col-sm-3 col-12">
+            <div class="card">
+              <div class="card-header text-center pb-0">
+                <span class="font-medium-2 danger">Kullanılabilirlik</span>
+                <h6 class=" mt-2">4025
+                </h6>
+              </div>
+              <div class="card-content">
+                <div id="donut-chart4" class="donut4">
+                  <x-chartist class="height-250" [data]="DonutChart4.data" [type]="DonutChart4.type"
+                    [options]="DonutChart4.options" [responsiveOptions]="DonutChart4.responsiveOptions"
+                    [events]="DonutChart4.events">
+                  </x-chartist>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+          <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+            <div class="card gradient-ibiza-sunset">
+              <div class="card-content">
+                <div class="card-body py-0">
+                  <div class="media pb-1">
+                    <div class="media-body white text-left">
+                      <h3 class="font-large-1 white mb-0">{{planlananUretim}}</h3>
+                      <span>Planlanan Üretim Miktarı</span>
+                    </div>
+                    <div class="media-right white text-right">
+                      <i class="ft-percent font-large-1"></i>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+            <div class="card gradient-mint">
+              <div class="card-content">
+                <div class="card-body py-0">
+                  <div class="media pb-1">
+                    <div class="media-body white text-left">
+                      <h3 class="font-large-1 white mb-0">{{hatasizUretim}}</h3>
+                      <span>Hatasız Üretim Miktarı</span>
+                    </div>
+                    <div class="media-right white text-right">
+                      <i class="ft-trending-up font-large-1"></i>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+            <div class="card gradient-king-yna">
+              <div class="card-content">
+                <div class="card-body py-0">
+                  <div class="media pb-1">
+                    <div class="media-body white text-left">
+                      <h3 class="font-large-1 white mb-0">{{hataliUretim}}</h3>
+                      <span>Hatalı Üretim Miktarı</span>
+                    </div>
+                    <div class="media-right white text-right">
+                      <i class="ft-credit-card font-large-1"></i>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-lg-12 col-12" [hidden]="isEmriKalite">
+  <div class="card">
+    <div class="card-content">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+            <div class="card card-outline-warning box-shadow-0 text-center">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col align-self-center">
+                      <h4 class="card-title mb-1">{{IsemriNo}}</h4>
+                      <p class="card-text">{{projeKodu}}</p>
+                      <p class="card-text">{{isIstasyonu}}</p>
+                      <p class="card-text">{{aktifOperator}}</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+            <div class="card card-outline-warning box-shadow-0 text-center">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col-md-12 align-self-center   ">
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2" (click)="asamaKontrolEt('N1')" [ngClass]="kontrolNe=='N1' ? 'btn-success' : 'btn-secondary' ">N1</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N2')" [ngClass]="kontrolNe=='N2' ? 'btn-success' : 'btn-secondary' ">N2</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N3')" [ngClass]="kontrolNe=='N3' ? 'btn-success' : 'btn-secondary' ">N3</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N4')" [ngClass]="kontrolNe=='N4' ? 'btn-success' : 'btn-secondary' ">N4</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N5')" [ngClass]="kontrolNe=='N5' ? 'btn-success' : 'btn-secondary' ">N5</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N6')" [ngClass]="kontrolNe=='N6' ? 'btn-success' : 'btn-secondary' ">N6</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N7')" [ngClass]="kontrolNe=='N7' ? 'btn-success' : 'btn-secondary' ">N7</button>
+                      <button class="btn btn-lg btn-primary  mb-1 mr-2"  (click)="asamaKontrolEt('N8')" [ngClass]="kontrolNe=='N8' ? 'btn-success' : 'btn-secondary' ">N8</button>
+
+                    </div>
+
+
+
+                  </div>
+                  <form #userForm="ngForm" (ngSubmit)="kontrolPlaniEkle(userForm.value)">
+                  <div class="row justify-content-center d-flex" *ngFor="let olcu of UrunOlculeri">
+                    <input type="text" [(ngModel)]="olcu.index_urunolculeri" [hidden]="true" ngModel class="form-control"  name="turu_{{olcu.index_urunolculeri}}">
+
+                    <div class="col-md-3 col-xl-3 col-sm-3 " >
+                      <div class="card card-inverse bg-warning">
+                        <div class="card-content">
+                          <div class="card-body">
+                            <div class="media">
+                              <div class="media-body text-center">
+                                <span>Ölçü Türü:<br>{{olcu.olcuturu}}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3 col-xl-3 col-sm-3 " >
+                      <div class="card card-inverse bg-warning">
+                        <div class="card-content">
+                          <div class="card-body">
+                            <div class="media">
+                              <div class="media-body text-center">
+                                <span class="card-text">Hedef Değer:<br>{{olcu.hedefdeger}}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+
+                      <div class="col-md-3 col-xl-3 col-sm-3 " >
+                      <div class="card card-inverse bg-warning">
+                        <div class="card-content">
+                          <div class="card-body">
+                            <div class="media">
+                              <div class="media-body text-center">
+                                <span class="card-text">Tolerans:<br>+{{olcu.tolerans_arti}} -{{olcu.tolerans_eksi}} </span>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>                         
+                      <div class="col-md-3 col-xl-3 col-sm-4 d-flex">
+                        <div class="card card-warning box-shadow-0 text-center">
+                          <label for="Ölçü">Ölçü Değeri</label>
+                             <input type="text"  ngModel   name="olcu_{{olcu.index_urunolculeri}}" id="olcu_{{olcu.index_urunolculeri}}" class="form-control" placeholder="Ölçü">
+                        </div>
+                      </div>               
+                  </div>
+                  <div class="row justify-content-end d-flex" >
+                    <div class="col-md-4 col-xl-4 col-sm-4 ">
+                      <div class="card card-warning box-shadow-0 text-end">
+                        <button class="btn btn-success " type="submit">Kaydet</button>
+                      </div>
+                    </div>  
+                                 
+                  </div>
+               </form>
+          
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-end d-flex" >
+        <div class="col-md-3 col-xl-3 col-sm-3 ">
+          <div class="card card-danger box-shadow-0 text-end">
+            <button class="btn btn-danger " (click)="activeModal.close('Close click')">Vazgeç</button>
+          </div>
+      </div>
+      </div>
+      </div>  
+    </div>
+  </div>
+</div>
+<div class="col-lg-12 col-12" [hidden]="uretimVerileri">
+  <div class="card">
+    <div class="card-content">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+            <div class="card card-outline-warning box-shadow-0 text-center">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col align-self-center">
+                      <h4 class="card-title mb-1">{{IsemriNo}}</h4>
+                      <p class="card-text">{{projeKodu}}</p>
+                      <p class="card-text">{{isIstasyonu}}</p>
+                      <p class="card-text">{{aktifOperator}}</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+    
+
+      </div>
+
+      <div class="row" [hidden]="divGizle">
+   
+     
+    <div class="col-xl-4 col-lg-4 col-md-4 col-4">
+      <div class=" card card-inverse bg-secondary box-shadow-0 text-center">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="row d-flex">
+              <div class="col align-self-center">
+                <h4 class="card-title mb-1">Başlama Zamanı</h4>
+                <p>{{baslamazamani}}</p>
+                <button [hidden]="durusbaslatbutton" class="btn btn-danger mr-1 mb-1" (click)="durusBaslat(eId)" >Duruş Başlat</button>
+                <button [hidden]="durusbitirbutton" class="btn btn-danger mr-1 mb-1" (click)="durusBitir(eId)" >Duruş Bitir</button>
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-xl-4 col-lg-4 col-md-4 col-4" >
+    <div class=" card card-inverse bg-primary box-shadow-0 text-center">
+      <div class="card-content">
+        <div class="card-body">
+          <div class="row d-flex">
+            <div class="col align-self-center">
+              <h4 class="card-title mb-1">Hatalı Üretim</h4>
+              <p>{{firemiktar}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-xl-4 col-lg-4 col-md-4 col-4" >
+  <div class=" card card-inverse bg-info box-shadow-0 text-center">
+    <div class="card-content">
+      <div class="card-body">
+        <div class="row d-flex">
+          <div class="col align-self-center">
+            <button class="btn btn-warning mr-1  mb-1" (click)="fireGir()">Fire Gir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+      </div>
+
+      <div class="row" [hidden]="DurusGizle">
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-12"  style="text-align: end;">
+          <button class="btn btn-danger mr-1 mb-1" (click)="durusVazgec('durusgizle')"><i class="icon-arrow-left"></i></button>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-3"  *ngFor="let durus of durusGruplari">
+          <div class=" card card-inverse bg-warning box-shadow-0 text-center" (click)="durusAltGrup(durus.grupkodu)">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="row d-flex">
+                  <div class="col align-self-center">
+                    <p style="font-size: 14px;" class="card-title mb-1">{{durus.grupadi}}</p>
+                    <p>{{durus.grupkodu}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="row" [hidden]="DurusAltGizle">
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-12"  style="text-align: end;">
+          <button class="btn btn-danger mr-1 mb-1" (click)="durusVazgec('altgrup')"><i class="icon-arrow-left"></i></button>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-3"  *ngFor="let durus of durusAltGruplari">
+          <div class=" card card-inverse bg-warning box-shadow-0 text-center" (click)='durusOlustur(durus.index_durustanimlari)'>
+            <div class="card-content">
+              <div class="card-body">
+                <div class="row d-flex">
+                  <div class="col align-self-center">
+                    <p style="font-size: 14px;" class="card-title mb-1">{{durus.durustanimi}}</p>
+                    <p>{{durus.duruskodu}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+
+      <div class="row" [hidden]="fireGizle">
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-12"  style="text-align: end;">
+          <span>
+            <div class="form-group form-inline ">
+              <input class="form-control ml-2 mt-2" type="text" name="term" placeholder="Aranacak Hata" [(ngModel)]="term" />
+            </div>
+            </span>
+          <button class="btn btn-danger mr-1 mb-1" (click)="durusVazgec('fireGizle')"><i class="icon-arrow-left"></i></button>
+        </div>
+       
+        <div class="col-xl-3 col-lg-3 col-md-6 col-3"  *ngFor="let fire of fireNedenleriData | filter:term">
+          <div class=" card card-inverse bg-info box-shadow-0 text-center"  (click)="fireOlustur(fire.index_firenedenleri)">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="row d-flex">
+                  <div class="col align-self-center">
+                     <img src="{{fire.resim}}" alt="" style="width: 50px;height:50px ;"> 
+                    <p style="font-size: 14px;" class="card-title mb-1">{{fire.firetanimi}}</p>
+                    <p>{{fire.firekodu}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div> -->
