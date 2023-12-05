@@ -1,0 +1,55 @@
+<div *ngIf="slides" class="carousel row">
+    <h6 class="light-fonts-pro mt-2">BUGÜN YAYINDAKİLER</h6>
+    <div #stage class="carousel-stage mt-3">
+        <img [ngStyle]='{"visibility": "hidden","width": "80%", "height": "200px", "padding": "0 12px", "order": "-100", "overflow": "hidden" }'
+            src="https://im.showtv.com.tr/2023/09/13/ver1694593175/3621319_1920x1080.jpg" alt="Here is a photo"
+            draggable="false">
+        <div #slide [id]="slide.id" *ngFor="let slide of slides; let i = index" class="slide">
+            <img class="slide-img" [src]="slide.image" alt="Here is a photo" draggable="false">
+            <div class="caption">
+                <div class="progression-studios-slider-dashboard-caption-width">
+                    <div class="progression-studios-slider-caption-align">
+
+                        <h3 class="light-fonts-pro">
+                            <a href="dashboard-movie-profile.html">{{slide.title}}</a>
+                            <ul class="progression-studios-slider-rating"><li>HD</li></ul>
+                        </h3>
+                        <ul class="progression-studios-slider-meta">
+                            <li>Ekim 3, 2023</li>
+                            <!-- <li>163 dk.</li> -->
+                            <li>Drama</li>
+                        </ul>
+                        <p class="progression-studios-slider-description light-fonts-pro">
+                            {{slide.description}}
+                        </p>
+                        <div class="mb-2">
+                            <a class="btn btn-green-pro btn-slider-pro afterglow mb-0" href="#VideoLightbox-2">
+                                <i class="fas fa-play"></i>
+                                Fragmanı izle
+                            </a>
+                            <div class="progression-studios-slider-more-options" ngbDropdown>
+                                <i class="fas fa-ellipsis-h text-center" ngbDropdownToggle></i>
+                                <ul ngbDropdownMenu class="mt-2">
+                                    <li><a href="#!">Favorilere Ekle</a></li>
+                                    <li><a href="#!">İzleme Listesine Ekle</a></li>
+                                    <li><a href="#!">Oynatma Listesine Ekle</a></li>
+                                    <li><a href="#!">Paylaş...</a></li>
+                                    <li><a href="#!">Yorum Yaz</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <h5 class="light-fonts-pro">Oyuncular</h5>
+                        <ul class="progression-studios-staring-slider">
+                            <li *ngFor="let star of slide.starring"><a href="#!"><img class="starring" src="{{star}}" alt="Starring"></a></li>
+                        </ul>
+
+                    </div><!-- close .progression-studios-slider-caption-align -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary slide-btn" style="left: 1rem;" (click)="preventMultipleClicks(-1)" title="Previous slide" type="button"><i class="fa fa-arrow-left"></i></button>
+    <button class="btn btn-primary slide-btn" style="right: 0rem" (click)="preventMultipleClicks(1)" title="Next slide" type="button"><i class="fa fa-arrow-right"></i></button>
+</div>

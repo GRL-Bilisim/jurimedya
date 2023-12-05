@@ -79,7 +79,6 @@ export class LoginPageComponent implements OnInit {
       });
 
     localStorage.setItem('url', localStorage.getItem('urlx') + "maratonservices/");
-    debugger
     const formData = new FormData();
 
     formData.append('username', this.loginForm.get('username').value);
@@ -94,14 +93,14 @@ export class LoginPageComponent implements OnInit {
         debugger
 
         if (data[0]) this.user = data[0];
-        else this.user = data;
+        else this.user = null;
 
-        localStorage.setItem('password', this.loginForm.get('password').value);
-
+        
         if (this.user != null) {
-
-          localStorage.setItem('userid', "" + this.user.user_indeks);
           localStorage.setItem('username', this.user.username);
+          localStorage.setItem('password', this.loginForm.get('password').value);
+          
+          localStorage.setItem('userid', "" + this.user.user_indeks);
           localStorage.setItem('adi', this.user.adi);
           localStorage.setItem('resim', this.user.profilresim);
           localStorage.setItem('unvani', this.user.unvani);
@@ -160,7 +159,7 @@ export class LoginPageComponent implements OnInit {
       },
       complete: () => {
         debugger
-        this.accountService.setCurrentUser(this.user);
+        if (this.user != null) this.accountService.setCurrentUser(this.user);
       }
     });
 

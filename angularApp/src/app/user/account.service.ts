@@ -37,7 +37,6 @@ export class AccountService {
   loadCurrentUser() {    
     return this.http.get(this.url + 'angular/dataservis.php?page_id=pdo_kullanicigirisi&username=' + localStorage.getItem('adi') + '&password=' + localStorage.getItem('password')).subscribe({
       next: (data: any) => {
-        debugger
         if (data.length > 0) {
           this.setCurrentUser(data);
         }

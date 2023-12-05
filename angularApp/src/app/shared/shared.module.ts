@@ -34,6 +34,7 @@ import { TopMenuAnchorToggleDirective } from './directives/topmenu-anchor-toggle
 import { PagesNavbarComponent } from './pages-navbar/pages-navbar.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
     exports: [
@@ -52,6 +53,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
         PagesNavbarComponent,
         NgCircleProgressModule,
         NgxSliderModule,
+        CarouselComponent,
     ],
     imports: [
         RouterModule,
@@ -93,6 +95,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
         TopMenuAnchorToggleDirective,
         TopMenuDirective,
         PagesNavbarComponent,
+        CarouselComponent,
     ]
 })
 export class SharedModule { }
