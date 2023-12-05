@@ -55,15 +55,10 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Login Page');
-
-
     if (localStorage.getItem("kayitlikullanici") !== null && localStorage.getItem("kayitlisifre") !== null) {
 
       this.kayitlikullanici = localStorage.getItem("kayitlikullanici");
       this.kayitlisifre = localStorage.getItem("kayitlisifre");
-
-
     }
   }
 
@@ -101,7 +96,7 @@ export class LoginPageComponent implements OnInit {
         if (data[0]) this.user = data[0];
         else this.user = data;
 
-        this.accountService.setUser(this.user);
+        localStorage.setItem('password', this.loginForm.get('password').value);
 
         if (this.user != null) {
 
@@ -162,6 +157,10 @@ export class LoginPageComponent implements OnInit {
         // this.spinner.hide();
         // this.cdr.markForCheck();
         // console.log('Giriş Başarısız');
+      },
+      complete: () => {
+        debugger
+        this.accountService.setCurrentUser(this.user);
       }
     });
 

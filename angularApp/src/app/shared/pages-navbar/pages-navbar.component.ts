@@ -1,8 +1,10 @@
 import { Options } from '@angular-slider/ngx-slider';
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { AccountService } from 'app/user/account.service';
 import { User } from 'app/user/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pages-navbar',
@@ -16,7 +18,7 @@ export class PagesNavbarComponent implements OnInit {
   @ViewChild('mobileSidebarMenu') mobileSidebarMenu: ElementRef;
 
   filtersHeaderShown: boolean = false;
-  user: User = new User();
+  $user: Observable<any>;
   userMenuActive: boolean = false;
   userFiltersMenuActive: boolean = false;
   value: number = 0;
@@ -35,10 +37,10 @@ export class PagesNavbarComponent implements OnInit {
     }
   }
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
-    this.user = this.accountService.user;
+    this.$user = this.accountService.$user;
   }
 
   toggleUserMenu(e: any) {    
@@ -50,7 +52,6 @@ export class PagesNavbarComponent implements OnInit {
     this.filtersMenu.nativeElement.style.width = e.view.innerWidth - 178 + 'px';
     this.filtersMenu.nativeElement.style.top = '100%';
     this.filtersMenu.nativeElement.style.marginTop = '90px';
-    console.log(this.filtersMenu);
   }
 
   toggleBarsDropdownFromOutside(e: any) {
@@ -59,6 +60,7 @@ export class PagesNavbarComponent implements OnInit {
   }
 
   logout() {
-    // TODO: Implement logout
+    this.accountService.logoutUser();
+    this.router.navigate(['']);
   }
 }

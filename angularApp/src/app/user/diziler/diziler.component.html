@@ -1,465 +1,126 @@
 <div id="sidebar-bg">
     <main id="col-main">
-
-        <!-- Saklanmış ve #1'e Taşınmış -->
-        <div class="d-none winning-order">
-            <ul class="list-group list-group-horizontal">
-                <li class="btn list-group-item">Bu Hafta</li>
-                <li class="btn list-group-item">Bu Ay</li>
-                <li class="btn list-group-item">Tüm zamanlar</li>
-            </ul>
-        </div>
-
-        <ngb-carousel>
-            <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                    <img [src]="'https://www.jurimedya.com/maratonservices/diziler/m9rtgmnnxe.jpg'"
-                        alt="Random first slide" />
-                </div>
-                <div class="carousel-caption">
-                    <div class="progression-studios-slider-display-table">
-                        <div class="progression-studios-slider-vertical-align">
-                            <div class="container">
-
-                                <a class="progression-studios-slider-play-btn afterglow" href="#VideoLightbox-2"><i
-                                        class="fas fa-play"></i></a>
-
-                                <!-- <video id="VideoLightbox-2" poster="https://www.jurimedya.com/maratonservices/diziler/lb6z9cze4v.jpg" width="960" height="540">
-                                        <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/mp4">
-                                        <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/webm">
-                                    </video> -->
-
-                                <circle-progress class="rating-circle" [percent]="85" [radius]="40"
-                                    [outerStrokeWidth]="3" [innerStrokeWidth]="0" [outerStrokeColor]="'#78C000'"
-                                    [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="100"
-                                    [units]="''" [showSubtitle]="false">
-                                </circle-progress>
-
-                                <div class="progression-studios-slider-dashboard-caption-width">
-                                    <div class="progression-studios-slider-caption-align">
-                                        <h6 class="light-fonts-pro">BUGÜN YAYINDAKİLER</h6>
-                                        <ul class="progression-studios-slider-rating">
-                                            <li>HD</li>
-                                        </ul>
-                                        <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">ADIM
-                                                FARAH</a></h2>
-                                        <ul class="progression-studios-slider-meta">
-                                            <li>Ekim 3, 2023</li>
-                                            <!-- <li>163 dk.</li> -->
-                                            <li>Drama</li>
-                                        </ul>
-                                        <p class="progression-studios-slider-description light-fonts-pro">Fox
-                                            TV'nin yeni sezon onayı alan tek dizisi olan Adım Farah ilk
-                                            sezonunda 14 bölüm yayınlandı. Çarşamba akşamları ekranlara gelen
-                                            dizi, oğluyla yasa dışı bir hayat süren Farah'ın bir cinayete şahit
-                                            olmasıyla birlikte değişen yaşamını konu ediniyor.
-                                        </p>
-                                        <div>
-                                            <a class="btn btn-green-pro btn-slider-pro afterglow"
-                                                href="#VideoLightbox-2">
-                                                <i class="fas fa-play"></i>
-                                                Fragmanı izle
-                                            </a>
-                                            <div class="progression-studios-slider-more-options" ngbDropdown>
-                                                <i class="fas fa-ellipsis-h text-center" ngbDropdownToggle></i>
-                                                <ul ngbDropdownMenu class="mt-2">
-                                                    <li><a href="#!">Favorilere Ekle</a></li>
-                                                    <li><a href="#!">İzleme Listesine Ekle</a></li>
-                                                    <li><a href="#!">Oynatma Listesine Ekle</a></li>
-                                                    <li><a href="#!">Paylaş...</a></li>
-                                                    <li><a href="#!">Yorum Yaz</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-
-                                        <h5 class="light-fonts-pro">Oyuncular</h5>
-                                        <ul class="progression-studios-staring-slider">
-                                            <li><a href="#!"><img
-                                                        src="https://www.jurimedya.com/maratonservices/oyuncular/zoafi94dj8.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://www.jurimedya.com/maratonservices/oyuncular/9daat1xg3m.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://www.jurimedya.com/maratonservices/oyuncular/uuwyo61hhj.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://www.jurimedya.com/maratonservices/oyuncular/dsep2tdl90.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://www.jurimedya.com/maratonservices/oyuncular/pb2mrlgy1z.jpg"
-                                                        alt="Starring"></a></li>
-                                        </ul>
-
-                                    </div><!-- close .progression-studios-slider-caption-align -->
-                                </div><!-- close .progression-studios-slider-caption-width -->
-
-                            </div><!-- close .container -->
-                        </div>
+        <div class="row">
+            <ngb-carousel class="col-md-3">
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img [src]="'https://www.jurimedya.com/maratonservices/diziler/m9rtgmnnxe.jpg'"
+                            alt="Random first slide" />
                     </div>
-                </div>
-            </ng-template>
-            <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                    <img [src]="'https://im.showtv.com.tr/2023/09/13/ver1694593175/3621319_1920x1080.jpg'"
-                        alt="Random first slide" />
-                </div>
-                <div class="carousel-caption">
-                    <div class="progression-studios-slider-display-table">
-                        <div class="progression-studios-slider-vertical-align">
-                            <div class="container">
-
-                                <a class="progression-studios-slider-play-btn afterglow" href="#VideoLightbox-2"><i
-                                        class="fas fa-play"></i></a>
-
-                                <!-- <video id="VideoLightbox-2" poster="https://www.jurimedya.com/maratonservices/diziler/lb6z9cze4v.jpg" width="960" height="540">
-                                        <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/mp4">
-                                        <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/webm">
-                                    </video> -->
-
-                                <circle-progress class="rating-circle" [percent]="85" [radius]="40"
-                                    [outerStrokeWidth]="3" [innerStrokeWidth]="0" [outerStrokeColor]="'#78C000'"
-                                    [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="100"
-                                    [units]="''" [showSubtitle]="false">
-                                </circle-progress>
-
-                                <div class="progression-studios-slider-dashboard-caption-width">
-                                    <div class="progression-studios-slider-caption-align">
-                                        <h6 class="light-fonts-pro">BUGÜN YAYINDAKİLER</h6>
-                                        <ul class="progression-studios-slider-rating">
-                                            <li>HD</li>
-                                        </ul>
-                                        <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">KIZILCIK
-                                                ŞERBETİ</a></h2>
-                                        <ul class="progression-studios-slider-meta">
-                                            <li>Ekim 3, 2023</li>
-                                            <!-- <li>163 dk.</li> -->
-                                            <li>Drama</li>
-                                        </ul>
-                                        <p class="progression-studios-slider-description light-fonts-pro">
-                                            Çocukken annelerinin başka bir adama kaçmak için terk ettiği iki kardeş olan
-                                            Gülcemal ve Gülendamın hayatı annelerinin gidişiyle paramparça olur.
-                                            Zorluklar içinde büyüyen iki kardeş kendilerine imrenilecek bir hayat
-                                            kurarak yıllar sonra Bursaya dönerler.Gülcemalin tek amacı annesinden
-                                            intikam almaktır. Onun herşeyini alacak, sonunda kapısına muhtaç edecek ve
-                                            annesi ona "İyi ki seni doğurmuşum oğlum" diyecektir.
-                                        </p>
-                                        <div>
-                                            <a class="btn btn-green-pro btn-slider-pro afterglow"
-                                                href="#VideoLightbox-2">
-                                                <i class="fas fa-play"></i>
-                                                Fragmanı izle
-                                            </a>
-                                            <div class="progression-studios-slider-more-options" ngbDropdown>
-                                                <i class="fas fa-ellipsis-h text-center" ngbDropdownToggle></i>
-                                                <ul ngbDropdownMenu class="mt-2">
-                                                    <li><a href="#!">Favorilere Ekle</a></li>
-                                                    <li><a href="#!">İzleme Listesine Ekle</a></li>
-                                                    <li><a href="#!">Oynatma Listesine Ekle</a></li>
-                                                    <li><a href="#!">Paylaş...</a></li>
-                                                    <li><a href="#!">Yorum Yaz</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-
-                                        <h5 class="light-fonts-pro">Oyuncular</h5>
-                                        <ul class="progression-studios-staring-slider">
-                                            <li><a href="#!"><img
-                                                        src="https://www.jurimedya.com/maratonservices/oyuncular/p0ov73wph1.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://www.jurimedya.com/maratonservices/oyuncular/ci0cpswsvh.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://www.jurimedya.com/maratonservices/oyuncular/8azye4oqxc.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://icdn.tgrthaber.com.tr//images/haberler/23-03/31/adsiz-tasarim-2023-03-31t165537170.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://im.showtv.com.tr/2023/04/11/3581933_8ab49c0684e3595a8ceff013076443c4_640x640.jpg"
-                                                        alt="Starring"></a></li>
-                                        </ul>
-
-                                    </div><!-- close .progression-studios-slider-caption-align -->
-                                </div><!-- close .progression-studios-slider-caption-width -->
-
-                            </div><!-- close .container -->
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                    <img [src]="'https://img.dizi.la/uploads/49050/FmYB-RFacAAl5IR.jpeg'" alt="Random first slide" />
-                </div>
-                <div class="carousel-caption">
-                    <div class="progression-studios-slider-display-table">
-                        <div class="progression-studios-slider-vertical-align">
-                            <div class="container">
-
-                                <a class="progression-studios-slider-play-btn afterglow" href="#VideoLightbox-2"><i
-                                        class="fas fa-play"></i></a>
-
-                                <!-- <video id="VideoLightbox-2" poster="https://www.jurimedya.com/maratonservices/diziler/lb6z9cze4v.jpg" width="960" height="540">
-                                        <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/mp4">
-                                        <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/webm">
-                                    </video> -->
-
-                                <circle-progress class="rating-circle" [percent]="85" [radius]="40"
-                                    [outerStrokeWidth]="3" [innerStrokeWidth]="0" [outerStrokeColor]="'#78C000'"
-                                    [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="100"
-                                    [units]="''" [showSubtitle]="false">
-                                </circle-progress>
-
-                                <div class="progression-studios-slider-dashboard-caption-width">
-                                    <div class="progression-studios-slider-caption-align">
-                                        <h6 class="light-fonts-pro">BUGÜN YAYINDAKİLER</h6>
-                                        <ul class="progression-studios-slider-rating">
-                                            <li>HD</li>
-                                        </ul>
-                                        <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">ATEŞ
-                                            KUŞLARI</a></h2>
-                                        <ul class="progression-studios-slider-meta">
-                                            <li>Ekim 3, 2023</li>
-                                            <!-- <li>163 dk.</li> -->
-                                            <li>Drama</li>
-                                        </ul>
-                                        <p class="progression-studios-slider-description light-fonts-pro">Ateş
-                                            Kuşları, Bozdağ Film imzalı, ilk bölümü 13 Ocak 2023 tarihinde
-                                            yayımlanan, yönetmenliğini Benal Tairi, Gökhan Ayiz, Yıldız Aşanboğa ve
-                                            Bülent İşbilen'in üstlendiği, senaryosunu Ayşe Ferda Eryılmaz ve Nehir
-                                            Erdem'in kaleme aldığı dram türündeki Türk televizyon dizisidir.
-                                        </p>
-                                        <div>
-                                            <a class="btn btn-green-pro btn-slider-pro afterglow"
-                                                href="#VideoLightbox-2">
-                                                <i class="fas fa-play"></i>
-                                                Fragmanı izle
-                                            </a>
-                                            <div class="progression-studios-slider-more-options" ngbDropdown>
-                                                <i class="fas fa-ellipsis-h text-center" ngbDropdownToggle></i>
-                                                <ul ngbDropdownMenu class="mt-2">
-                                                    <li><a href="#!">Favorilere Ekle</a></li>
-                                                    <li><a href="#!">İzleme Listesine Ekle</a></li>
-                                                    <li><a href="#!">Oynatma Listesine Ekle</a></li>
-                                                    <li><a href="#!">Paylaş...</a></li>
-                                                    <li><a href="#!">Yorum Yaz</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-
-                                        <h5 class="light-fonts-pro">Oyuncular</h5>
-                                        <ul class="progression-studios-staring-slider">
-                                            <li><a href="#!"><img
-                                                        src="https://www.jurimedya.com/maratonservices/oyuncular/p0ov73wph1.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://www.jurimedya.com/maratonservices/oyuncular/ci0cpswsvh.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://www.jurimedya.com/maratonservices/oyuncular/8azye4oqxc.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://icdn.tgrthaber.com.tr//images/haberler/23-03/31/adsiz-tasarim-2023-03-31t165537170.jpg"
-                                                        alt="Starring"></a></li>
-                                            <li><a href="#!"><img
-                                                        src="https://im.showtv.com.tr/2023/04/11/3581933_8ab49c0684e3595a8ceff013076443c4_640x640.jpg"
-                                                        alt="Starring"></a></li>
-                                        </ul>
-
-                                    </div><!-- close .progression-studios-slider-caption-align -->
-                                </div><!-- close .progression-studios-slider-caption-width -->
-
-                            </div><!-- close .container -->
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-        </ngb-carousel>
-
-        <!-- <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="https://cdn1.startv.com.tr/media/News/_ImageOriginal/fb4a43e0-6077-45ff-98ec-677368d07b54.jpg?v=44879,7915750347" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="https://im.showtv.com.tr/2023/09/13/ver1694593175/3621319_1920x1080.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Some representative placeholder content for the second slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Arka_Sokaklar_16.sezon.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>Some representative placeholder content for the third slide.</p>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div> -->
-
-        <!-- <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="https://cdn1.startv.com.tr/media/News/_ImageOriginal/fb4a43e0-6077-45ff-98ec-677368d07b54.jpg?v=44879,7915750347" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="https://im.showtv.com.tr/2023/09/13/ver1694593175/3621319_1920x1080.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div> -->
-
-        <div class="d-none flexslider progression-studios-dashboard-slider">
-            <ul class="slides">
-
-                <li class="progression_studios_animate_in">
-                    <div class="progression-studios-slider-dashboard-image-background"
-                        style="background-image:url(https://cdn1.startv.com.tr/media/News/_ImageOriginal/fb4a43e0-6077-45ff-98ec-677368d07b54.jpg?v=44879,7915750347);">
+                    <div class="carousel-caption d-block">
                         <div class="progression-studios-slider-display-table">
                             <div class="progression-studios-slider-vertical-align">
-
                                 <div class="container">
-
+    
                                     <a class="progression-studios-slider-play-btn afterglow" href="#VideoLightbox-2"><i
                                             class="fas fa-play"></i></a>
-
+    
                                     <!-- <video id="VideoLightbox-2" poster="https://www.jurimedya.com/maratonservices/diziler/lb6z9cze4v.jpg" width="960" height="540">
                                             <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/mp4">
                                             <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/webm">
                                         </video> -->
-
-                                    <div class="circle-rating-pro" data-value="0.82" data-animation-start-value="0.82"
-                                        data-size="70" data-thickness="6"
-                                        data-fill="{&quot;color&quot;: &quot;#42b740&quot;}" data-empty-fill="#203521"
-                                        data-reverse="true">
-                                        <span style="color:#42b740;">8.2</span>
-                                    </div>
-
+    
+                                    <circle-progress class="rating-circle" [percent]="85" [radius]="40"
+                                        [outerStrokeWidth]="3" [innerStrokeWidth]="0" [outerStrokeColor]="'#78C000'"
+                                        [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="100"
+                                        [units]="''" [showSubtitle]="false">
+                                    </circle-progress>
+    
                                     <div class="progression-studios-slider-dashboard-caption-width">
                                         <div class="progression-studios-slider-caption-align">
                                             <h6 class="light-fonts-pro">BUGÜN YAYINDAKİLER</h6>
                                             <ul class="progression-studios-slider-rating">
                                                 <li>HD</li>
                                             </ul>
-                                            <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">YALI
-                                                    ÇAPKINI</a></h2>
+                                            <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">ADIM
+                                                    FARAH</a></h2>
                                             <ul class="progression-studios-slider-meta">
                                                 <li>Ekim 3, 2023</li>
                                                 <!-- <li>163 dk.</li> -->
                                                 <li>Drama</li>
                                             </ul>
-                                            <p class="progression-studios-slider-description light-fonts-pro">Yalı
-                                                Çapkını, OGM Pictures imzalı, ilk bölümü 23 Eylül 2022 tarihinde
-                                                yayınlanan, yönetmenliğini Burcu Alptekin'in üstlendiği, senaryosunu
-                                                Mehmet Barış Günger'in kaleme aldığı dram ve romantik türdeki Türk
-                                                televizyon dizisidir. Başrollerini Afra Saraçoğlu, Mert Ramazan Demir ve
-                                                Çetin Tekindor paylaşmaktadır.</p>
-
-                                            <a class="btn btn-green-pro btn-slider-pro afterglow"
-                                                href="#VideoLightbox-2"><i class="fas fa-play"></i> Fragmanı izle</a>
-                                            <div class="progression-studios-slider-more-options">
-                                                <i class="fas fa-ellipsis-h"></i>
-                                                <ul>
-                                                    <li><a href="#!">Favorilere Ekle</a></li>
-                                                    <li><a href="#!">İzleme Listesine Ekle</a></li>
-                                                    <li><a href="#!">Oynatma Listesine Ekle</a></li>
-                                                    <li><a href="#!">Paylaş...</a></li>
-                                                    <li><a href="#!">Yorum Yaz</a></li>
-                                                </ul>
+                                            <p class="progression-studios-slider-description light-fonts-pro">Fox
+                                                TV'nin yeni sezon onayı alan tek dizisi olan Adım Farah ilk
+                                                sezonunda 14 bölüm yayınlandı. Çarşamba akşamları ekranlara gelen
+                                                dizi, oğluyla yasa dışı bir hayat süren Farah'ın bir cinayete şahit
+                                                olmasıyla birlikte değişen yaşamını konu ediniyor.
+                                            </p>
+                                            <div>
+                                                <a class="btn btn-green-pro btn-slider-pro afterglow"
+                                                    href="#VideoLightbox-2">
+                                                    <i class="fas fa-play"></i>
+                                                    Fragmanı izle
+                                                </a>
+                                                <div class="progression-studios-slider-more-options" ngbDropdown>
+                                                    <i class="fas fa-ellipsis-h text-center" ngbDropdownToggle></i>
+                                                    <ul ngbDropdownMenu class="mt-2">
+                                                        <li><a href="#!">Favorilere Ekle</a></li>
+                                                        <li><a href="#!">İzleme Listesine Ekle</a></li>
+                                                        <li><a href="#!">Oynatma Listesine Ekle</a></li>
+                                                        <li><a href="#!">Paylaş...</a></li>
+                                                        <li><a href="#!">Yorum Yaz</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div class="clearfix"></div>
-
+    
                                             <h5 class="light-fonts-pro">Oyuncular</h5>
                                             <ul class="progression-studios-staring-slider">
                                                 <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/cgbnrqdacn.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/zoafi94dj8.jpg"
+                                                            alt="Starring"></a></li>
                                                 <li><a href="#!"><img
-                                                            src="https://tr.web.img3.acsta.net/pictures/16/10/05/10/06/557284.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/9daat1xg3m.jpg"
+                                                            alt="Starring"></a></li>
                                                 <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/6dmyhromgt.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/uuwyo61hhj.jpg"
+                                                            alt="Starring"></a></li>
                                                 <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/u6y27vgcta.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/dsep2tdl90.jpg"
+                                                            alt="Starring"></a></li>
                                                 <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/1mskkauqls.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/pb2mrlgy1z.jpg"
+                                                            alt="Starring"></a></li>
                                             </ul>
-
+    
                                         </div><!-- close .progression-studios-slider-caption-align -->
                                     </div><!-- close .progression-studios-slider-caption-width -->
-
+    
                                 </div><!-- close .container -->
-
-                            </div><!-- close .progression-studios-slider-vertical-align -->
-                        </div><!-- close .progression-studios-slider-display-table -->
-
-                        <div class="progression-studios-slider-mobile-background-cover-dark"></div>
-                    </div><!-- close .progression-studios-slider-image-background -->
-                </li>
-                <li class="progression_studios_animate_in">
-                    <div class="progression-studios-slider-dashboard-image-background"
-                        style="background-image:url(https://im.showtv.com.tr/2023/09/13/ver1694593175/3621319_1920x1080.jpg);">
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img [src]="'https://im.showtv.com.tr/2023/09/13/ver1694593175/3621319_1920x1080.jpg'"
+                            alt="Random first slide" />
+                    </div>
+                    <div class="carousel-caption">
                         <div class="progression-studios-slider-display-table">
                             <div class="progression-studios-slider-vertical-align">
-
                                 <div class="container">
-
+    
                                     <a class="progression-studios-slider-play-btn afterglow" href="#VideoLightbox-2"><i
                                             class="fas fa-play"></i></a>
-
+    
                                     <!-- <video id="VideoLightbox-2" poster="https://www.jurimedya.com/maratonservices/diziler/lb6z9cze4v.jpg" width="960" height="540">
-                                               <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/mp4">
-                                               <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/webm">
-                                           </video> -->
-
-                                    <div class="circle-rating-pro" data-value="0.82" data-animation-start-value="0.82"
-                                        data-size="70" data-thickness="6" data-fill="{
-                                                &quot;color&quot;: &quot;#42b740&quot;
-                                              }" data-empty-fill="#203521" data-reverse="true"><span
-                                            style="color:#42b740;">8.2</span></div>
-
+                                            <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/mp4">
+                                            <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/webm">
+                                        </video> -->
+    
+                                    <circle-progress class="rating-circle" [percent]="85" [radius]="40"
+                                        [outerStrokeWidth]="3" [innerStrokeWidth]="0" [outerStrokeColor]="'#78C000'"
+                                        [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="100"
+                                        [units]="''" [showSubtitle]="false">
+                                    </circle-progress>
+    
                                     <div class="progression-studios-slider-dashboard-caption-width">
                                         <div class="progression-studios-slider-caption-align">
                                             <h6 class="light-fonts-pro">BUGÜN YAYINDAKİLER</h6>
-                                            <ul class="progression-studios-slider-rating">
+                                            <!-- <ul class="progression-studios-slider-rating">
                                                 <li>HD</li>
-                                            </ul>
+                                            </ul> -->
                                             <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">KIZILCIK
                                                     ŞERBETİ</a></h2>
                                             <ul class="progression-studios-slider-meta">
@@ -467,26 +128,33 @@
                                                 <!-- <li>163 dk.</li> -->
                                                 <li>Drama</li>
                                             </ul>
-                                            <p class="progression-studios-slider-description light-fonts-pro">Ateş
-                                                Kuşları, Bozdağ Film imzalı, ilk bölümü 13 Ocak 2023 tarihinde
-                                                yayımlanan, yönetmenliğini Benal Tairi, Gökhan Ayiz, Yıldız Aşanboğa ve
-                                                Bülent İşbilen'in üstlendiği, senaryosunu Ayşe Ferda Eryılmaz ve Nehir
-                                                Erdem'in kaleme aldığı dram türündeki Türk televizyon dizisidir.</p>
-
-                                            <a class="btn btn-green-pro btn-slider-pro afterglow"
-                                                href="#VideoLightbox-2"><i class="fas fa-play"></i> Fragmanı izle</a>
-                                            <div class="progression-studios-slider-more-options">
-                                                <i class="fas fa-ellipsis-h"></i>
-                                                <ul>
-                                                    <li><a href="#!">Favorilere Ekle</a></li>
-                                                    <li><a href="#!">İzleme Listesine Ekle</a></li>
-                                                    <li><a href="#!">Oynatma Listesine Ekle</a></li>
-                                                    <li><a href="#!">Paylaş...</a></li>
-                                                    <li><a href="#!">Yorum Yaz</a></li>
-                                                </ul>
+                                            <p class="progression-studios-slider-description light-fonts-pro">
+                                                Çocukken annelerinin başka bir adama kaçmak için terk ettiği iki kardeş olan
+                                                Gülcemal ve Gülendamın hayatı annelerinin gidişiyle paramparça olur.
+                                                Zorluklar içinde büyüyen iki kardeş kendilerine imrenilecek bir hayat
+                                                kurarak yıllar sonra Bursaya dönerler.Gülcemalin tek amacı annesinden
+                                                intikam almaktır. Onun herşeyini alacak, sonunda kapısına muhtaç edecek ve
+                                                annesi ona "İyi ki seni doğurmuşum oğlum" diyecektir.
+                                            </p>
+                                            <div>
+                                                <a class="btn btn-green-pro btn-slider-pro afterglow"
+                                                    href="#VideoLightbox-2">
+                                                    <i class="fas fa-play"></i>
+                                                    Fragmanı izle
+                                                </a>
+                                                <div class="progression-studios-slider-more-options" ngbDropdown>
+                                                    <i class="fas fa-ellipsis-h text-center" ngbDropdownToggle></i>
+                                                    <ul ngbDropdownMenu class="mt-2">
+                                                        <li><a href="#!">Favorilere Ekle</a></li>
+                                                        <li><a href="#!">İzleme Listesine Ekle</a></li>
+                                                        <li><a href="#!">Oynatma Listesine Ekle</a></li>
+                                                        <li><a href="#!">Paylaş...</a></li>
+                                                        <li><a href="#!">Yorum Yaz</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div class="clearfix"></div>
-
+    
                                             <h5 class="light-fonts-pro">Oyuncular</h5>
                                             <ul class="progression-studios-staring-slider">
                                                 <li><a href="#!"><img
@@ -505,45 +173,38 @@
                                                             src="https://im.showtv.com.tr/2023/04/11/3581933_8ab49c0684e3595a8ceff013076443c4_640x640.jpg"
                                                             alt="Starring"></a></li>
                                             </ul>
-
+    
                                         </div><!-- close .progression-studios-slider-caption-align -->
                                     </div><!-- close .progression-studios-slider-caption-width -->
-
+    
                                 </div><!-- close .container -->
-
-                            </div><!-- close .progression-studios-slider-vertical-align -->
-                        </div><!-- close .progression-studios-slider-display-table -->
-
-                        <div class="progression-studios-slider-mobile-background-cover-dark"></div>
-                    </div><!-- close .progression-studios-slider-image-background -->
-                </li>
-                <li class="progression_studios_animate_in">
-                    <div class="progression-studios-slider-dashboard-image-background"
-                        style="background-image:url(https://img.dizi.la/uploads/49050/FmYB-RFacAAl5IR.jpeg);">
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img [src]="'https://img.dizi.la/uploads/49050/FmYB-RFacAAl5IR.jpeg'" alt="Random first slide" />
+                    </div>
+                    <div class="carousel-caption">
                         <div class="progression-studios-slider-display-table">
                             <div class="progression-studios-slider-vertical-align">
-
                                 <div class="container">
-
+    
                                     <a class="progression-studios-slider-play-btn afterglow" href="#VideoLightbox-2"><i
                                             class="fas fa-play"></i></a>
-
-                                    <video id="VideoLightbox-2"
-                                        poster="https://www.jurimedya.com/maratonservices/diziler/s181hsoinc.jpg"
-                                        width="960" height="540">
-                                        <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/mp4">
-                                        <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/webm">
-                                    </video>
-                                    <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16"
-                                        [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'"
-                                        [innerStrokeColor]="'#C7E596'" [animation]="true"
-                                        [animationDuration]="300"></circle-progress>
-                                    <div class="circle-rating-pro" data-value="0.82" data-animation-start-value="0.82"
-                                        data-size="70" data-thickness="6" data-fill="{
-                                                &quot;color&quot;: &quot;#42b740&quot;
-                                              }" data-empty-fill="#203521" data-reverse="true"><span
-                                            style="color:#42b740;">8.2</span></div>
-
+    
+                                    <!-- <video id="VideoLightbox-2" poster="https://www.jurimedya.com/maratonservices/diziler/lb6z9cze4v.jpg" width="960" height="540">
+                                            <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/mp4">
+                                            <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/webm">
+                                        </video> -->
+    
+                                    <circle-progress class="rating-circle" [percent]="85" [radius]="40"
+                                        [outerStrokeWidth]="3" [innerStrokeWidth]="0" [outerStrokeColor]="'#78C000'"
+                                        [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="100"
+                                        [units]="''" [showSubtitle]="false">
+                                    </circle-progress>
+    
                                     <div class="progression-studios-slider-dashboard-caption-width">
                                         <div class="progression-studios-slider-caption-align">
                                             <h6 class="light-fonts-pro">BUGÜN YAYINDAKİLER</h6>
@@ -551,7 +212,7 @@
                                                 <li>HD</li>
                                             </ul>
                                             <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">ATEŞ
-                                                    KUŞLARI</a></h2>
+                                                KUŞLARI</a></h2>
                                             <ul class="progression-studios-slider-meta">
                                                 <li>Ekim 3, 2023</li>
                                                 <!-- <li>163 dk.</li> -->
@@ -561,625 +222,903 @@
                                                 Kuşları, Bozdağ Film imzalı, ilk bölümü 13 Ocak 2023 tarihinde
                                                 yayımlanan, yönetmenliğini Benal Tairi, Gökhan Ayiz, Yıldız Aşanboğa ve
                                                 Bülent İşbilen'in üstlendiği, senaryosunu Ayşe Ferda Eryılmaz ve Nehir
-                                                Erdem'in kaleme aldığı dram türündeki Türk televizyon dizisidir.</p>
-
-                                            <a class="btn btn-green-pro btn-slider-pro afterglow"
-                                                href="#VideoLightbox-2"><i class="fas fa-play"></i> Fragmanı izle</a>
-                                            <div class="progression-studios-slider-more-options">
-                                                <i class="fas fa-ellipsis-h"></i>
-                                                <ul>
-                                                    <li><a href="#!">Favorilere Ekle</a></li>
-                                                    <li><a href="#!">İzleme Listesine Ekle</a></li>
-                                                    <li><a href="#!">Oynatma Listesine Ekle</a></li>
-                                                    <li><a href="#!">Paylaş...</a></li>
-                                                    <li><a href="#!">Yorum Yaz</a></li>
-                                                </ul>
+                                                Erdem'in kaleme aldığı dram türündeki Türk televizyon dizisidir.
+                                            </p>
+                                            <div>
+                                                <a class="btn btn-green-pro btn-slider-pro afterglow"
+                                                    href="#VideoLightbox-2">
+                                                    <i class="fas fa-play"></i>
+                                                    Fragmanı izle
+                                                </a>
+                                                <div class="progression-studios-slider-more-options" ngbDropdown>
+                                                    <i class="fas fa-ellipsis-h text-center" ngbDropdownToggle></i>
+                                                    <ul ngbDropdownMenu class="mt-2">
+                                                        <li><a href="#!">Favorilere Ekle</a></li>
+                                                        <li><a href="#!">İzleme Listesine Ekle</a></li>
+                                                        <li><a href="#!">Oynatma Listesine Ekle</a></li>
+                                                        <li><a href="#!">Paylaş...</a></li>
+                                                        <li><a href="#!">Yorum Yaz</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div class="clearfix"></div>
-
+    
                                             <h5 class="light-fonts-pro">Oyuncular</h5>
                                             <ul class="progression-studios-staring-slider">
                                                 <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/r7uufk52xh.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/p0ov73wph1.jpg"
+                                                            alt="Starring"></a></li>
                                                 <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/3qzfkpewf6.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/ci0cpswsvh.jpg"
+                                                            alt="Starring"></a></li>
                                                 <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/kokh2k6fk6.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/8azye4oqxc.jpg"
+                                                            alt="Starring"></a></li>
                                                 <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/gqpw0v57ta.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                            src="https://icdn.tgrthaber.com.tr//images/haberler/23-03/31/adsiz-tasarim-2023-03-31t165537170.jpg"
+                                                            alt="Starring"></a></li>
                                                 <li><a href="#!"><img
-                                                            src="https://i.hbrcdn.com/haber/2023/06/16/ates-kuslari-kara-kimdir-ates-kuslari-kara-buyuk-16037778_1123_amp.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                            src="https://im.showtv.com.tr/2023/04/11/3581933_8ab49c0684e3595a8ceff013076443c4_640x640.jpg"
+                                                            alt="Starring"></a></li>
                                             </ul>
-
+    
                                         </div><!-- close .progression-studios-slider-caption-align -->
                                     </div><!-- close .progression-studios-slider-caption-width -->
-
+    
                                 </div><!-- close .container -->
-
-                            </div><!-- close .progression-studios-slider-vertical-align -->
-                        </div><!-- close .progression-studios-slider-display-table -->
-
-                        <div class="progression-studios-slider-mobile-background-cover-dark"></div>
-                    </div><!-- close .progression-studios-slider-image-background -->
-                </li>
-                <li class="progression_studios_animate_in">
-                    <div class="progression-studios-slider-dashboard-image-background"
-                        style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/2/24/Arka_Sokaklar_16.sezon.jpg);">
-                        <div class="progression-studios-slider-display-table">
-                            <div class="progression-studios-slider-vertical-align">
-
-                                <div class="container">
-
-                                    <a class="progression-studios-slider-play-btn afterglow" href="#VideoLightbox-2"><i
-                                            class="fas fa-play"></i></a>
-
-                                    <!-- <video id="VideoLightbox-2" poster="https://upload.wikimedia.org/wikipedia/commons/2/24/Arka_Sokaklar_16.sezon.jpg" width="960" height="540">
-                                               <source src="https://www.youtube.com/watch?v=EIgDqdVvRS4" type="video/mp4">
-                                               <source src="https://www.youtube.com/watch?v=EIgDqdVvRS4" type="video/webm">
-                                           </video> -->
-
-                                    <div class="circle-rating-pro" data-value="0.82" data-animation-start-value="0.82"
-                                        data-size="70" data-thickness="6" data-fill="{
-                                                &quot;color&quot;: &quot;#42b740&quot;
-                                              }" data-empty-fill="#203521" data-reverse="true"><span
-                                            style="color:#42b740;">8.2</span></div>
-
-                                    <div class="progression-studios-slider-dashboard-caption-width">
-                                        <div class="progression-studios-slider-caption-align">
-                                            <h6 class="light-fonts-pro">BUGÜN YAYINDAKİLER</h6>
-                                            <ul class="progression-studios-slider-rating">
-                                                <li>HD</li>
-                                            </ul>
-                                            <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">ARKA
-                                                    SOKAKLAR</a></h2>
-                                            <ul class="progression-studios-slider-meta">
-                                                <li>Ekim 3, 2023</li>
-                                                <!-- <li>163 dk.</li> -->
-                                                <li>Aksiyon</li>
-                                            </ul>
-                                            <p class="progression-studios-slider-description light-fonts-pro">Arka
-                                                Sokaklar, Erler Film (2006-2022) ve D Media (2023-günümüz) imzalı, ilk
-                                                bölümü 31 Temmuz 2006 tarihinde yayımlanan, yönetmenliğini Orhan Oğuz'un
-                                                yaptığı, senaryosunu Ahmet Yurdakul, Ozan Yurdakul, Sinan Yurdakul,
-                                                Barkın Şenüren ve Metin Arslan'ın yazdığı polisiye, aksiyon, dram ve
-                                                komedi türündeki Türk yapımı televizyon dizisi. 18 yıldır (18 sezon)
-                                                kesintisiz yayımlanan Arka Sokaklar; yayın yılı, sezon sayısı ve bölüm
-                                                sayısı bakımından Türk televizyon tarihinin en uzun süren haftalık
-                                                dizisidir.</p>
-
-                                            <a class="btn btn-green-pro btn-slider-pro afterglow"
-                                                href="#VideoLightbox-2"><i class="fas fa-play"></i> Fragmanı izle</a>
-                                            <div class="progression-studios-slider-more-options">
-                                                <i class="fas fa-ellipsis-h"></i>
-                                                <ul>
-                                                    <li><a href="#!">Favorilere Ekle</a></li>
-                                                    <li><a href="#!">İzleme Listesine Ekle</a></li>
-                                                    <li><a href="#!">Oynatma Listesine Ekle</a></li>
-                                                    <li><a href="#!">Paylaş...</a></li>
-                                                    <li><a href="#!">Yorum Yaz</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="clearfix"></div>
-
-                                            <h5 class="light-fonts-pro">Oyuncular</h5>
-                                            <ul class="progression-studios-staring-slider">
-                                                <li><a href="#!"><img
-                                                            src="https://cdn1.img.sputniknews.com.tr/img/07e4/0a/09/1042999021_0:0:1280:720_1920x0_80_0_0_b9642442155c23554c39862aca371dfd.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
-                                                <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/lx7bo4z1x8.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
-                                                <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/ktk82gs74g.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
-                                                <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/ni2f2hs11b.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
-                                                <li><a href="#!"><img
-                                                            src="https://www.jurimedya.com/maratonservices/oyuncular/3jwqm577zc.jpg"
-                                                            style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
-                                            </ul>
-
-                                        </div><!-- close .progression-studios-slider-caption-align -->
-                                    </div><!-- close .progression-studios-slider-caption-width -->
-
-                                </div><!-- close .container -->
-
-                            </div><!-- close .progression-studios-slider-vertical-align -->
-                        </div><!-- close .progression-studios-slider-display-table -->
-
-                        <div class="progression-studios-slider-mobile-background-cover-dark"></div>
-                    </div><!-- close .progression-studios-slider-image-background -->
-                </li>
-            </ul>
-        </div><!-- close .progression-studios-slider - See /js/script.js file for options -->
-
-        <ul class="dashboard-genres-pro mb-0" style="border-bottom: none;">
-            <li>
-                <img src="https://www.jurimedya.com/maratonservices/diziturleri/6w9hgcewy6.jpg" alt="Drama">
-                <h6>Drama</h6>
-            </li>
-            <li>
-                <img src="./assets/images/genres/comedy.png" alt="Comedy">
-                <h6>Komedi</h6>
-            </li>
-            <li class="">
-                <img src="./assets/images/genres/action.png" alt="Action">
-                <h6>Aksiyon</h6>
-            </li>
-            <li>
-                <img src="./assets/images/genres/romance.png" alt="Romance">
-                <h6>Romantik</h6>
-            </li>
-            <li>
-                <img src="./assets/images/genres/horror.png" alt="Horror">
-                <h6>Korku</h6>
-            </li>
-            <li>
-                <img src="./assets/images/genres/fantasy.png" alt="Fantasy">
-                <h6>Fantezi</h6>
-            </li>
-            <li>
-                <img src="./assets/images/genres/sci-fi.png" alt="Sci-Fi">
-                <h6>Bilimkurgu</h6>
-            </li>
-            <li>
-                <img src="./assets/images/genres/thriller.png" alt="Thriller">
-                <h6>Gerilim</h6>
-            </li>
-            <li>
-                <img src="./assets/images/genres/western.png" alt="Western">
-                <h6>Tarihi</h6>
-            </li>
-            <li>
-                <img src="./assets/images/genres/adventure.png" alt="Adventure">
-                <h6>Macera</h6>
-            </li>
-            <li>
-                <img src="./assets/images/genres/animation.png" alt="Animation">
-                <h6>Çocuk Dizileri</h6>
-            </li>
-            <li>
-                <img src="./assets/images/genres/documentary.png" alt="Documentary">
-                <h6>Belgesel</h6>
-            </li>
-        </ul>
-
-        <div class="clearfix"></div>
-
-        <div class="dashboard-container">
-
-            <div class="d-flex justify-content-center mb-2">
-                <div style="border-bottom: 1px #3334 solid; width: 30%;"></div>
-            </div>
-            <!-- #1 -->
-            <div class="winning-order">
-                <ul class="list-group list-group-horizontal">
-                    <li class="btn list-group-item">Bu Hafta</li>
-                    <li class="btn list-group-item">Bu Ay</li>
-                    <li class="btn list-group-item">Tüm zamanlar</li>
-                </ul>
-            </div>
-
-            <h4 class="heading-extra-margin-bottom"></h4>
-            <div class="row">
-                <ng-container *ngIf="dataloaded">
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let series of serieses">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="{{'https://www.jurimedya.com/maratonservices/' + series.episodes[0].bolumkapagi}}"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">{{series.diziadi}}</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">{{series.episodes[0].bolumno}}.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">{{series.episodes[0].yayintarihi}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <circle-progress [percent]="85" [radius]="20" [outerStrokeWidth]="3"
-                                            [innerStrokeWidth]="0" [outerStrokeColor]="'#78C000'"
-                                            [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"
-                                            [units]="''" [showSubtitle]="false"></circle-progress>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
-                </ng-container>
-
-                <div class="row d-none">
-
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/m9rtgmnnxe.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">ADIM FARAH</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">20.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">11/11/2023</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.86"
-                                            data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">8.6</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close .col -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/13bjqt7tjd.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">YALI ÇAPKINI</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">43.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">18/10/2023</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.92"
-                                            data-animation-start-value="0.92" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">9.2</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close .col -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/a4dbyzhdgu.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">GÖNÜL DAĞI</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">110.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">15/10/2023</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.78"
-                                            data-animation-start-value="0.78" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">7.8</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close .col -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/pj6yu24ppj.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">KURULUŞ OSMAN</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">133.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">19/10/2023</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.86"
-                                            data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">8.6</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close .col -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/jtegrjevb9.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">AİLE</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">16.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">11/10/2023</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.86"
-                                            data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">8.6</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close .col -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/lb6z9cze4v.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">KIZILCIK ŞERBETİ</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">
-                                                35.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">14/10/2023</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.86"
-                                            data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">8.6</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close .col -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/tlcanyreyt.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">YARGI</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">68.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">17/10/2023</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.90"
-                                            data-animation-start-value="0.90" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">9.0</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close .col -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/snnrxi0uqy.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">TEŞKİLAT</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">80.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">12/10/2023</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.86"
-                                            data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">8.6</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close .col -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/doiwcev2ik.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">ALPARSLAN BÜYÜK SELÇUKLU</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">60.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">14/10/2023</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.86"
-                                            data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">8.6</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close .col -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/cv25ii86cc.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">BEN BU CİHANA SIĞMAZAM</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">42.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">24/10/2023</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.86"
-                                            data-animation-start-value="0.69" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">6.9</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close .col -->
+                </ng-template>
+            </ngb-carousel>
     
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/pwdvmozjl5.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">HAYATIMIN NEŞESİ</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">16.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">24/10/2023</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.86"
-                                            data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">8.6</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close .col -->
+            <div class="d-none flexslider progression-studios-dashboard-slider">
+                <ul class="slides">
     
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="item-listing-container-skrn">
-                            <a href="dashboard-movie-profile.html"><img
-                                    src="https://www.jurimedya.com/maratonservices/diziler/a25u3w8ckt.jpg"
-                                    alt="Listing"></a>
-                            <div class="item-listing-text-skrn">
-                                <div class="item-listing-text-skrn-vertical-align">
-                                    <div class="d-flex flex-column flex-justify-center">
-                                        <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
-                                                href="dashboard-movie-profile.html">KARDEŞLERİM</a></h6>
-                                        <div class="d-flex flex-column pl-2">
-                                            <span style="line-height: 20px;">101.Bölüm</span>
-                                            <span
-                                                style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">22/10/2023</span>
+                    <li class="progression_studios_animate_in">
+                        <div class="progression-studios-slider-dashboard-image-background"
+                            style="background-image:url(https://cdn1.startv.com.tr/media/News/_ImageOriginal/fb4a43e0-6077-45ff-98ec-677368d07b54.jpg?v=44879,7915750347);">
+                            <div class="progression-studios-slider-display-table">
+                                <div class="progression-studios-slider-vertical-align">
+    
+                                    <div class="container">
+    
+                                        <a class="progression-studios-slider-play-btn afterglow" href="#VideoLightbox-2"><i
+                                                class="fas fa-play"></i></a>
+    
+                                        <!-- <video id="VideoLightbox-2" poster="https://www.jurimedya.com/maratonservices/diziler/lb6z9cze4v.jpg" width="960" height="540">
+                                                <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/mp4">
+                                                <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/webm">
+                                            </video> -->
+    
+                                        <div class="circle-rating-pro" data-value="0.82" data-animation-start-value="0.82"
+                                            data-size="70" data-thickness="6"
+                                            data-fill="{&quot;color&quot;: &quot;#42b740&quot;}" data-empty-fill="#203521"
+                                            data-reverse="true">
+                                            <span style="color:#42b740;">8.2</span>
+                                        </div>
+    
+                                        <div class="progression-studios-slider-dashboard-caption-width">
+                                            <div class="progression-studios-slider-caption-align">
+                                                <h6 class="light-fonts-pro">BUGÜN YAYINDAKİLER</h6>
+                                                <ul class="progression-studios-slider-rating">
+                                                    <li>HD</li>
+                                                </ul>
+                                                <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">YALI
+                                                        ÇAPKINI</a></h2>
+                                                <ul class="progression-studios-slider-meta">
+                                                    <li>Ekim 3, 2023</li>
+                                                    <!-- <li>163 dk.</li> -->
+                                                    <li>Drama</li>
+                                                </ul>
+                                                <p class="progression-studios-slider-description light-fonts-pro">Yalı
+                                                    Çapkını, OGM Pictures imzalı, ilk bölümü 23 Eylül 2022 tarihinde
+                                                    yayınlanan, yönetmenliğini Burcu Alptekin'in üstlendiği, senaryosunu
+                                                    Mehmet Barış Günger'in kaleme aldığı dram ve romantik türdeki Türk
+                                                    televizyon dizisidir. Başrollerini Afra Saraçoğlu, Mert Ramazan Demir ve
+                                                    Çetin Tekindor paylaşmaktadır.</p>
+    
+                                                <a class="btn btn-green-pro btn-slider-pro afterglow"
+                                                    href="#VideoLightbox-2"><i class="fas fa-play"></i> Fragmanı izle</a>
+                                                <div class="progression-studios-slider-more-options">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                    <ul>
+                                                        <li><a href="#!">Favorilere Ekle</a></li>
+                                                        <li><a href="#!">İzleme Listesine Ekle</a></li>
+                                                        <li><a href="#!">Oynatma Listesine Ekle</a></li>
+                                                        <li><a href="#!">Paylaş...</a></li>
+                                                        <li><a href="#!">Yorum Yaz</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+    
+                                                <h5 class="light-fonts-pro">Oyuncular</h5>
+                                                <ul class="progression-studios-staring-slider">
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/cgbnrqdacn.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://tr.web.img3.acsta.net/pictures/16/10/05/10/06/557284.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/6dmyhromgt.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/u6y27vgcta.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/1mskkauqls.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                </ul>
+    
+                                            </div><!-- close .progression-studios-slider-caption-align -->
+                                        </div><!-- close .progression-studios-slider-caption-width -->
+    
+                                    </div><!-- close .container -->
+    
+                                </div><!-- close .progression-studios-slider-vertical-align -->
+                            </div><!-- close .progression-studios-slider-display-table -->
+    
+                            <div class="progression-studios-slider-mobile-background-cover-dark"></div>
+                        </div><!-- close .progression-studios-slider-image-background -->
+                    </li>
+                    <li class="progression_studios_animate_in">
+                        <div class="progression-studios-slider-dashboard-image-background"
+                            style="background-image:url(https://im.showtv.com.tr/2023/09/13/ver1694593175/3621319_1920x1080.jpg);">
+                            <div class="progression-studios-slider-display-table">
+                                <div class="progression-studios-slider-vertical-align">
+    
+                                    <div class="container">
+    
+                                        <a class="progression-studios-slider-play-btn afterglow" href="#VideoLightbox-2"><i
+                                                class="fas fa-play"></i></a>
+    
+                                        <!-- <video id="VideoLightbox-2" poster="https://www.jurimedya.com/maratonservices/diziler/lb6z9cze4v.jpg" width="960" height="540">
+                                                   <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/mp4">
+                                                   <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/webm">
+                                               </video> -->
+    
+                                        <div class="circle-rating-pro" data-value="0.82" data-animation-start-value="0.82"
+                                            data-size="70" data-thickness="6" data-fill="{
+                                                    &quot;color&quot;: &quot;#42b740&quot;
+                                                  }" data-empty-fill="#203521" data-reverse="true"><span
+                                                style="color:#42b740;">8.2</span></div>
+    
+                                        <div class="progression-studios-slider-dashboard-caption-width">
+                                            <div class="progression-studios-slider-caption-align">
+                                                <h6 class="light-fonts-pro">BUGÜN YAYINDAKİLER</h6>
+                                                <ul class="progression-studios-slider-rating">
+                                                    <li>HD</li>
+                                                </ul>
+                                                <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">KIZILCIK
+                                                        ŞERBETİ</a></h2>
+                                                <ul class="progression-studios-slider-meta">
+                                                    <li>Ekim 3, 2023</li>
+                                                    <!-- <li>163 dk.</li> -->
+                                                    <li>Drama</li>
+                                                </ul>
+                                                <p class="progression-studios-slider-description light-fonts-pro">Ateş
+                                                    Kuşları, Bozdağ Film imzalı, ilk bölümü 13 Ocak 2023 tarihinde
+                                                    yayımlanan, yönetmenliğini Benal Tairi, Gökhan Ayiz, Yıldız Aşanboğa ve
+                                                    Bülent İşbilen'in üstlendiği, senaryosunu Ayşe Ferda Eryılmaz ve Nehir
+                                                    Erdem'in kaleme aldığı dram türündeki Türk televizyon dizisidir.</p>
+    
+                                                <a class="btn btn-green-pro btn-slider-pro afterglow"
+                                                    href="#VideoLightbox-2"><i class="fas fa-play"></i> Fragmanı izle</a>
+                                                <div class="progression-studios-slider-more-options">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                    <ul>
+                                                        <li><a href="#!">Favorilere Ekle</a></li>
+                                                        <li><a href="#!">İzleme Listesine Ekle</a></li>
+                                                        <li><a href="#!">Oynatma Listesine Ekle</a></li>
+                                                        <li><a href="#!">Paylaş...</a></li>
+                                                        <li><a href="#!">Yorum Yaz</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+    
+                                                <h5 class="light-fonts-pro">Oyuncular</h5>
+                                                <ul class="progression-studios-staring-slider">
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/p0ov73wph1.jpg"
+                                                                alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/ci0cpswsvh.jpg"
+                                                                alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/8azye4oqxc.jpg"
+                                                                alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://icdn.tgrthaber.com.tr//images/haberler/23-03/31/adsiz-tasarim-2023-03-31t165537170.jpg"
+                                                                alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://im.showtv.com.tr/2023/04/11/3581933_8ab49c0684e3595a8ceff013076443c4_640x640.jpg"
+                                                                alt="Starring"></a></li>
+                                                </ul>
+    
+                                            </div><!-- close .progression-studios-slider-caption-align -->
+                                        </div><!-- close .progression-studios-slider-caption-width -->
+    
+                                    </div><!-- close .container -->
+    
+                                </div><!-- close .progression-studios-slider-vertical-align -->
+                            </div><!-- close .progression-studios-slider-display-table -->
+    
+                            <div class="progression-studios-slider-mobile-background-cover-dark"></div>
+                        </div><!-- close .progression-studios-slider-image-background -->
+                    </li>
+                    <li class="progression_studios_animate_in">
+                        <div class="progression-studios-slider-dashboard-image-background"
+                            style="background-image:url(https://img.dizi.la/uploads/49050/FmYB-RFacAAl5IR.jpeg);">
+                            <div class="progression-studios-slider-display-table">
+                                <div class="progression-studios-slider-vertical-align">
+    
+                                    <div class="container">
+    
+                                        <a class="progression-studios-slider-play-btn afterglow" href="#VideoLightbox-2"><i
+                                                class="fas fa-play"></i></a>
+    
+                                        <video id="VideoLightbox-2"
+                                            poster="https://www.jurimedya.com/maratonservices/diziler/s181hsoinc.jpg"
+                                            width="960" height="540">
+                                            <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/mp4">
+                                            <source src="https://www.youtube.com/watch?v=4_KX7nZu20o" type="video/webm">
+                                        </video>
+                                        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16"
+                                            [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'"
+                                            [innerStrokeColor]="'#C7E596'" [animation]="true"
+                                            [animationDuration]="300"></circle-progress>
+                                        <div class="circle-rating-pro" data-value="0.82" data-animation-start-value="0.82"
+                                            data-size="70" data-thickness="6" data-fill="{
+                                                    &quot;color&quot;: &quot;#42b740&quot;
+                                                  }" data-empty-fill="#203521" data-reverse="true"><span
+                                                style="color:#42b740;">8.2</span></div>
+    
+                                        <div class="progression-studios-slider-dashboard-caption-width">
+                                            <div class="progression-studios-slider-caption-align">
+                                                <h6 class="light-fonts-pro">BUGÜN YAYINDAKİLER</h6>
+                                                <ul class="progression-studios-slider-rating">
+                                                    <li>HD</li>
+                                                </ul>
+                                                <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">ATEŞ
+                                                        KUŞLARI</a></h2>
+                                                <ul class="progression-studios-slider-meta">
+                                                    <li>Ekim 3, 2023</li>
+                                                    <!-- <li>163 dk.</li> -->
+                                                    <li>Drama</li>
+                                                </ul>
+                                                <p class="progression-studios-slider-description light-fonts-pro">Ateş
+                                                    Kuşları, Bozdağ Film imzalı, ilk bölümü 13 Ocak 2023 tarihinde
+                                                    yayımlanan, yönetmenliğini Benal Tairi, Gökhan Ayiz, Yıldız Aşanboğa ve
+                                                    Bülent İşbilen'in üstlendiği, senaryosunu Ayşe Ferda Eryılmaz ve Nehir
+                                                    Erdem'in kaleme aldığı dram türündeki Türk televizyon dizisidir.</p>
+    
+                                                <a class="btn btn-green-pro btn-slider-pro afterglow"
+                                                    href="#VideoLightbox-2"><i class="fas fa-play"></i> Fragmanı izle</a>
+                                                <div class="progression-studios-slider-more-options">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                    <ul>
+                                                        <li><a href="#!">Favorilere Ekle</a></li>
+                                                        <li><a href="#!">İzleme Listesine Ekle</a></li>
+                                                        <li><a href="#!">Oynatma Listesine Ekle</a></li>
+                                                        <li><a href="#!">Paylaş...</a></li>
+                                                        <li><a href="#!">Yorum Yaz</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+    
+                                                <h5 class="light-fonts-pro">Oyuncular</h5>
+                                                <ul class="progression-studios-staring-slider">
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/r7uufk52xh.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/3qzfkpewf6.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/kokh2k6fk6.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/gqpw0v57ta.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://i.hbrcdn.com/haber/2023/06/16/ates-kuslari-kara-kimdir-ates-kuslari-kara-buyuk-16037778_1123_amp.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                </ul>
+    
+                                            </div><!-- close .progression-studios-slider-caption-align -->
+                                        </div><!-- close .progression-studios-slider-caption-width -->
+    
+                                    </div><!-- close .container -->
+    
+                                </div><!-- close .progression-studios-slider-vertical-align -->
+                            </div><!-- close .progression-studios-slider-display-table -->
+    
+                            <div class="progression-studios-slider-mobile-background-cover-dark"></div>
+                        </div><!-- close .progression-studios-slider-image-background -->
+                    </li>
+                    <li class="progression_studios_animate_in">
+                        <div class="progression-studios-slider-dashboard-image-background"
+                            style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/2/24/Arka_Sokaklar_16.sezon.jpg);">
+                            <div class="progression-studios-slider-display-table">
+                                <div class="progression-studios-slider-vertical-align">
+    
+                                    <div class="container">
+    
+                                        <a class="progression-studios-slider-play-btn afterglow" href="#VideoLightbox-2"><i
+                                                class="fas fa-play"></i></a>
+    
+                                        <!-- <video id="VideoLightbox-2" poster="https://upload.wikimedia.org/wikipedia/commons/2/24/Arka_Sokaklar_16.sezon.jpg" width="960" height="540">
+                                                   <source src="https://www.youtube.com/watch?v=EIgDqdVvRS4" type="video/mp4">
+                                                   <source src="https://www.youtube.com/watch?v=EIgDqdVvRS4" type="video/webm">
+                                               </video> -->
+    
+                                        <div class="circle-rating-pro" data-value="0.82" data-animation-start-value="0.82"
+                                            data-size="70" data-thickness="6" data-fill="{
+                                                    &quot;color&quot;: &quot;#42b740&quot;
+                                                  }" data-empty-fill="#203521" data-reverse="true"><span
+                                                style="color:#42b740;">8.2</span></div>
+    
+                                        <div class="progression-studios-slider-dashboard-caption-width">
+                                            <div class="progression-studios-slider-caption-align">
+                                                <h6 class="light-fonts-pro">BUGÜN YAYINDAKİLER</h6>
+                                                <ul class="progression-studios-slider-rating">
+                                                    <li>HD</li>
+                                                </ul>
+                                                <h2 class="light-fonts-pro"><a href="dashboard-movie-profile.html">ARKA
+                                                        SOKAKLAR</a></h2>
+                                                <ul class="progression-studios-slider-meta">
+                                                    <li>Ekim 3, 2023</li>
+                                                    <!-- <li>163 dk.</li> -->
+                                                    <li>Aksiyon</li>
+                                                </ul>
+                                                <p class="progression-studios-slider-description light-fonts-pro">Arka
+                                                    Sokaklar, Erler Film (2006-2022) ve D Media (2023-günümüz) imzalı, ilk
+                                                    bölümü 31 Temmuz 2006 tarihinde yayımlanan, yönetmenliğini Orhan Oğuz'un
+                                                    yaptığı, senaryosunu Ahmet Yurdakul, Ozan Yurdakul, Sinan Yurdakul,
+                                                    Barkın Şenüren ve Metin Arslan'ın yazdığı polisiye, aksiyon, dram ve
+                                                    komedi türündeki Türk yapımı televizyon dizisi. 18 yıldır (18 sezon)
+                                                    kesintisiz yayımlanan Arka Sokaklar; yayın yılı, sezon sayısı ve bölüm
+                                                    sayısı bakımından Türk televizyon tarihinin en uzun süren haftalık
+                                                    dizisidir.</p>
+    
+                                                <a class="btn btn-green-pro btn-slider-pro afterglow"
+                                                    href="#VideoLightbox-2"><i class="fas fa-play"></i> Fragmanı izle</a>
+                                                <div class="progression-studios-slider-more-options">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                    <ul>
+                                                        <li><a href="#!">Favorilere Ekle</a></li>
+                                                        <li><a href="#!">İzleme Listesine Ekle</a></li>
+                                                        <li><a href="#!">Oynatma Listesine Ekle</a></li>
+                                                        <li><a href="#!">Paylaş...</a></li>
+                                                        <li><a href="#!">Yorum Yaz</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+    
+                                                <h5 class="light-fonts-pro">Oyuncular</h5>
+                                                <ul class="progression-studios-staring-slider">
+                                                    <li><a href="#!"><img
+                                                                src="https://cdn1.img.sputniknews.com.tr/img/07e4/0a/09/1042999021_0:0:1280:720_1920x0_80_0_0_b9642442155c23554c39862aca371dfd.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/lx7bo4z1x8.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/ktk82gs74g.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/ni2f2hs11b.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                    <li><a href="#!"><img
+                                                                src="https://www.jurimedya.com/maratonservices/oyuncular/3jwqm577zc.jpg"
+                                                                style="aspect-ratio: 1 / 1" alt="Starring"></a></li>
+                                                </ul>
+    
+                                            </div><!-- close .progression-studios-slider-caption-align -->
+                                        </div><!-- close .progression-studios-slider-caption-width -->
+    
+                                    </div><!-- close .container -->
+    
+                                </div><!-- close .progression-studios-slider-vertical-align -->
+                            </div><!-- close .progression-studios-slider-display-table -->
+    
+                            <div class="progression-studios-slider-mobile-background-cover-dark"></div>
+                        </div><!-- close .progression-studios-slider-image-background -->
+                    </li>
+                </ul>
+            </div><!-- close .progression-studios-slider - See /js/script.js file for options -->
+            
+            <div class="col-md-9">
+                <ul class="dashboard-genres-pro mb-0" style="border-bottom: none;">
+                    <li (click)="setCategory('Drama')" [ngClass]="{'active': category === 'Drama'}">
+                        <img src="./assets/images/genres/drama.png" alt="Drama">
+                        <h6>Drama</h6>
+                    </li>
+                    <li (click)="setCategory('Komedi')" [ngClass]="{'active': category === 'Komedi'}">
+                        <img src="./assets/images/genres/comedy.png" alt="Comedy">
+                        <h6>Komedi</h6>
+                    </li>
+                    <li (click)="setCategory('Aksiyon')" [ngClass]="{'active': category === 'Aksiyon'}">
+                        <img src="./assets/images/genres/action.png" alt="Action">
+                        <h6>Aksiyon</h6>
+                    </li>
+                    <li (click)="setCategory('Romantik')" [ngClass]="{'active': category === 'Romantik'}">
+                        <img src="./assets/images/genres/romance.png" alt="Romance">
+                        <h6>Romantik</h6>
+                    </li>
+                    <li (click)="setCategory('Korku')" [ngClass]="{'active': category === 'Korku'}">
+                        <img src="./assets/images/genres/horror.png" alt="Horror">
+                        <h6>Korku</h6>
+                    </li>
+                    <li (click)="setCategory('Fantastik')" [ngClass]="{'active': category === 'Fantastik'}">
+                        <img src="./assets/images/genres/fantasy.png" alt="Fantasy">
+                        <h6>Fantezi</h6>
+                    </li>
+                    <li (click)="setCategory('Bilim Kurgu')" [ngClass]="{'active': category === 'Bilim Kurgu'}">
+                        <img src="./assets/images/genres/sci-fi.png" alt="Sci-Fi">
+                        <h6>Bilimkurgu</h6>
+                    </li>
+                    <li (click)="setCategory('Gerilim')" [ngClass]="{'active': category === 'Gerilim'}">
+                        <img src="./assets/images/genres/thriller.png" alt="Thriller">
+                        <h6>Gerilim</h6>
+                    </li>
+                    <li (click)="setCategory('Tarih')" [ngClass]="{'active': category === 'Tarih'}">
+                        <img src="./assets/images/genres/western.png" alt="Western">
+                        <h6>Tarih</h6>
+                    </li>
+                    <li (click)="setCategory('Macera')" [ngClass]="{'active': category === 'Macera'}">
+                        <img src="./assets/images/genres/adventure.png" alt="Adventure">
+                        <h6>Macera</h6>
+                    </li>
+                    <li (click)="setCategory('Çizgi Dizi')" [ngClass]="{'active': category === 'Çizgi Dizi'}">
+                        <img src="./assets/images/genres/animation.png" alt="Animation">
+                        <h6>Çocuk Dizileri</h6>
+                    </li>
+                    <li (click)="setCategory('Belgesel')" [ngClass]="{'active': category === 'Belgesel'}">
+                        <img src="./assets/images/genres/documentary.png" alt="Documentary">
+                        <h6>Belgesel</h6>
+                    </li>
+                    <li (click)="setCategory('Savaş')" [ngClass]="{'active': category === 'Savaş'}">
+                        <img src="./assets/images/genres/war.png" alt="War">
+                        <h6>Savaş</h6>
+                    </li>
+                    <li (click)="setCategory('Aile')" [ngClass]="{'active': category === 'Aile'}">
+                        <img src="./assets/images/genres/family.svg" alt="Family">
+                        <h6>Aile</h6>
+                    </li>
+                </ul>
+        
+                <div class="clearfix"></div>
+        
+                <div class="dashboard-container">
+        
+                    <div class="d-flex justify-content-center mb-2">
+                        <div style="border-bottom: 1px #3334 solid; width: 30%;"></div>
+                    </div>
+                    <!-- #1 -->
+                    <div class="winning-order">
+                        <ul class="list-group list-group-horizontal">
+                            <li class="btn list-group-item">Bu Hafta</li>
+                            <li class="btn list-group-item">Bu Ay</li>
+                            <li class="btn list-group-item">Tüm zamanlar</li>
+                        </ul>
+                    </div>
+        
+                    <h4 class="heading-extra-margin-bottom"></h4>
+                    <div class="row">
+                        <ng-container *ngIf="dataloaded">
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let series of serieses">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img src="{{'https://www.jurimedya.com/maratonservices/' + series.episodes[0].bolumkapagi}}" alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">{{series.diziadi}}</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">{{series.episodes[0].bolumno}}.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">{{series.episodes[0].yayintarihi}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <circle-progress [percent]="85" [radius]="20" [outerStrokeWidth]="3"
+                                                    [innerStrokeWidth]="0" [outerStrokeColor]="'#78C000'"
+                                                    [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"
+                                                    [units]="''" [showSubtitle]="false"></circle-progress>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="d-flex flex-column justify-items-center">
-                                        <div class="circle-rating-pro align-self-center" data-value="0.78"
-                                            data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
-                                                      &quot;color&quot;: &quot;#42b740&quot;
-                                                  }" data-empty-fill="#def6de" data-reverse="true"><span
-                                                style="color:#42b740;">7.8</span>
-                                        </div>
-                                        <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
-                                            data-target="#LoginModal" role="button">Oyla</button>
-                                    </div>
-                                </div><!-- close .item-listing-text-skrn-vertical-align -->
-                            </div><!-- close .item-listing-text-skrn -->
-                        </div><!-- close .item-listing-container-skrn -->
-                    </div><!-- close -->
-                </div>
-
-            </div><!-- close .row -->
-
-
-            <ul class="page-numbers">
-                <li><a class="previous page-numbers" href="#!"><i class="fas fa-chevron-left"></i></a></li>
-                <li><span class="page-numbers current">1</span></li>
-                <li><a class="page-numbers" href="#!">2</a></li>
-                <li><a class="page-numbers" href="#!">3</a></li>
-                <li><a class="page-numbers" href="#!">4</a></li>
-                <li><a class="next page-numbers" href="#!"><i class="fas fa-chevron-right"></i></a></li>
-            </ul>
-
-
-        </div><!-- close .dashboard-container -->
+                                </div>
+                            </div>
+                        </ng-container>
+        
+                        <div class="row d-none">
+        
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/m9rtgmnnxe.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">ADIM FARAH</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">20.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">11/11/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.86"
+                                                    data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">8.6</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close .col -->
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/13bjqt7tjd.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">YALI ÇAPKINI</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">43.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">18/10/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.92"
+                                                    data-animation-start-value="0.92" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">9.2</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close .col -->
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/a4dbyzhdgu.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">GÖNÜL DAĞI</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">110.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">15/10/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.78"
+                                                    data-animation-start-value="0.78" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">7.8</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close .col -->
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/pj6yu24ppj.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">KURULUŞ OSMAN</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">133.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">19/10/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.86"
+                                                    data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">8.6</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close .col -->
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/jtegrjevb9.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">AİLE</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">16.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">11/10/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.86"
+                                                    data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">8.6</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close .col -->
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/lb6z9cze4v.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">KIZILCIK ŞERBETİ</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">
+                                                        35.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">14/10/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.86"
+                                                    data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">8.6</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close .col -->
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/tlcanyreyt.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">YARGI</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">68.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">17/10/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.90"
+                                                    data-animation-start-value="0.90" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">9.0</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close .col -->
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/snnrxi0uqy.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">TEŞKİLAT</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">80.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">12/10/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.86"
+                                                    data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">8.6</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close .col -->
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/doiwcev2ik.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">ALPARSLAN BÜYÜK SELÇUKLU</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">60.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">14/10/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.86"
+                                                    data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">8.6</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close .col -->
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/cv25ii86cc.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">BEN BU CİHANA SIĞMAZAM</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">42.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">24/10/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.86"
+                                                    data-animation-start-value="0.69" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">6.9</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close .col -->
+            
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/pwdvmozjl5.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">HAYATIMIN NEŞESİ</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">16.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">24/10/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.86"
+                                                    data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">8.6</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close .col -->
+            
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="item-listing-container-skrn">
+                                    <a href="dashboard-movie-profile.html"><img
+                                            src="https://www.jurimedya.com/maratonservices/diziler/a25u3w8ckt.jpg"
+                                            alt="Listing"></a>
+                                    <div class="item-listing-text-skrn">
+                                        <div class="item-listing-text-skrn-vertical-align">
+                                            <div class="d-flex flex-column flex-justify-center">
+                                                <h6 class=" mt-0 pl-2"><a style="font-size:16px; font-weight: 600;"
+                                                        href="dashboard-movie-profile.html">KARDEŞLERİM</a></h6>
+                                                <div class="d-flex flex-column pl-2">
+                                                    <span style="line-height: 20px;">101.Bölüm</span>
+                                                    <span
+                                                        style="color:rgba(0, 0, 0, 0.4); font-weight: 600; line-height: 20px;">22/10/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column justify-items-center">
+                                                <div class="circle-rating-pro align-self-center" data-value="0.78"
+                                                    data-animation-start-value="0.86" data-size="32" data-thickness="3" data-fill="{
+                                                              &quot;color&quot;: &quot;#42b740&quot;
+                                                          }" data-empty-fill="#def6de" data-reverse="true"><span
+                                                        style="color:#42b740;">7.8</span>
+                                                </div>
+                                                <button class="btn btn-sm btn-primary align-self-center" data-toggle="modal"
+                                                    data-target="#LoginModal" role="button">Oyla</button>
+                                            </div>
+                                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                                    </div><!-- close .item-listing-text-skrn -->
+                                </div><!-- close .item-listing-container-skrn -->
+                            </div><!-- close -->
+                        </div>
+        
+                    </div><!-- close .row -->
+        
+        
+                    <ul class="page-numbers">
+                        <li><a class="previous page-numbers" href="#!"><i class="fas fa-chevron-left"></i></a></li>
+                        <li><span class="page-numbers current">1</span></li>
+                        <li><a class="page-numbers" href="#!">2</a></li>
+                        <li><a class="page-numbers" href="#!">3</a></li>
+                        <li><a class="page-numbers" href="#!">4</a></li>
+                        <li><a class="next page-numbers" href="#!"><i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+        
+        
+                </div><!-- close .dashboard-container -->
+            </div>
+        </div>
     </main>
 
 

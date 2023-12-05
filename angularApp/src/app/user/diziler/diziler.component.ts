@@ -15,13 +15,15 @@ export class DizilerComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.getSerieses();   
+    this.getSerieses();
   }
 
   getSerieses() {
+    this.dataloaded = false;
+
     this.userService.getSerieses(this.category).subscribe({
       next: (data: any[]) => {
-        this.serieses = data.filter(x => x.durumu.toLowerCase() == 'yayında').splice(0, 12);
+        this.serieses = data.splice(0, 12);
       },
       error: error => {
         console.log(error);
@@ -35,7 +37,6 @@ export class DizilerComponent implements OnInit {
   getSeriesesEpisodes() {
     this.userService.getSeriesesEpisodes().subscribe({
       next: (data: any[]) => {
-        console.log(data);
         this.seriesesEpisodes = data;
       },
       error: error => {
@@ -44,13 +45,17 @@ export class DizilerComponent implements OnInit {
       complete: () => {
         this.serieses?.forEach(series => {
           series.episodes = this.seriesesEpisodes.filter(x => x.diziadi == series.diziadi)
-          .map(x => {x.bolumno = +x.bolumno.substring(0, x.bolumno.length - 6); return x})
+          .map(x => {; x.bolumno = +x.bolumno.substring(0, x.bolumno.length - 6); return x})
           .sort((a, b) => b.bolumno - a.bolumno);
         });
             
-        console.log(this.serieses);
         this.dataloaded = true;
       }
     });
+  }
+
+  setCategory(category: string) {
+    this.category = category;
+    this.getSerieses();
   }
 }

@@ -1,5 +1,5 @@
 <header id="videohead-pro" class="sticky-header">
-    <div id="video-logo-background"><a href="dashboard-home.html"><img src="./assets/images/logo.png" alt="Logo"></a>
+    <div id="video-logo-background"><a href="/"><img src="./assets/images/logo.png" alt="Logo"></a>
     </div>
 
     <div #filtersHeader id="video-search-header" ngbDropdown>
@@ -106,25 +106,35 @@
 
     <div id="mobile-bars-icon-pro" class="noselect" (click)="toggleBarsDropdownFromOutside($event)"><i class="fas fa-bars"></i></div>
 
-    <div id="header-user-profile" ngbDropdown class="dropdown">
-        <div #mobileSidebatToggle id="header-user-profile-click" class="noselect" ngbDropdownToggle>
-            <img src="./assets/images/demo/user-profile.jpg" alt="Suzie">
-            <div id="header-username">Ayşe Süslü</div><i class="fas fa-angle-down"></i>
+    <div *ngIf="($user | async) !== null" id="header-user-profile" ngbDropdown class="dropdown">
+        <div id="header-user-profile-click" class="noselect" ngbDropdownToggle>
+            <img src="{{($user | async).profilresim}} || ./assets/images/demo/user-profile.jpg" alt="Kullanici resmi">
+            <div id="header-username">{{($user | async).adi}}</div><i class="fas fa-angle-down"></i>
         </div>
         <div id="header-user-profile-menu" ngbDropdownMenu>
             <ul>
                 <li ngbDropdownItem><a routerLink="./profile"><span class="icon-User"></span>Profilim</a></li>
                 <li ngbDropdownItem><a><span class="icon-Favorite-Window"></span>Favorilerim</a></li>
-                <li ngbDropdownItem><a routerLink="./account-settings"><span class="icon-Gears"></span>Hesap
-                        Detayları</a></li>
+                <li ngbDropdownItem><a routerLink="./account-settings"><span class="icon-Gears"></span>Hesap Detayları</a></li>
                 <li ngbDropdownItem><a><span class="icon-Life-Safer"></span>Yardım ve Destek</a></li>
-                <li ngbDropdownItem><a routerLink="./user-pages" (click)="logout()"><span
-                            class="icon-Power-3"></span>Çıkış Yap</a></li>
+                <li ngbDropdownItem><a routerLink="./user-pages" (click)="logout()"><span class="icon-Power-3"></span>Çıkış Yap</a></li>
             </ul>
         </div>
     </div>
+    <div *ngIf="($user | async) === null" id="header-user-profile" ngbDropdown class="dropdown">
+        <div ngbDropdownToggle id="header-user-profile-click" class="d-flex align-items-center" style="padding-right: 20px;">
+            <i class="fa fa-user-circle" style="font-size: 38px;"></i>
+            <i class="fas fa-angle-down"></i>
+        </div>
+        <div id="header-user-profile-menu" ngbDropdownMenu>
+            <ul>
+                <li routerLink="/pages/login"><span class="dropdown-item">Giriş Yap</span></li>
+                <li routerLink="pages/register"><span class="dropdown-item">Kayıt Ol</span></li>
+            </ul>
+        </div>  
+    </div>
 
-    <div id="header-user-notification" ngbDropdown>
+    <div *ngIf="($user | async) !== null" id="header-user-notification" ngbDropdown>
         <div id="header-user-notification-click" class="noselect" ngbDropdownToggle>
             <i class="far fa-bell"></i>
             <span class="user-notification-count">3</span>
@@ -184,7 +194,7 @@
                             Megazin
                         </a>
                     </li>
-                    <li ngbDropdownItem>
+                    <li *ngIf="($user | async) !== null" ngbDropdownItem>
                         <a>
                             <i class="far fa-bell"></i>
                             <span class="user-notification-count">3</span>
@@ -238,3 +248,58 @@
     </ul>
     <div class="clearfix"></div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModal" aria-hidden="true">
+    <button type="button" class="close float-close-pro" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header-pro">
+                <h2>Tekrar hoşgeldiniz</h2>
+                <h6>JuriMedya'yi kullanmaya devam etmek için hesabınızda oturum açın</h6>
+            </div>
+            <div class="modal-body-pro social-login-modal-body-pro">
+
+                <div class="registration-social-login-container">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="username" placeholder="Kullanıcı Adı">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" placeholder="Şifre">
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-green-pro btn-display-block">Giriş Yap</button>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row no-gutters">
+                                <div class="col checkbox-remember-pro"><input type="checkbox"
+                                        id="checkbox-remember"><label for="checkbox-remember"
+                                        class="col-form-label">Beni Hatırla</label></div>
+                                <div class="col forgot-your-password"><a href="#!">Şifremi unuttum</a></div>
+                            </div>
+                        </div><!-- close .container-fluid -->
+
+                    </form>
+
+                    <div class="registration-social-login-or">veya</div>
+
+                </div><!-- close .registration-social-login-container -->
+
+                <div class="registration-social-login-options">
+                    <h6>Sosyal hesabınızla oturum açın</h6>
+                    <div class="social-icon-login facebook-color"><i class="fab fa-facebook-f"></i> Facebook</div>
+                    <div class="social-icon-login google-color"><i class="fab fa-google-plus-g"></i> Google</div>
+                </div><!-- close .registration-social-login-options -->
+
+                <div class="clearfix"></div>
+
+
+            </div><!-- close .modal-body -->
+
+            <a class="not-a-member-pro" href="signup-step2.php">Not a member? <span>Join Today!</span></a>
+        </div><!-- close .modal-content -->
+    </div><!-- close .modal-dialog -->
+</div><!-- close .modal -->
