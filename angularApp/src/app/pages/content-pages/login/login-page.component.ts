@@ -163,14 +163,14 @@ export class LoginPageComponent implements OnInit {
       }
     });
 
-    this.authService.signinUser(this.loginForm.value.username, this.loginForm.value.password)
-      .then((res) => {
+    // this.authService.signinUser(this.loginForm.value.username, this.loginForm.value.password)
+    //   .then((res) => {
 
-      })
-      .catch((err) => {
+    //   })
+    //   .catch((err) => {
 
-      }
-      );
+    //   }
+    //   );
   }
 
 }

@@ -783,9 +783,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "FileUploadModule": function() { return /* binding */ FileUploadModule; },
 /* harmony export */   "FileUploader": function() { return /* binding */ FileUploader; }
 /* harmony export */ });
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper */ 28557);
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ 52200);
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ 7329);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper */ 28557);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ 52200);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ 7329);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 2316);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 54364);
 
@@ -814,7 +814,7 @@ var FileLikeObject = /*#__PURE__*/function () {
    * @param {?} fileOrInput
    */
   function FileLikeObject(fileOrInput) {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileLikeObject);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileLikeObject);
 
     this.rawFile = fileOrInput;
     /** @type {?} */
@@ -837,7 +837,7 @@ var FileLikeObject = /*#__PURE__*/function () {
    */
 
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileLikeObject, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileLikeObject, [{
     key: "_createFromFakePath",
     value: function _createFromFakePath(path) {
       this.lastModifiedDate = void 0;
@@ -876,7 +876,7 @@ var FileItem = /*#__PURE__*/function () {
    * @param {?} options
    */
   function FileItem(uploader, some, options) {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileItem);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileItem);
 
     this.url = '/';
     this.headers = [];
@@ -908,7 +908,7 @@ var FileItem = /*#__PURE__*/function () {
    */
 
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileItem, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileItem, [{
     key: "upload",
     value: function upload() {
       try {
@@ -1171,10 +1171,10 @@ if (false) {}
 
 var FileType = /*#__PURE__*/function () {
   function FileType() {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileType);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileType);
   }
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileType, null, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileType, null, [{
     key: "getMimeClass",
     value:
     /**
@@ -1352,7 +1352,7 @@ var FileUploader = /*#__PURE__*/function () {
    * @param {?} options
    */
   function FileUploader(options) {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileUploader);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileUploader);
 
     this.isUploading = false;
     this.queue = [];
@@ -1383,7 +1383,7 @@ var FileUploader = /*#__PURE__*/function () {
    */
 
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileUploader, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileUploader, [{
     key: "setOptions",
     value: function setOptions(options) {
       this.options = Object.assign(this.options, options);
@@ -1435,7 +1435,7 @@ var FileUploader = /*#__PURE__*/function () {
       /** @type {?} */
       var list = [];
 
-      var _iterator = (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__.default)(files),
+      var _iterator = (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__.default)(files),
           _step;
 
       try {
@@ -2125,7 +2125,7 @@ var FileUploader = /*#__PURE__*/function () {
       xhr.withCredentials = item.withCredentials;
 
       if (this.options.headers) {
-        var _iterator2 = (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__.default)(this.options.headers),
+        var _iterator2 = (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__.default)(this.options.headers),
             _step2;
 
         try {
@@ -2141,7 +2141,7 @@ var FileUploader = /*#__PURE__*/function () {
       }
 
       if (item.headers.length) {
-        var _iterator3 = (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__.default)(item.headers),
+        var _iterator3 = (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__.default)(item.headers),
             _step3;
 
         try {
@@ -2487,7 +2487,7 @@ var FileSelectDirective = /*#__PURE__*/function () {
    * @param {?} element
    */
   function FileSelectDirective(element) {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileSelectDirective);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileSelectDirective);
 
     this.onFileSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_3__.EventEmitter();
     this.element = element;
@@ -2497,7 +2497,7 @@ var FileSelectDirective = /*#__PURE__*/function () {
    */
 
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileSelectDirective, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileSelectDirective, [{
     key: "getOptions",
     value: function getOptions() {
       return this.uploader.options;
@@ -2629,7 +2629,7 @@ var FileDropDirective = /*#__PURE__*/function () {
    * @param {?} element
    */
   function FileDropDirective(element) {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileDropDirective);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileDropDirective);
 
     this.fileOver = new _angular_core__WEBPACK_IMPORTED_MODULE_3__.EventEmitter();
     this.onFileDrop = new _angular_core__WEBPACK_IMPORTED_MODULE_3__.EventEmitter();
@@ -2640,7 +2640,7 @@ var FileDropDirective = /*#__PURE__*/function () {
    */
 
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileDropDirective, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(FileDropDirective, [{
     key: "getOptions",
     value: function getOptions() {
       return this.uploader.options;
@@ -2886,7 +2886,7 @@ if (false) {}
 
 
 var FileUploadModule = function FileUploadModule() {
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileUploadModule);
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, FileUploadModule);
 };
 
 FileUploadModule.ɵfac = function FileUploadModule_Factory(t) {
@@ -2952,9 +2952,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "NouisliderComponent": function() { return /* binding */ NouisliderComponent; },
 /* harmony export */   "NouisliderModule": function() { return /* binding */ NouisliderModule; }
 /* harmony export */ });
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper */ 28557);
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ 52200);
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ 7329);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper */ 28557);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ 52200);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ 7329);
 /* harmony import */ var nouislider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! nouislider */ 23391);
 /* harmony import */ var nouislider__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(nouislider__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2316);
@@ -2969,10 +2969,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var DefaultFormatter = /*#__PURE__*/function () {
   function DefaultFormatter() {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, DefaultFormatter);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, DefaultFormatter);
   }
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(DefaultFormatter, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(DefaultFormatter, [{
     key: "to",
     value:
     /**
@@ -3006,7 +3006,7 @@ var NouisliderComponent = /*#__PURE__*/function () {
   function NouisliderComponent(el, renderer) {
     var _this = this;
 
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, NouisliderComponent);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, NouisliderComponent);
 
     this.el = el;
     this.renderer = renderer;
@@ -3126,7 +3126,7 @@ var NouisliderComponent = /*#__PURE__*/function () {
    */
 
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(NouisliderComponent, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(NouisliderComponent, [{
     key: "ngOnInit",
     value: function ngOnInit() {
       var _this2 = this;
@@ -3160,7 +3160,7 @@ var NouisliderComponent = /*#__PURE__*/function () {
           this.config.pageSteps = 10;
         }
 
-        var _iterator = (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__.default)(this.handles),
+        var _iterator = (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__.default)(this.handles),
             _step;
 
         try {
@@ -3542,7 +3542,7 @@ NouisliderComponent.propDecorators = {
 })();
 
 var NouisliderModule = function NouisliderModule() {
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, NouisliderModule);
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, NouisliderModule);
 };
 
 NouisliderModule.ɵfac = function NouisliderModule_Factory(t) {
@@ -3602,10 +3602,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵb": function() { return /* binding */ CropperPositionService; },
 /* harmony export */   "ɵc": function() { return /* binding */ LoadImageService; }
 /* harmony export */ });
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ 52200);
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ 7329);
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 38957);
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ 52200);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ 7329);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 38957);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 2316);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ 54364);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ 71570);
@@ -3970,10 +3970,10 @@ function resizeCanvas(canvas, width, height) {
 
 var CropService = /*#__PURE__*/function () {
   function CropService() {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, CropService);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, CropService);
   }
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(CropService, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(CropService, [{
     key: "crop",
     value:
     /**
@@ -4225,7 +4225,7 @@ CropService.ngInjectableDef = (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵ�
 
 var CropperSettings = /*#__PURE__*/function () {
   function CropperSettings() {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, CropperSettings);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, CropperSettings);
 
     // From options
     this.format = 'png';
@@ -4262,7 +4262,7 @@ var CropperSettings = /*#__PURE__*/function () {
    */
 
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(CropperSettings, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(CropperSettings, [{
     key: "setOptions",
     value: function setOptions(options) {
       var _this = this;
@@ -4490,7 +4490,7 @@ if (false) {}
 
 var LoadImageService = /*#__PURE__*/function () {
   function LoadImageService() {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, LoadImageService);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, LoadImageService);
 
     this.autoRotateSupported = supportsAutomaticRotation();
   }
@@ -4501,7 +4501,7 @@ var LoadImageService = /*#__PURE__*/function () {
    */
 
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(LoadImageService, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(LoadImageService, [{
     key: "loadImageFile",
     value: function loadImageFile(file, cropperSettings) {
       var _this2 = this;
@@ -4659,9 +4659,9 @@ var LoadImageService = /*#__PURE__*/function () {
   }, {
     key: "transformImageBase64",
     value: function transformImageBase64(res, cropperSettings) {
-      return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, /*#__PURE__*/P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee() {
+      return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, /*#__PURE__*/P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee() {
         var autoRotate, exifTransform, loadedImage;
-        return P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee$(_context) {
+        return P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -4715,9 +4715,9 @@ var LoadImageService = /*#__PURE__*/function () {
   }, {
     key: "transformLoadedImage",
     value: function transformLoadedImage(loadedImage, cropperSettings) {
-      return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, /*#__PURE__*/P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee2() {
+      return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, /*#__PURE__*/P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee2() {
         var canvasRotation, originalSize, transformedSize, canvas, ctx, transformedBase64, transformedImage;
-        return P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee2$(_context2) {
+        return P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -4926,10 +4926,10 @@ if (false) {}
 
 var CropperPositionService = /*#__PURE__*/function () {
   function CropperPositionService() {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, CropperPositionService);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, CropperPositionService);
   }
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(CropperPositionService, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(CropperPositionService, [{
     key: "resetCropperPosition",
     value:
     /**
@@ -5350,7 +5350,7 @@ var ImageCropperComponent = /*#__PURE__*/function () {
    * @param {?} cd
    */
   function ImageCropperComponent(cropService, cropperPositionService, loadImageService, sanitizer, cd) {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, ImageCropperComponent);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, ImageCropperComponent);
 
     this.cropService = cropService;
     this.cropperPositionService = cropperPositionService;
@@ -5405,7 +5405,7 @@ var ImageCropperComponent = /*#__PURE__*/function () {
    */
 
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(ImageCropperComponent, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(ImageCropperComponent, [{
     key: "ngOnChanges",
     value: function ngOnChanges(changes) {
       var _this5 = this;
@@ -6595,7 +6595,7 @@ if (false) {}
 
 
 var ImageCropperModule = function ImageCropperModule() {
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, ImageCropperModule);
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, ImageCropperModule);
 };
 
 ImageCropperModule.ɵfac = function ImageCropperModule_Factory(t) {

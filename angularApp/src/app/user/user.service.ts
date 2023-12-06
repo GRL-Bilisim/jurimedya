@@ -24,4 +24,7 @@ export class UserService {
   getActors() {
     return this.http.get(this.url + '?page_id=oyunculariGetir');
   }
+  // getActors(role: string, characterType: string) {
+  //   return this.http.get(this.url + '?page_id=oyunculariGetir&role=' + role + '&iyikotu=' + characterType);
+  // }
 }

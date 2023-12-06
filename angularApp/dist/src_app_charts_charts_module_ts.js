@@ -15767,9 +15767,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "monkeyPatchChartJsLegend": function() { return /* binding */ monkeyPatchChartJsLegend; },
 /* harmony export */   "monkeyPatchChartJsTooltip": function() { return /* binding */ monkeyPatchChartJsTooltip; }
 /* harmony export */ });
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray */ 90287);
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ 52200);
-/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ 7329);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray */ 90287);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ 52200);
+/* harmony import */ var P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ 7329);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 2316);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 76491);
 /* harmony import */ var lodash_es__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash-es */ 96250);
@@ -16025,7 +16025,7 @@ function generateColors(count) {
 
 var ThemeService = /*#__PURE__*/function () {
   function ThemeService() {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, ThemeService);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, ThemeService);
 
     this.pColorschemesOptions = {};
     this.colorschemesOptions = new rxjs__WEBPACK_IMPORTED_MODULE_4__.BehaviorSubject({});
@@ -16036,7 +16036,7 @@ var ThemeService = /*#__PURE__*/function () {
    */
 
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(ThemeService, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(ThemeService, [{
     key: "setColorschemesOptions",
     value: function setColorschemesOptions(options) {
       this.pColorschemesOptions = options;
@@ -16120,7 +16120,7 @@ var BaseChartDirective = /*#__PURE__*/function () {
    * @param {?} themeService
    */
   function BaseChartDirective(element, themeService) {
-    (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, BaseChartDirective);
+    (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, BaseChartDirective);
 
     this.element = element;
     this.themeService = themeService;
@@ -16150,7 +16150,7 @@ var BaseChartDirective = /*#__PURE__*/function () {
    */
 
 
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(BaseChartDirective, [{
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(BaseChartDirective, [{
     key: "ngOnInit",
     value:
     /**
@@ -16354,7 +16354,7 @@ var BaseChartDirective = /*#__PURE__*/function () {
     key: "copyLabel",
     value: function copyLabel(a) {
       if (Array.isArray(a)) {
-        return (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__.default)(a);
+        return (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__.default)(a);
       }
 
       return a;
@@ -17032,7 +17032,7 @@ if (false) {}
 
 
 var ChartsModule = function ChartsModule() {
-  (0,P_GRL_bilisim_projects_JuriMedya_jurimedya_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, ChartsModule);
+  (0,P_GRL_bilisim_projects_JuriMedya_angularApp_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, ChartsModule);
 };
 
 ChartsModule.ɵfac = function ChartsModule_Factory(t) {

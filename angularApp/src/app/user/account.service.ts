@@ -25,13 +25,10 @@ export class AccountService {
   }
 
   logoutUser() {
-    debugger
     this.user.next(null);
     localStorage.removeItem('token');
     localStorage.removeItem('adi');
     localStorage.removeItem('password');
-    console.log(this.$user);
-    
   } 
 
   loadCurrentUser() {    
@@ -51,15 +48,11 @@ export class AccountService {
     return this.http.post(this.url + 'editaccount', user);
   }
 
-  setCurrentUser(user: any) {
-    console.log(this.$user);
-  
+  setCurrentUser(user: any) {  
     this.user.next(user);
-    console.log(this.$user);
   }
 
   isAdmin() : boolean {
-    debugger
     return this.user?.getValue().dashboard === 'Manager';
   }
 

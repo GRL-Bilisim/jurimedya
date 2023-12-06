@@ -654,7 +654,6 @@ var LoginPageComponent = /** @class */ (function () {
     LoginPageComponent.prototype.sunucuayarla = function () {
     };
     LoginPageComponent.prototype.ngOnInit = function () {
-        console.log('Login Page');
         if (localStorage.getItem("kayitlikullanici") !== null && localStorage.getItem("kayitlisifre") !== null) {
             this.kayitlikullanici = localStorage.getItem("kayitlikullanici");
             this.kayitlisifre = localStorage.getItem("kayitlisifre");
@@ -675,7 +674,6 @@ var LoginPageComponent = /** @class */ (function () {
             fullScreen: true
         });
         localStorage.setItem('url', localStorage.getItem('urlx') + "maratonservices/");
-        debugger;
         var formData = new FormData();
         formData.append('username', this.loginForm.get('username').value);
         formData.append('password', this.loginForm.get('password').value);
@@ -687,11 +685,11 @@ var LoginPageComponent = /** @class */ (function () {
                 if (data[0])
                     _this.user = data[0];
                 else
-                    _this.user = data;
-                _this.accountService.setUser(_this.user);
+                    _this.user = null;
                 if (_this.user != null) {
-                    localStorage.setItem('userid', "" + _this.user.user_indeks);
                     localStorage.setItem('username', _this.user.username);
+                    localStorage.setItem('password', _this.loginForm.get('password').value);
+                    localStorage.setItem('userid', "" + _this.user.user_indeks);
                     localStorage.setItem('adi', _this.user.adi);
                     localStorage.setItem('resim', _this.user.profilresim);
                     localStorage.setItem('unvani', _this.user.unvani);
@@ -743,13 +741,19 @@ var LoginPageComponent = /** @class */ (function () {
                 // this.spinner.hide();
                 // this.cdr.markForCheck();
                 // console.log('Giriş Başarısız');
+            },
+            complete: function () {
+                debugger;
+                if (_this.user != null)
+                    _this.accountService.setCurrentUser(_this.user);
             }
         });
-        this.authService.signinUser(this.loginForm.value.username, this.loginForm.value.password)
-            .then(function (res) {
-        })
-            .catch(function (err) {
-        });
+        // this.authService.signinUser(this.loginForm.value.username, this.loginForm.value.password)
+        //   .then((res) => {
+        //   })
+        //   .catch((err) => {
+        //   }
+        //   );
     };
     LoginPageComponent.ɵfac = function LoginPageComponent_Factory(t) { return new (t || LoginPageComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_2__.ChangeDetectorRef), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](app_shared_auth_auth_service__WEBPACK_IMPORTED_MODULE_0__.AuthService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](ngx_spinner__WEBPACK_IMPORTED_MODULE_5__.NgxSpinnerService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClient), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](app_user_account_service__WEBPACK_IMPORTED_MODULE_1__.AccountService)); };
     LoginPageComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: LoginPageComponent, selectors: [["app-login-page"]], decls: 39, vars: 20, consts: [["id", "login"], [1, "row", "auth-height", "full-height-vh", "m-0"], [1, "col-12", "d-flex", "align-items-center", "justify-content-center"], [1, "card", "overflow-hidden"], [1, "card-content"], [1, "card-body", "auth-img"], [1, "row", "m-0"], [1, "col-lg-6", "d-none", "d-lg-flex", "justify-content-center", "align-items-center", "auth-img-bg", "p-3"], ["src", "assets/img/gallery/forgot.png", "alt", "", "width", "500", "height", "150", 1, "img-fluid"], [1, "col-lg-6", "col-12", "px-4", "py-3", 2, "text-align", "center"], ["src", "assets/img/logocredit.png", "alt", "", "height", "0", 1, "img-fluid"], ["type", "light-danger", "class", "mb-2", 3, "close", 4, "ngIf"], [3, "formGroup"], [1, "form-group"], ["type", "text", "formControlName", "username", "placeholder", "Kullan\u0131c\u0131 Ad\u0131/E-Posta", "required", "", 1, "form-control", 3, "value", "ngClass", "ngModel", "ngModelChange"], ["class", "help-block mt-1 text-danger", 4, "ngIf"], ["type", "password", "formControlName", "password", "placeholder", "\u015Eifreniz", "required", "", 1, "form-control", 3, "ngClass", "value", "ngModel", "keydown.enter", "ngModelChange"], [1, "d-sm-flex", "justify-content-between", "mb-3", "font-small-2"], [1, "remember-me", "mb-2", "mb-sm-0"], [1, "checkbox", "auth-checkbox"], ["type", "checkbox", "formControlName", "rememberMe", "id", "rememberMe", 1, "form-control"], ["for", "rememberMe"], [1, "font-small-2", "mb-3", "font-weight-normal"], [3, "routerLink"], [1, "d-flex", "justify-content-between", "flex-sm-row", "flex-column", "ov"], [1, "btn", "btn-success", 3, "click"], [1, "ft-user"], [1, "btn", "btn-danger", 3, "routerLink", "click"], [1, "ft-settings"], ["type", "light-danger", 1, "mb-2", 3, "close"], [1, "mb-0"], [1, "help-block", "mt-1", "text-danger"], [1, "ft-alert-circle", "align-middle"]], template: function LoginPageComponent_Template(rf, ctx) { if (rf & 1) {

@@ -30149,7 +30149,6 @@ html body.layout-dark .search-list.layout-transparent .accordion .card .card-hea
   \********************************************************************************************************************************************************************************************************/
 /* You can add global styles to this file, and also import other style files */
 * {
-  font-weight: bold !important;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -30288,7 +30287,7 @@ button.btn:focus {
   font-size: 14px;
 }
 .btn i {
-  margin-right: 8px;
+  /* margin-right: 8px; */
 }
 /*
 =============================================== 03. HIGHLIGHT COLORS ===============================================
@@ -31182,7 +31181,7 @@ ul#vertical-sidebar-nav.sf-menu ul ul {
   padding: 0px;
 }
 #header-user-profile-menu ul li {
-  margin: 0px;
+  margin: 2px;
   padding: 0px;
 }
 #header-user-profile-menu ul li a {
@@ -31200,7 +31199,7 @@ ul#vertical-sidebar-nav.sf-menu ul ul {
   font-size: 18px;
   position: relative;
   top: 2px;
-  margin-right: 8px;
+  /* margin-right: 8px; */
 }
 #header-user-profile.active #header-user-profile-click,
 #header-user-profile-click:hover {
